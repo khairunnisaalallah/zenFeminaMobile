@@ -56,13 +56,14 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="302dp"
+        android:layout_width="340dp"
         android:layout_height="51dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="92dp"
         android:backgroundTint="#D1A0B1"
-        android:text="Selanjutnya"
-        android:textColor="#FFFFFF"
+        android:drawableLeft="@drawable/lanjut"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.394"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
