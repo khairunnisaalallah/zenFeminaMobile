@@ -30,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                startActivity(new Intent(getApplicationContext(), StartedActivity.class));
+                startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
             }
             @Override
             public void onAnimationRepeat(Animation animation) {

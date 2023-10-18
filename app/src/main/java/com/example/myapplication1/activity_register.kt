@@ -11,7 +11,7 @@ class activity_register : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         // Impor ImageButton
-        val backButton = findViewById<ImageButton>(R.id.backImageButton)
+        val backButton = findViewById<ImageButton>(R.id.imageButtonback)
         backButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

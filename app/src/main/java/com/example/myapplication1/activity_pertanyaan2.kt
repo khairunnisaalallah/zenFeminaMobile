@@ -19,7 +19,7 @@ class activity_pertanyaan2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pertanyaan1)
+        setContentView(R.layout.activity_pertanyaan2)
 
         datePicker = findViewById(R.id.imageView)
         nextButton = findViewById(R.id.button)
