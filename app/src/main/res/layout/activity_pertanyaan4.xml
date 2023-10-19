@@ -23,10 +23,10 @@
         android:layout_marginTop="48dp"
         android:text="Berapa lama siklus haid mu??"
         android:textColor="#454444"
+        android:fontFamily="@font/outfitbold"
         android:textSize="23sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
 
@@ -37,8 +37,9 @@
         android:text="Misalkan, siklus haid saya biasanya berlangsung
         selama 28-30 hari."
         android:textColor="#454444"
+        android:fontFamily="@font/outfitlight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintHorizontal_bias="0.929"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 

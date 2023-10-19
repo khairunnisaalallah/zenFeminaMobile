@@ -37,7 +37,13 @@
         <activity
             android:name=".LoginActivity" android:exported="true"/>
         <activity
-            android:name=".activity_dashboard" android:exported="true"/>
+            android:name=".DashboardActivity" android:exported="true"/>
+        <activity
+            android:name=".ProfielActivity" android:exported="true"/>
+        <activity
+            android:name=".VerifActivity" android:exported="true"/>
+        <activity
+            android:name=".LupapwActivity" android:exported="true"/>
 
 
 

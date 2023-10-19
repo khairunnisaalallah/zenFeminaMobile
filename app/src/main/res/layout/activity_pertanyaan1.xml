@@ -24,7 +24,6 @@
         android:text="Kapan Kamu Lahir?"
         android:textColor="#454444"
         android:textSize="23sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.258"
         app:layout_constraintStart_toStartOf="parent"
