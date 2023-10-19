@@ -14,7 +14,7 @@ import java.util.Locale
 class activity_pertanyaan2 : AppCompatActivity() {
 
     private lateinit var datePicker: ImageButton
-    private lateinit var nextButton: Button
+    private lateinit var nextButton: ImageButton
     private lateinit var calendar: Calendar
 
     override fun onCreate(savedInstanceState: Bundle?) {
