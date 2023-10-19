@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "315526071395",
+    "firebase_url": "https://muslimahguide-default-rtdb.firebaseio.com",
+    "project_id": "muslimahguide",
+    "storage_bucket": "muslimahguide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315526071395:android:0460cefad2d84decf3a456",
+        "android_client_info": {
+          "package_name": "com.example.myapplication1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtZ2Qa8AfmeSSvAgxsgJhgjrhm4vZRE8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
