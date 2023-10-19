@@ -30,9 +30,14 @@
         <activity
             android:name=".activity_pertanyaan3" android:exported="true"/>
         <activity
+            android:name=".activity_pertanyaan4" android:exported="true"/>
+
+        <activity
             android:name=".RegisterActivity" android:exported="true"/>
         <activity
             android:name=".LoginActivity" android:exported="true"/>
+        <activity
+            android:name=".activity_dashboard" android:exported="true"/>
 
 
 

@@ -2,14 +2,14 @@ package com.example.myapplication1
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 class activity_pertanyaan3 : AppCompatActivity() {
 
     private lateinit var editTextDate: EditText
-    private lateinit var nextButton: Button
+    private lateinit var nextButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

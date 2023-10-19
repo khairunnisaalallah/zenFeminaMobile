@@ -62,19 +62,21 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button"
-        android:layout_width="302dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="100dp"
-        android:text="Selanjutnya"
-        android:textSize="19sp"
-        android:fontFamily="@font/outfitbold"
-        android:backgroundTint="#DA4256"
-        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="637dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="30dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lanjut"/>
+
 
     <EditText
         android:id="@+id/editTextDate2"
