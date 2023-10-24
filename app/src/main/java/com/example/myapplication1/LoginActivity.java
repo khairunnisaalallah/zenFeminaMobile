@@ -42,7 +42,18 @@ public class LoginActivity extends AppCompatActivity { //ini berubah
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(LoginActivity.this, StartedActivity.class);
+                startActivity(intent);
+            }
+        });
+        // Inisialisasi TextView
+        TextView lupapwTextView = findViewById(R.id.textViewlp);
+        // Menambahkan OnClickListener ke TextView
+        lupapwTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Arahkan ke lupa pw
+                Intent intent = new Intent(LoginActivity.this, LupapwActivity.class);
                 startActivity(intent);
             }
         });

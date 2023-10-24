@@ -125,7 +125,7 @@
         app:srcCompat="@drawable/txtf" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewlp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="250dp"
@@ -133,6 +133,7 @@
         android:layout_marginEnd="52dp"
         android:layout_marginBottom="309dp"
         android:fontFamily="@font/outfitmedium"
+        android:onClick="onButtonClick"
         android:text="Lupa Kata Sandi?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -162,6 +163,7 @@
         android:layout_marginEnd="122dp"
         android:layout_marginBottom="441dp"
         android:background="#FFFFFF"
+        android:fontFamily="@font/outfitmedium"
         android:ems="10"
         android:hint="Username"
         android:inputType="textEmailAddress"
@@ -181,6 +183,7 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="Password"
+        android:fontFamily="@font/outfitmedium"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
