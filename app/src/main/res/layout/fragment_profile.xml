@@ -234,10 +234,10 @@
         <EditText
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
-            android:background="#ffffff"
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="13dp"
+            android:background="#ffffff"
             android:fontFamily="@font/outfitmedium"
             android:hint="Nama Lengkap"
             android:textSize="17sp"

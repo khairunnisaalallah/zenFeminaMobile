@@ -1,5 +1,6 @@
 package com.example.myapplication1;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     ImageView imageView;
     FloatingActionButton button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +30,9 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ImagePicker.with(ProfileActivity.this)
-                        .crop()	    			//Crop image(Optional), Check Customization for more option
-                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                        .crop()                    //Crop image(Optional), Check Customization for more option
+                        .compress(1024)            //Final image size will be less than 1 MB(Optional)
+                        .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
                         .start();
 
             }
@@ -43,5 +45,12 @@ public class ProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Uri uri = data.getData();
         imageView.setImageURI(uri);
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == ImagePicker.REQUEST_CODE) {
+                // Gambar telah dipilih
+                Uri selectedImageUri = data.getData();
+                imageView.setImageURI(selectedImageUri);
+            }
+        }
     }
 }
