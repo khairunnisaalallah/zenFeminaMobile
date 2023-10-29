@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -12,7 +13,6 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-
         // Inisialisasi tombol login
         Button loginButton = findViewById(R.id.buttonlogin);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -29,8 +29,8 @@ public class WelcomeActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Arahkan ke RegisterActivity
-                Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
+                // Arahkan ke activity_register
+                Intent intent = new Intent(WelcomeActivity.this, activity_register.class);
                 startActivity(intent);
             }
         });

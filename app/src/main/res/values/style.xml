@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="FragmentTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#DA4256</item>
+    </style>
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">#DA4256</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <!-- Atur properti lainnya sesuai kebutuhan -->
+    </style>
+
+    <style name="FabStyle" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+    </style>
+    <style name="MyApplication1Theme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    </style>
+</resources>

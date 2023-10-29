@@ -24,6 +24,8 @@
         <activity
             android:name=".WelcomeActivity" android:exported="true"/>
         <activity
+            android:name=".activity_register" android:exported="true"/>
+        <activity
             android:name=".activity_pertanyaan1" android:exported="true"/>
         <activity
             android:name=".activity_pertanyaan2" android:exported="true"/>
@@ -31,13 +33,8 @@
             android:name=".activity_pertanyaan3" android:exported="true"/>
         <activity
             android:name=".activity_pertanyaan4" android:exported="true"/>
-
-        <activity
-            android:name=".RegisterActivity" android:exported="true"/>
         <activity
             android:name=".LoginActivity" android:exported="true"/>
-        <activity
-            android:name=".DashboardActivity" android:exported="true"/>
         <activity
             android:name=".ProfileActivity" android:exported="true"/>
         <activity
@@ -45,15 +42,13 @@
         <activity
             android:name=".LupapwActivity" android:exported="true"/>
         <activity
-            android:name=".FragmentActivity" android:exported="true"/>
+            android:name=".HomeFragment" android:exported="true" />
         <activity
-            android:name=".HomeFragment" android:exported="true"/>
-        <activity
-            android:name=".EducationFragment" android:exported="true"/>
+            android:name=".EducationFragment" android:exported="true" />
         <activity
             android:name=".TimeFragment" android:exported="true"/>
         <activity
-            android:name=".ProfileFragment" android:exported="true"/>
+            android:name=".FragmentActivity" android:exported="true"/>
 
 
 

@@ -9,95 +9,80 @@
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="403dp"
-        android:src="@drawable/pertanyaannn"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/pertanyaannnn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="310dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="405dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="268dp"
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="398dp"
         android:fontFamily="@font/outfitbold"
-        android:text="Berapa lama biasanya waktu haid mu berlangsung??"
+        android:text="Berapa lama siklus haid mu??"
         android:textColor="#454444"
         android:textSize="23sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="307dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/outfitlight"
+        android:text="Misalkan, siklus haid saya biasanya berlangsung
+        selama 28-30 hari."
+        android:textColor="#454444"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="1dp"
         android:background="@android:color/transparent"
         android:src="@drawable/hari"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate2"
         tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/selanjutnya3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"
+        android:onClick="onButtonClick"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate2"
+        app:srcCompat="@drawable/lanjut" />
 
     <EditText
         android:id="@+id/editTextDate2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginBottom="103dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/selanjutnya3"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="310dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="467dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="232dp"
-        android:fontFamily="@font/outfitlight"
-        android:text="Biasanya berlangsung selama 5-6 hari atau lebih."
-        android:textColor="#454444"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="637dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="30dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lanjut" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

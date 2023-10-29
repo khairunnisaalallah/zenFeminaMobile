@@ -23,6 +23,7 @@ public class FragmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.FragmentActivityTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
