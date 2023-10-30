@@ -38,7 +38,7 @@ public class ProfileFragment extends Fragment {
                         .maxResultSize(1080, 1080)
                         .start();
             }
-        
+
 
         });
 
