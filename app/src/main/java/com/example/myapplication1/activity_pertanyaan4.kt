@@ -23,7 +23,7 @@ class activity_pertanyaan4 : AppCompatActivity() {
             val selectedDaysText = editTextDate.text.toString()
             val selectedDays = selectedDaysText.toIntOrNull() ?: 1
 
-            val intent = Intent(this, ProfileActivity::class.java)
+            val intent = Intent(this, FragmentActivity::class.java)
             intent.putExtra("selected_days", selectedDays)
             startActivity(intent)
         }
