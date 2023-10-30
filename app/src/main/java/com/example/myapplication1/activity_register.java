@@ -4,26 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.ktx.Firebase;
-
-public class RegisterActivity extends AppCompatActivity {
-
-    private FirebaseAuth mAuth;
+public class activity_register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mAuth = FirebaseAuth.getInstance();
         // Impor ImageButton
-        ImageButton backButton = findViewById(R.id.imageButtonback);
+        ImageButton backButton = findViewById(R.id.imageButtonbackr);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
+                Intent intent = new Intent(activity_register.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -34,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Redirect ke aktivitas yang meminta nomor telepon
-                Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(activity_register.this, activity_register.class);
                 startActivity(intent);
             }
         });

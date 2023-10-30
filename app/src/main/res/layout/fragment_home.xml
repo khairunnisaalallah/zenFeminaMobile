@@ -3,14 +3,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
     <TextView
+        android:id="@+id/textviewMG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="25dp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/outfitbold"
+        android:text="Muslimah Guide"
+        android:textColor="#454444"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/imageButtoncalender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/textviewMG"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
+        app:srcCompat="@drawable/calender" />
+
+    <ImageButton
+        android:id="@+id/imageButtonNotifikasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageButtoncalender"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
+        app:srcCompat="@drawable/notifikasi" />
+
+    <ImageView
+        android:id="@+id/imageViewLingkaran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textviewMG"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="200dp"
+        app:srcCompat="@drawable/lingkarandashboard" />
+
+    <ImageView
+        android:id="@+id/imageViewKotak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textviewMG"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="70dp"
+        app:srcCompat="@drawable/dashboardpjg" />
+
+    <ImageView
+        android:id="@+id/imageViewLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textviewMG"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="75dp"
+        app:srcCompat="@drawable/linedashboard" />
+
+
+
 
 
 </RelativeLayout>

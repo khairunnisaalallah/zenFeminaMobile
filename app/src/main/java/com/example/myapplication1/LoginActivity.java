@@ -33,21 +33,21 @@ public class LoginActivity extends AppCompatActivity { //ini berubah
             @Override
             public void onClick(View v) {
                 // Arahkan ke RegisterActivity
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, activity_register.class);
                 startActivity(intent);
             }
         });
         // Impor ImageButton
-        ImageButton backButton = findViewById(R.id.imageButtonback4);
+        ImageButton backButton = findViewById(R.id.imageButtonbackl);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, StartedActivity.class);
+                Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
                 startActivity(intent);
             }
         });
         // Inisialisasi TextView
-        TextView lupapwTextView = findViewById(R.id.textViewlp);
+        TextView lupapwTextView = findViewById(R.id.lupapw);
         // Menambahkan OnClickListener ke TextView
         lupapwTextView.setOnClickListener(new View.OnClickListener() {
             @Override

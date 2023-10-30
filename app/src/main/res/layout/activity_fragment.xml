@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentActivity">
 
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,6 +16,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
+        android:theme="@style/FragmentTheme"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigation"
         android:layout_alignParentBottom="true"
