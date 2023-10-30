@@ -89,33 +89,34 @@
             app:srcCompat="@drawable/baseline_camera_alt_24" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/profile"
-            tools:layout_editor_absoluteX="47dp"
-            tools:layout_editor_absoluteY="253dp" />
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/period"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="285dp" />
-
-        <ImageView
-            android:id="@+id/imageView16"
+            android:id="@+id/cycle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/cycle"
-            tools:layout_editor_absoluteX="47dp"
-            tools:layout_editor_absoluteY="315dp" />
+            tools:layout_editor_absoluteX="31dp"
+            tools:layout_editor_absoluteY="262dp"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/period"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="31dp"
+            tools:layout_editor_absoluteY="304dp" />
+
+        <ImageView
+            android:id="@+id/foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/profile"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="31dp"
+            tools:layout_editor_absoluteY="346dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </RelativeLayout>
