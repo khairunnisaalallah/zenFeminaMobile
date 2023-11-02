@@ -7,56 +7,58 @@
 
     <TextView
         android:id="@+id/btntext2"
-        android:layout_width="0dp"
+        android:layout_width="243dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="88dp"
         android:fontFamily="@font/outfitlight"
         android:text="Masuk ke akunmu, dan mulai atur jadwal siklusmu dari sekarang"
         android:textColor="#8B8B8B"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress2"
-        app:layout_constraintStart_toStartOf="@+id/btntext1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/btntext1"
+        app:layout_constraintStart_toEndOf="@+id/btntext1"
         app:layout_constraintTop_toBottomOf="@+id/btntext1" />
 
     <TextView
         android:id="@+id/textViewregis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="62dp"
+        android:clickable="true"
         android:fontFamily="@font/outfitbold"
         android:onClick="onButtonClick"
-        android:clickable="true"
-        android:text="Register"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btntext"
+        android:text="Daftar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btntext" />
+        app:layout_constraintStart_toEndOf="@+id/btntext"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
 
     <TextView
         android:id="@+id/btntext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
         android:fontFamily="@font/outfitlight"
         android:text="Tidak punya akun?"
         android:textColor="#8B8B8B"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textViewregis"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewregis" />
 
     <TextView
         android:id="@+id/btntext1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginBottom="2dp"
         android:fontFamily="@font/outfitbold"
-        android:text="Login"
+        android:text="Masuk"
         android:textColor="#454444"
         android:textSize="40sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btntext2"
         app:layout_constraintStart_toEndOf="@+id/imageButtonbackl"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonbackl" />
 
@@ -66,8 +68,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
+        android:layout_marginBottom="21dp"
         android:background="#FFFFFF"
         android:onClick="onButtonClick"
+        app:layout_constraintBottom_toTopOf="@+id/btntext1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
@@ -75,24 +79,24 @@
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="0dp"
-        android:layout_height="54dp"
+        android:layout_height="0dp"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/lupapw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:srcCompat="@drawable/txtf" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="0dp"
-        android:layout_height="54dp"
+        android:layout_height="0dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="88dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginBottom="86dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btntext2"
@@ -102,11 +106,12 @@
         android:id="@+id/lupapw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="47dp"
         android:fontFamily="@font/outfitmedium"
         android:onClick="onButtonClick"
         android:text="Lupa Kata Sandi?"
+        app:layout_constraintBottom_toTopOf="@+id/masuk"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
@@ -125,42 +130,45 @@
         app:layout_constraintGuide_begin="-24dp" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="19dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:fontFamily="@font/outfitmedium"
+        android:fontFamily="@font/outfitlight"
         android:hint="Username"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/sandi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
+        android:layout_marginTop="19dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:fontFamily="@font/outfitmedium"
-        android:hint="Password"
+        android:fontFamily="@font/outfitlight"
+        android:hint="Kata Sandi"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonlogin2"
-        app:srcCompat="@drawable/orloginwith" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/masuk"
+        app:srcCompat="@drawable/masukdgn" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -168,45 +176,45 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/btntext"
+        app:layout_constraintBottom_toTopOf="@+id/textViewregis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
         app:srcCompat="@drawable/call" />
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="20dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/btntext"
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButton3"
         app:srcCompat="@drawable/google" />
 
     <Button
-        android:id="@+id/buttonlogin2"
+        android:id="@+id/masuk"
         style="@android:style/Widget.Button"
-        android:layout_width="0dp"
+        android:layout_width="312dp"
         android:layout_height="42dp"
         android:layout_marginStart="49dp"
-        android:layout_marginTop="76dp"
         android:layout_marginEnd="49dp"
-        android:layout_marginBottom="78dp"
+        android:layout_marginBottom="23dp"
         android:background="@drawable/button_backround"
         android:clickable="true"
         android:fontFamily="@font/outfitbold"
         android:onClick="onButtonClick"
-        android:text="Login"
+        android:text="Masuk"
         android:textColor="#FFFFFF"
         android:textSize="19sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton2"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/lupapw" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -219,7 +227,7 @@
         android:id="@+id/group2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="editTextTextEmailAddress2,imageView7"
+        app:constraint_referenced_ids="username,imageView7"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"

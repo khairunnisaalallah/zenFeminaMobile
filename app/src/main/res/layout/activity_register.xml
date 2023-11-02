@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="26dp"
         android:fontFamily="@font/outfitbold"
-        android:text="Login"
+        android:text="Masuk"
         app:layout_constraintBaseline_toBaselineOf="@+id/btntext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btntext" />
@@ -39,7 +39,7 @@
         android:layout_marginStart="3dp"
         android:layout_marginTop="19dp"
         android:fontFamily="@font/outfitbold"
-        android:text="Register"
+        android:text="Daftar"
         android:textColor="#454444"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -118,6 +118,7 @@
         android:layout_marginTop="13dp"
         android:background="#FFFFFF"
         android:ems="10"
+        android:fontFamily="@font/outfitlight"
         android:hint="Username"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
@@ -131,20 +132,22 @@
         android:layout_marginTop="12dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="Password"
+        android:fontFamily="@font/outfitlight"
+        android:hint="Kata Sandi"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
-        android:layout_marginEnd="25dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:srcCompat="@drawable/orregisterwith" />
+        app:srcCompat="@drawable/daftardgn" />
 
     <ImageButton
         android:id="@+id/imageButtonGoogle"
@@ -182,7 +185,7 @@
         android:clickable="true"
         android:fontFamily="@font/outfitbold"
         android:onClick="onButtonClick"
-        android:text="Register"
+        android:text="Daftar"
         android:textColor="#FFFFFF"
         android:textSize="19sp"
         android:textStyle="bold"
