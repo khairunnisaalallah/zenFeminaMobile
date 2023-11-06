@@ -49,6 +49,7 @@
             android:name=".TimeFragment" android:exported="true"/>
         <activity
             android:name=".FragmentActivity" android:exported="true"/>
+        <activity android:name=".activity_calender" android:exported="true"/>
 
 
 
