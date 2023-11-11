@@ -42,7 +42,7 @@ public class activity_pertanyaan2 extends AppCompatActivity {
                 String selectedDate = getSelectedDate();
                 // Lakukan sesuatu dengan tanggal yang dipilih (misalnya, tampilkan di log)
                 System.out.println("Tanggal yang dipilih: " + selectedDate);
-                // Navigasi ke layout pertanyaan selanjutnya (ActivityPertanyaan3)
+                // Navigasi ke layout pertanyaan selanjutnya (ActivityPertanyaan2)
                 Intent intent = new Intent(activity_pertanyaan2.this, activity_pertanyaan3.class);
                 startActivity(intent);
             }
@@ -52,6 +52,7 @@ public class activity_pertanyaan2 extends AppCompatActivity {
     private void showDatePickerDialog() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
+                R.style.CustomDatePickerDialog,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {

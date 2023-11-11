@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -21,10 +24,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".WelcomeActivity" android:exported="true"/>
         <activity
+            android:name=".LoginActivity" android:exported="true"/>
+        <activity
             android:name=".activity_register" android:exported="true"/>
+        <activity
+            android:name=".LupapwActivity" android:exported="true"/>
         <activity
             android:name=".activity_pertanyaan1" android:exported="true"/>
         <activity
@@ -34,22 +42,12 @@
         <activity
             android:name=".activity_pertanyaan4" android:exported="true"/>
         <activity
-            android:name=".LoginActivity" android:exported="true"/>
+            android:name=".FragmentActivity" android:exported="true"/>
         <activity
-            android:name=".ProfileActivity" android:exported="true"/>
+            android:name=".activity_calender" android:exported="true"/>
         <activity
             android:name=".VerifActivity" android:exported="true"/>
-        <activity
-            android:name=".LupapwActivity" android:exported="true"/>
-        <activity
-            android:name=".HomeFragment" android:exported="true" />
-        <activity
-            android:name=".EducationFragment" android:exported="true" />
-        <activity
-            android:name=".TimeFragment" android:exported="true"/>
-        <activity
-            android:name=".FragmentActivity" android:exported="true"/>
-        <activity android:name=".activity_calender" android:exported="true"/>
+
 
 
 

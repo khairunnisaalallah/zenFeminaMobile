@@ -51,8 +51,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:background="@android:color/transparent"
-        android:src="@drawable/hari"
+        android:src="@drawable/panjang"
         app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/hari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/outfitlight"
+        android:text="Hari"
+        android:textColor="#454444"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/editTextDate2"
         tools:ignore="MissingConstraints" />
 

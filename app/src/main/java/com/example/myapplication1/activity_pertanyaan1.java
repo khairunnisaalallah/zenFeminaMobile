@@ -52,6 +52,7 @@ public class activity_pertanyaan1 extends AppCompatActivity {
     private void showDatePickerDialog() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
+                R.style.CustomDatePickerDialog,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
