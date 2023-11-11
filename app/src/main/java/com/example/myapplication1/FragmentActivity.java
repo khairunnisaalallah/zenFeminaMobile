@@ -32,7 +32,7 @@ public class FragmentActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
         BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.time);
         badgeDrawable.setVisible(true);
-        badgeDrawable.setNumber(8);
+        //badgeDrawable.setNumber(8);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
