@@ -48,6 +48,12 @@ dependencies {
 
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.android.volley:volley:1.2.1")
+    //    Lib
+    implementation("com.google.android.material:material:1.2.1")
+    implementation("com.google.android.material:material:1.3.0-alpha03")
+    implementation("com.google.android.gms:play-services-location:17.1.0")
+
+    implementation("androidx.room:room-ktx:2.2.5")
 
 
 }
