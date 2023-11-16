@@ -23,30 +23,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        /*
-        username = findViewById(R.id.username);
-        sandi = findViewById(R.id.sandi);
-        masuk = findViewById(R.id.masuk);
-
-        masuk.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                if (username.getText().toString().equalsIgnoreCase(tusername)&&sandi.getText().toString().equalsIgnoreCase(tsandi)) {
-                    Intent masuk = new Intent(LoginActivity.this, FragmentActivity.class);
-                    startActivity(masuk);
-
-                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(LoginActivity.this, "Username atau sandi yang anda masukkan salah", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            {
-
-            }
-
-    }); */
-
 
         Button masukButton = findViewById(R.id.masuk);
         masukButton.setOnClickListener(new View.OnClickListener() {

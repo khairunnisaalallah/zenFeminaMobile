@@ -8,9 +8,7 @@
         <item name="android:textColor">#FFFFFF</item>
         <!-- Atur properti lainnya sesuai kebutuhan -->
     </style>
-
-
-
+    <style name="Theme.VerifyEmailByOtp" parent="Theme.MaterialComponents.DayNight.DarkActionBar"></style>
     <style name="CustomDatePickerDialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">#DA4256</item>
         <!-- Ganti dengan warna yang diinginkan -->

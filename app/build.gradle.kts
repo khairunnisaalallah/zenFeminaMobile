@@ -54,6 +54,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:17.1.0")
 
     implementation("androidx.room:room-ktx:2.2.5")
+    implementation ("io.github.chaosleung:pinview:1.4.4")
 
 
 }
