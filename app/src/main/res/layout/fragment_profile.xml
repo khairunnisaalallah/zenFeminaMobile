@@ -8,22 +8,24 @@
     tools:context=".HomeFragment">
 
     <TextView
-        android:id="@+id/btntext4"
+        android:id="@+id/titleprofile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:fontFamily="@font/outfitlight"
         android:text="Profile"
         android:textColor="#000000"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp" />
+        android:layout_marginTop="25dp"
+        android:textSize="24sp" />
 
     <ImageButton
-        android:id="@+id/backfragmentprofile"
+        android:id="@+id/backfprofile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:background="#FFFFFF"
         android:clickable="true"
         android:onClick="onButtonClick"
@@ -31,18 +33,17 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profile"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="144dp"
-        android:layout_alignParentEnd="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:background="#B5B5B5"
-        app:srcCompat="@drawable/baseline_person_24"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:shapeAppearance="@style/circular" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearance="@style/circular"
+        app:srcCompat="@drawable/baseline_person_24" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,19 +57,21 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="270dp"
-                    android:layout_marginTop="200dp"
+                    android:layout_marginTop="220dp"
                     android:layout_marginBottom="14dp"
                     android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="10dp">
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true">
 
                         <ImageView
                             android:id="@+id/profile2"
@@ -80,34 +83,53 @@
                             android:src="@drawable/profile" />
 
                         <TextView
+                            android:id="@+id/tvidpengguna"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="65dp"
+                            android:layout_alignParentEnd="true"
+                            android:fontFamily="@font/outfitlight"
+                            android:textColor="#000000"/>
+
+                        <TextView
                             android:id="@+id/id"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginStart="160dp"
-                            android:layout_marginTop="12dp"
-                            android:fontFamily="@font/outfitmedium"
-                            android:text="ID Pengguna" />
+                            android:layout_marginStart="100dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/outfitlight"
+                            android:text="ID Pengguna"
+                            android:textColor="#000000" />
 
                         <ImageView
-                            android:id="@+id/line1"
+                            android:id="@+id/lineid"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="45dp"
-                            android:layout_marginTop="275dp"
-                            android:layout_marginEnd="45dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="49dp"
                             android:src="@drawable/linevec" />
 
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="10dp">
+                        android:layout_height="50dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true">
+
+                        <TextView
+                            android:id="@+id/tvlamaperiod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="14dp"
+                            android:layout_marginEnd="65dp"
+                            android:fontFamily="@font/outfitlight"
+                            android:text="TextView"
+                            android:textColor="#000000" />
 
                         <ImageView
                             android:id="@+id/period"
@@ -123,27 +145,38 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginStart="160dp"
-                            android:layout_marginTop="12dp"
-                            android:fontFamily="@font/outfitmedium"
+                            android:layout_marginStart="100dp"
+                            android:textColor="#000000"
+                            android:layout_marginTop="14dp"
+                            android:fontFamily="@font/outfitlight"
                             android:text="Lama Period" />
-
                         <ImageView
-                            android:id="@+id/imageView16"
+                            android:id="@+id/lineid2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="45dp"
-                            android:layout_marginEnd="45dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="49dp"
                             android:src="@drawable/linevec" />
+
 
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="10dp">
+                        android:layout_height="50dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true">
+
+                        <TextView
+                            android:id="@+id/tvlamasiklus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="65dp"
+                            android:fontFamily="@font/outfitlight"
+                            android:text="TextView"
+                            android:textColor="#000000" />
 
                         <ImageView
                             android:id="@+id/cycle"
@@ -159,28 +192,28 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginStart="160dp"
+                            android:layout_marginStart="100dp"
                             android:layout_marginTop="12dp"
-                            android:fontFamily="@font/outfitmedium"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/outfitlight"
                             android:text="Lama Siklus" />
 
                         <ImageView
-                            android:id="@+id/imageView17"
+                            android:id="@+id/lineid3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginStart="45dp"
-                            android:layout_marginEnd="45dp"
+                            android:layout_marginTop="49dp"
                             android:src="@drawable/linevec" />
+
+
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="10dp">
+                        android:layout_height="50dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true">
 
                         <ImageView
                             android:id="@+id/pengaturan"
@@ -196,61 +229,49 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginStart="160dp"
-                            android:layout_marginTop="12dp"
-                            android:fontFamily="@font/outfitmedium"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="100dp"
+                            android:fontFamily="@font/outfitlight"
+                            android:textColor="#000000"
                             android:text="Pengaturan" />
-
                         <ImageView
-                            android:id="@+id/imageView18"
+                            android:id="@+id/lineid4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="45dp"
-                            android:layout_marginEnd="45dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="49dp"
                             android:src="@drawable/linevec" />
+
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="10dp">
+                        android:layout_height="50dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true">
 
                         <TextView
                             android:id="@+id/textView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginStart="160dp"
-                            android:layout_marginTop="12dp"
-                            android:fontFamily="@font/outfitmedium"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/outfitlight"
+                            android:textColor="#000000"
                             android:text="Ubah Profile" />
 
                         <Button
                             android:id="@+id/bmore"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
+                            android:layout_width="60dp"
+                            android:layout_height="70dp"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginStart="307dp"
-                            android:layout_marginEnd="35dp"
+                            android:layout_marginEnd="65dp"
                             android:background="@drawable/more"
                             android:clickable="true"
-                            android:onClick="onButtonClick" />
+                            android:onClick="onButtonClick"
+                            android:foreground="?android:attr/selectableItemBackground"/>
 
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginStart="45dp"
-                            android:layout_marginEnd="45dp"
-                            android:src="@drawable/linevec" />
                     </RelativeLayout>
                 </LinearLayout>
             </RelativeLayout>
