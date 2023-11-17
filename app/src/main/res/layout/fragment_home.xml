@@ -65,6 +65,12 @@
         android:layout_marginTop="75dp"
         app:srcCompat="@drawable/linedashboard" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FragmentHome"/>
+
+
 
 
 
