@@ -56,5 +56,9 @@ dependencies {
     implementation("androidx.room:room-ktx:2.2.5")
     implementation ("io.github.chaosleung:pinview:1.4.4")
 
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("de.hdodenhof:circleimageview:3.0.0")
+
 
 }
