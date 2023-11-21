@@ -85,4 +85,4 @@ public class VerifActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    }
+}
