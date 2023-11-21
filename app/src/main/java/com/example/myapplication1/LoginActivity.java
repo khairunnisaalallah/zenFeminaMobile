@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,20 +35,18 @@ public class LoginActivity extends AppCompatActivity {
                     Intent masuk = new Intent(LoginActivity.this, FragmentActivity.class);
                     startActivity(masuk);
 
-                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+                    /*Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(LoginActivity.this, "Username atau sandi yang anda masukkan salah", Toast.LENGTH_SHORT).show();
                 }
             }
-
-            {
-
-            }
+*/
+                }}
 
     });
 
 
-       /* Button masukButton = findViewById(R.id.masuk);
+        Button masukButton = findViewById(R.id.masuk);
         masukButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        */
+
 
 
         // Inisialisasi TextView
