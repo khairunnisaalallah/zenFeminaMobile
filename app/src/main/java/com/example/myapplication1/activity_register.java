@@ -1,18 +1,17 @@
 package com.example.myapplication1;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,77 +23,96 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class activity_register extends AppCompatActivity {
-
-    private EditText etEmail, etUsername, etPassword;
-    private Button btnRegister;
-
-    @SuppressLint("MissingInflatedId")
+    //INISIASI NYA DISINI YAA JANGAN LUPA
+    EditText etusername,etemail, etpw;
+    String username, email, password;
+    Button buttondaftar;
+    TextView tvErorr, tvloginNow;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        etusername = findViewById(R.id.username);
+        etemail = findViewById(R.id.email);
+        etpw = findViewById(R.id.password);
+        buttondaftar = findViewById(R.id.daftar);
+        tvErorr = findViewById(R.id.error);
+        progressBar = findViewById(R.id.loading);
+        tvloginNow = findViewById(R.id.loginNow);
 
-        etEmail = findViewById(R.id.editTextEmail);
-        etUsername = findViewById(R.id.username);
-        etPassword = findViewById(R.id.sandi);
-        btnRegister = findViewById(R.id.daftar);
-
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        tvloginNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = etEmail.getText().toString().trim();
-                String username = etUsername.getText().toString().trim();
-                String sandi = etPassword.getText().toString().trim();
+                // Arahkan ke RegisterActivity
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
-                if (!(username.isEmpty() || sandi.isEmpty())) {
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, Db_Constract.urlRegister,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        buttondaftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                tvErorr.setVisibility(View.GONE);
+                progressBar.setVisibility(View.VISIBLE);
+
+                username = String.valueOf(etusername.getText());
+                email = String.valueOf(etemail.getText());
+                password =  etpw.getText().toString();
+                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                String url = Db_Contract.urlRegister;
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                progressBar.setVisibility(View.GONE);
+                                if(response.equals("Sukses")){
+                                    Toast.makeText(getApplicationContext(), "Registrasi berhasil", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(activity_register.this, LoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }else{
+                                    tvErorr.setText(response);
+                                    tvErorr.setVisibility(View.VISIBLE);
                                 }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    if (error instanceof AuthFailureError) {
-                                        Toast.makeText(getApplicationContext(), "Auth Failure Error: " + error.toString(), Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            }) {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String, String> params = new HashMap<>();
-                            params.put("email", email);
-                            params.put("username", username);
-                            params.put("sandi", sandi);
-                            return params;
-                        }
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progressBar.setVisibility(View.GONE);
+                        tvErorr.setText(error.getLocalizedMessage());
+                        tvErorr.setVisibility(View.VISIBLE);
+                        Toast.makeText(getApplicationContext(), "Error: " + error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }){
+                    protected Map<String, String> getParams(){
+                        Map<String, String> paramV = new HashMap<>();
+                        paramV.put("username", username);
+                        paramV.put("email", email);
+                        paramV.put("password", password);
+                        return paramV;
+                    }
+                };
+                queue.add(stringRequest);
+            }
+        });
 
-                        @Override
-                        public Map<String, String> getHeaders() throws AuthFailureError {
-                            Map<String, String> headers = new HashMap<>();
-                            // Tambahkan header otentikasi jika diperlukan
-                            // Contoh: headers.put("Authorization", "Bearer YOUR_ACCESS_TOKEN");
-                            return headers;
-                        }
-                    };
 
-                    // Set a custom timeout (e.g., 10 seconds)
-                    int customTimeout = 10000; // 10 seconds in milliseconds
-                    stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                            customTimeout,
-                            DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                    requestQueue.add(stringRequest);
 
-                } else {
-                    Toast.makeText(getApplicationContext(), "Ada Data Yang Masih Kosong", Toast.LENGTH_SHORT).show();
-                }
+
+
+
+
+
+
+        // Impor ImageButton
+        ImageButton backButton = findViewById(R.id.back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Kembali ke ProfileFragment
+                onBackPressed();
             }
         });
 
@@ -116,19 +134,8 @@ public class activity_register extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity_register.this, VerifActivity.class);
                 startActivity(intent);
-                // Implementasi registrasi dengan Google
-                // Gunakan Firebase Authentication atau Google Sign-In API
             }
         });
 
-        // ImageButton untuk registrasi dengan Google
-        Button daftarButton = findViewById(R.id.daftar);
-        daftarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity_register.this, VerifActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }

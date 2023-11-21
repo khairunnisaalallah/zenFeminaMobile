@@ -13,19 +13,19 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        // Inisialisasi tombol login
-        Button loginButton = findViewById(R.id.buttonlogin);
+
+        Button loginButton = findViewById(R.id.btnlogin);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Arahkan ke LoginActivity
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(intent);
+
             }
         });
 
-        // Inisialisasi tombol register
-        Button registerButton = findViewById(R.id.buttonregister);
+        Button registerButton = findViewById(R.id.btnregister);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
