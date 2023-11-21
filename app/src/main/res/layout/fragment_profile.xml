@@ -45,6 +45,18 @@
         app:shapeAppearance="@style/circular"
         app:srcCompat="@drawable/baseline_person_24" />
 
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/outfitlight"
+        android:hint="Username"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +74,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="270dp"
-                    android:layout_marginTop="220dp"
+                    android:layout_marginTop="250dp"
                     android:layout_marginBottom="14dp"
                     android:orientation="vertical">
 
@@ -83,10 +95,10 @@
                             android:src="@drawable/profile" />
 
                         <TextView
-                            android:id="@+id/tvidpengguna"
+                            android:id="@+id/email"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TextView"
+                            android:hint="Email"
                             android:layout_marginTop="15dp"
                             android:layout_marginEnd="65dp"
                             android:layout_alignParentEnd="true"
@@ -94,14 +106,14 @@
                             android:textColor="#000000"/>
 
                         <TextView
-                            android:id="@+id/id"
+                            android:id="@+id/tvemail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="100dp"
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/outfitlight"
-                            android:text="ID Pengguna"
+                            android:text="Email"
                             android:textColor="#000000" />
 
                         <ImageView
@@ -128,7 +140,7 @@
                             android:layout_marginTop="14dp"
                             android:layout_marginEnd="65dp"
                             android:fontFamily="@font/outfitlight"
-                            android:text="TextView"
+                            android:hint="TextView"
                             android:textColor="#000000" />
 
                         <ImageView
@@ -175,7 +187,7 @@
                             android:layout_marginTop="12dp"
                             android:layout_marginEnd="65dp"
                             android:fontFamily="@font/outfitlight"
-                            android:text="TextView"
+                            android:hint="TextView"
                             android:textColor="#000000" />
 
                         <ImageView
@@ -274,6 +286,7 @@
 
                     </RelativeLayout>
                 </LinearLayout>
+
             </RelativeLayout>
         </FrameLayout>
     </LinearLayout>
