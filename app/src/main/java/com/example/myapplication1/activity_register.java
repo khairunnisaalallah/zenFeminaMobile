@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,10 +34,10 @@ public class activity_register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        etEmail = findViewById(R.id.email);
+        etEmail = findViewById(R.id.editTextEmail);
         etUsername = findViewById(R.id.username);
         etPassword = findViewById(R.id.sandi);
-        btnRegister = findViewById(R.id.button2);
+        btnRegister = findViewById(R.id.daftar);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +95,39 @@ public class activity_register extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Ada Data Yang Masih Kosong", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        // ImageButton untuk registrasi dengan nomor telepon
+        ImageButton phoneSignUpButton = findViewById(R.id.telepon);
+        phoneSignUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect ke aktivitas yang meminta nomor telepon
+                Intent intent = new Intent(activity_register.this, VerifActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // ImageButton untuk registrasi dengan Google
+        ImageButton googleSignUpButton = findViewById(R.id.google);
+        googleSignUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity_register.this, VerifActivity.class);
+                startActivity(intent);
+                // Implementasi registrasi dengan Google
+                // Gunakan Firebase Authentication atau Google Sign-In API
+            }
+        });
+
+        // ImageButton untuk registrasi dengan Google
+        Button daftarButton = findViewById(R.id.daftar);
+        daftarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity_register.this, VerifActivity.class);
+                startActivity(intent);
             }
         });
     }

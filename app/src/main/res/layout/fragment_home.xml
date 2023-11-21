@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="60dp"
-        android:fontFamily="@font/outfitbold"
-        android:text="Muslimah Guide"
-        android:textColor="#454444"
+        android:fontFamily="@font/outfitlight"
+        android:text="ZenFemina"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -22,8 +22,8 @@
         android:id="@+id/imageButtoncalender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/textviewMG"
-        android:layout_marginStart="20dp"
+        android:layout_marginEnd="80dp"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="60dp"
         android:background="#FFFFFF"
         app:srcCompat="@drawable/calender" />
@@ -32,8 +32,9 @@
         android:id="@+id/imageButtonNotifikasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/imageButtoncalender"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="40dp"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="60dp"
         android:background="#FFFFFF"
         app:srcCompat="@drawable/notifikasi" />
@@ -54,25 +55,6 @@
         android:layout_below="@id/textviewMG"
         android:layout_marginStart="43dp"
         android:layout_marginTop="70dp"
-        app:srcCompat="@drawable/dashboardpjg" />
-
-    <ImageView
-        android:id="@+id/imageViewLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textviewMG"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="75dp"
-        app:srcCompat="@drawable/linedashboard" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".FragmentHome"/>
-
-
-
-
-
+        app:srcCompat="@drawable/kotakdashboard" />
 
 </RelativeLayout>
