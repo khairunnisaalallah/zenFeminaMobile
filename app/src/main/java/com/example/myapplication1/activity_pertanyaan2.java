@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -15,7 +16,7 @@ import java.util.Locale;
 
 public class activity_pertanyaan2 extends AppCompatActivity {
     private ImageButton datePicker;
-    private ImageButton nextButton;
+    private Button nextButton;
     private Calendar calendar;
 
     @Override

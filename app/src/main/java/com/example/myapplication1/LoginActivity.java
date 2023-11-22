@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -56,39 +57,6 @@ public class LoginActivity extends AppCompatActivity {
         btnmasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
-                if (username.getText().toString().equalsIgnoreCase(tusername)&&sandi.getText().toString().equalsIgnoreCase(tsandi)) {
-                    Intent masuk = new Intent(LoginActivity.this, FragmentActivity.class);
-                    startActivity(masuk);
-
-                    /*Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(LoginActivity.this, "Username atau sandi yang anda masukkan salah", Toast.LENGTH_SHORT).show();
-                }
-            }
-*/
-                }}
-
-    });
-
-
-        Button masukButton = findViewById(R.id.masuk);
-        masukButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Arahkan ke LoginActivity
-                Intent intent = new Intent(LoginActivity.this, activity_pertanyaan1.class);
-                startActivity(intent);
-            }
-        });
-
-
-
-        // Inisialisasi TextView
-        TextView registerTextView = findViewById(R.id.textViewregis);
-        // Menambahkan OnClickListener ke TextView
-        registerTextView.setOnClickListener(new View.OnClickListener() {
-=======
                 tvErorr.setVisibility(View.GONE);
                 progressBar.setVisibility(View.VISIBLE);
                 email = String.valueOf(etemail.getText());
@@ -147,7 +115,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         tvregisterNow.setOnClickListener(new View.OnClickListener() {
->>>>>>> b4d6d8145e4d6e2b184dd7bbd7302eb29ef00b41
             @Override
             public void onClick(View view) {
                 // Arahkan ke RegisterActivity
@@ -166,20 +133,13 @@ public class LoginActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        // Inisialisasi TextView
-        TextView lupapwTextView = findViewById(R.id.lupapw);
-        // Menambahkan OnClickListener ke TextView
-        lupapwTextView.setOnClickListener(new View.OnClickListener() {
+        TextView lupapw = findViewById(R.id.lupapw);
+        lupapw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Arahkan ke lupa pw
                 Intent intent = new Intent(LoginActivity.this, LupapwActivity.class);
                 startActivity(intent);
-                //Intent intent = new Intent(LoginActivity.this, FragmentActivity.class);
-                //startActivity(intent);
             }
         });
-    }
-
-
+        }
 }
