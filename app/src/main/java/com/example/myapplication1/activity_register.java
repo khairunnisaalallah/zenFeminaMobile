@@ -138,8 +138,12 @@ public class activity_register extends AppCompatActivity {
         });
 
     }
+<<<<<<< HEAD
 
     private class
     ErrorListener {
     }
 }
+=======
+}
+>>>>>>> 83588faadb686404ec58f2091309c32c835aae1e

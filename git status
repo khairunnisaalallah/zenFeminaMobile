@@ -1,0 +1,203 @@
+[33mcommit b683d7a9013879efd294506615eb7112f6119633[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Fri Nov 17 09:25:55 2023 +0700
+
+    add class  db_constract, api register, and back button kalender
+
+[33mcommit 1c8d6495fe063a9631e84679cd2ba710f71dd0d7[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Sat Nov 11 14:55:20 2023 +0700
+
+    update size of fragment image
+
+[33mcommit 5f294f3abb7d0437cd0b00e0170f59fe789b18f9[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Sat Nov 11 14:51:10 2023 +0700
+
+    add time fragment
+
+[33mcommit ca88654cfae6e40168fa37152f4edbeef3371f00[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Sat Nov 11 14:39:51 2023 +0700
+
+    update profile fragment
+
+[33mcommit 9021ced244f0fac67034b749a7fee4d50892b46a[m
+Merge: 1321e7c 54286f4
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Sat Nov 11 14:08:49 2023 +0700
+
+    Add hari in pertanyaan and calender
+
+[33mcommit 1321e7c4dda5d636f29267fc68434f1061bacdc5[m
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Mon Nov 6 08:04:33 2023 +0700
+
+    save manifest
+
+[33mcommit 54286f4770b94d37c23b99032df359202579f10a[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Fri Nov 3 00:58:53 2023 +0700
+
+    update desain picture selamat datang
+
+[33mcommit 5cf27e30a5b62ff9c9b635f3a621d0d71abfd786[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Thu Nov 2 10:00:26 2023 +0700
+
+    update interface
+
+[33mcommit 4b18a9a2fb9d8f2ee0b192c9e524bea04cd78291[m
+Merge: afe4543 5d8e10f
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Mon Oct 30 09:04:36 2023 +0700
+
+    Merge branch 'main' of https://github.com/khairunnisaalallah/MuslimahGuideMobile
+
+[33mcommit afe45437577ef4abe91125893979ef094830c8f4[m
+Merge: 2f44750 e4e690c
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Mon Oct 30 09:04:07 2023 +0700
+
+    test
+
+[33mcommit 5d8e10fdb0970ae608693cd7cf423de55addc1d5[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Mon Oct 30 09:00:09 2023 +0700
+
+    update
+
+[33mcommit 43531259494b30a5bb025965ec98c9cc793ebc12[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Mon Oct 30 08:48:10 2023 +0700
+
+    update ubah profile interface
+
+[33mcommit 2f4475023367262c92de6d40de4f7d516553b760[m
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Mon Oct 30 08:32:32 2023 +0700
+
+    add pertanyaan 4
+
+[33mcommit e4e690c436fc77e4ebe4dae0ddc30e2c1884e34b[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Mon Oct 30 04:53:04 2023 +0700
+
+    update Profile Fragment
+
+[33mcommit 14f58eee5a381e2e5146e3f16a839346769361c6[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Sun Oct 29 22:38:40 2023 +0700
+
+    update profile in fragment
+
+[33mcommit b56552628d7053bc31edb10d923c6f80575f6c8f[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Tue Oct 24 19:44:26 2023 +0700
+
+    add home, education, time, profile fragment
+
+[33mcommit b1c6d4bd2cb9a3dfcb78001e2ec6ff08917c4d75[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Tue Oct 24 08:54:03 2023 +0700
+
+    add profile activity
+
+[33mcommit 601eac3208e0e702560e564d14489af09bdfa2e7[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Thu Oct 19 22:44:07 2023 +0700
+
+    add interface profile,lupa pw,verif
+
+[33mcommit 3d3397822d6e64a2dd560e1b287f717a7a100ac7[m
+Merge: 3673542 d3d7fba
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Thu Oct 19 22:15:07 2023 +0700
+
+    Merge branch 'main' of https://github.com/khairunnisaalallah/MuslimahGuideMobile
+
+[33mcommit 367354289b9f110cdc5f27c281b4db1bcbaf07cf[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Thu Oct 19 22:14:53 2023 +0700
+
+    add LoginActivity.java
+
+[33mcommit d3d7fba63279ec05fca696d22413abdf93be4690[m
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Thu Oct 19 22:09:10 2023 +0700
+
+    add button loggin
+
+[33mcommit 28a054dc15254ef81ad154b527197ccdf05246a4[m
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Thu Oct 19 21:05:29 2023 +0700
+
+    add button pertanyaan dan design dashboard
+
+[33mcommit 4e73823ebf86f873b7ae387c946cc1b209df3db0[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Wed Oct 18 17:27:39 2023 +0700
+
+    add function button
+
+[33mcommit da65f6a177a9ede0744df4be69ac341f7d67b018[m
+Merge: 7277af4 f817259
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Tue Oct 17 13:54:02 2023 +0700
+
+    register
+
+[33mcommit 7277af4f77c57f2f3f57150c5e0caadb551277e7[m
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Mon Oct 16 11:01:22 2023 +0700
+
+    file welcome
+
+[33mcommit f817259e2478666b10be82a5a5fb882fa3484e76[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Mon Oct 16 10:58:48 2023 +0700
+
+    welcome
+
+[33mcommit b51202fe90eb543b401737d21d1ea0ca76774ccd[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Mon Oct 16 10:46:50 2023 +0700
+
+    add welcome
+
+[33mcommit cd3c0c55272ad0f71ac642f057465c9f4e1735fa[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Mon Oct 16 10:06:34 2023 +0700
+
+    add splash, started, welcome
+
+[33mcommit 61eec109d09492fb6e30fb8a3130fdaf509b0b85[m
+Merge: cce5529 bafeec7
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Mon Oct 16 09:46:35 2023 +0700
+
+    Merge branch 'main' of https://github.com/khairunnisaalallah/MuslimahGuideMobile
+
+[33mcommit cce5529fed68a9d7164969613fad8a938ecde0c9[m
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Mon Oct 16 09:46:19 2023 +0700
+
+    Add .idea/vcs.xml
+
+[33mcommit bafeec76ddcfe3bc2b7b92d3efee905f4b9eb34b[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Mon Oct 16 09:37:08 2023 +0700
+
+    add login
+
+[33mcommit 05e4883e42ce8667851a43ab5d74070cecd0d0b0[m
+Author: intanpuspitasari20 <intanpst20@gmail.com>
+Date:   Mon Oct 16 08:44:56 2023 +0700
+
+    Pertanyaan dan register
+
+[33mcommit 75ea21e7a54e0689b9263a2b3ff213a2a4237d22[m
+Author: khairunnisaalallah <124749527+khairunnisaalallah@users.noreply.github.com>
+Date:   Sat Oct 7 10:55:19 2023 +0700
+
+    Initial commit

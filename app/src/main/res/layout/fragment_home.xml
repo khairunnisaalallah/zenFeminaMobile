@@ -57,6 +57,4 @@
         android:layout_marginTop="70dp"
         app:srcCompat="@drawable/kotakdashboard" />
 
-
-
 </RelativeLayout>
