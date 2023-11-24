@@ -24,11 +24,12 @@ import java.util.Map;
 
 public class activity_register extends AppCompatActivity {
     //INISIASI NYA DISINI YAA JANGAN LUPA
-    EditText etusername,etemail, etpw;
+    EditText etusername, etemail, etpw;
     String username, email, password;
     Button buttondaftar;
     TextView tvErorr, tvloginNow;
     ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,13 +53,13 @@ public class activity_register extends AppCompatActivity {
 
         buttondaftar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 tvErorr.setVisibility(View.GONE);
                 progressBar.setVisibility(View.VISIBLE);
 
                 username = String.valueOf(etusername.getText());
                 email = String.valueOf(etemail.getText());
-                password =  etpw.getText().toString();
+                password = etpw.getText().toString();
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
                 String url = Db_Contract.urlRegister;
 
@@ -67,12 +68,12 @@ public class activity_register extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 progressBar.setVisibility(View.GONE);
-                                if(response.equals("Sukses")){
+                                if (response.equals("Sukses")) {
                                     Toast.makeText(getApplicationContext(), "Registrasi berhasil", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(activity_register.this, LoginActivity.class);
                                     startActivity(intent);
                                     finish();
-                                }else{
+                                } else {
                                     tvErorr.setText(response);
                                     tvErorr.setVisibility(View.VISIBLE);
                                 }
@@ -85,8 +86,8 @@ public class activity_register extends AppCompatActivity {
                         tvErorr.setVisibility(View.VISIBLE);
                         Toast.makeText(getApplicationContext(), "Error: " + error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }){
-                    protected Map<String, String> getParams(){
+                }) {
+                    protected Map<String, String> getParams() {
                         Map<String, String> paramV = new HashMap<>();
                         paramV.put("username", username);
                         paramV.put("email", email);
@@ -97,13 +98,6 @@ public class activity_register extends AppCompatActivity {
                 queue.add(stringRequest);
             }
         });
-
-
-
-
-
-
-
 
 
         // Impor ImageButton
@@ -138,12 +132,4 @@ public class activity_register extends AppCompatActivity {
         });
 
     }
-<<<<<<< HEAD
-
-    private class
-    ErrorListener {
-    }
 }
-=======
-}
->>>>>>> 83588faadb686404ec58f2091309c32c835aae1e

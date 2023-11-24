@@ -1,13 +1,15 @@
 package com.example.myapplication1;
 
 public class item {
-String judul;
-int image;
+    String judul;
+    String isi;
+    int image;
 
-public item(String judul, int image){
-    this.judul = judul;
-    this.image = image;
-}
+    public item(String judul,String isi, int image){
+        this.judul = judul;
+        this.isi = isi;
+        this.image = image;
+    }
 
     public String getJudul() {
         return judul;
@@ -15,6 +17,14 @@ public item(String judul, int image){
 
     public void setJudul(String judul) {
         this.judul = judul;
+    }
+
+    public String getIsi() {
+        return isi;
+    }
+
+    public void setIsi(String isi) {
+        this.isi = isi;
     }
 
     public int getImage() {
