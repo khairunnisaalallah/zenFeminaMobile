@@ -9,32 +9,35 @@
         android:id="@+id/btntext2"
         android:layout_width="243dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
-        android:layout_marginStart="62dp"
+        android:layout_marginTop="115dp"
+        android:layout_marginStart="50dp"
         android:fontFamily="@font/outfitlight"
         android:text="Masuk ke akunmu, dan mulai atur jadwal siklusmu dari sekarang"
         android:textColor="#8B8B8B"
-        android:textSize="15sp"
+        android:textSize="12sp"
         />
 
     <TextView
         android:id="@+id/registerNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="120dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginTop="680dp"
         android:layout_alignParentEnd="true"
         android:clickable="true"
         android:fontFamily="@font/outfitbold"
         android:onClick="onButtonClick"
         android:text="Daftar" />
 
+
+
     <TextView
         android:id="@+id/btntext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="680dp"
+        android:layout_marginEnd="120dp"
         android:fontFamily="@font/outfitlight"
         android:text="Tidak punya akun?"
         android:textColor="#8B8B8B"
@@ -44,23 +47,23 @@
         android:id="@+id/titlemasuk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:layout_marginBottom="2dp"
         android:fontFamily="@font/outfitbold"
         android:text="Masuk"
         android:textColor="#454444"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:layout_marginTop="75dp" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="20dp"
-        android:background="#FFFFFF"
+        android:clickable="true"
         android:onClick="onButtonClick"
         app:srcCompat="@drawable/back" />
 
@@ -68,10 +71,10 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="230dp"
+        android:layout_marginEnd="48dp"
         app:srcCompat="@drawable/txtf" />
 
     <ImageView
@@ -79,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="48dp"
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/txtf" />
@@ -88,74 +91,46 @@
         android:id="@+id/lupapw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="375dp"
-        android:layout_marginStart="240dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="368dp"
         android:fontFamily="@font/outfitmedium"
         android:onClick="onButtonClick"
         android:text="Lupa Kata Sandi?"
-        />
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="30dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="240dp"
-        android:background="#FFFFFF"
+        android:background="#99FFFFFF"
         android:ems="10"
+        android:textSize="14dp"
         android:fontFamily="@font/outfitlight"
         android:hint="Email"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="330dp"
-        android:background="#FFFFFF"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="310dp"
+        android:background="#99FFFFFF"
         android:ems="10"
         android:fontFamily="@font/outfitlight"
         android:hint="Kata Sandi"
+        android:textSize="14dp"
         android:inputType="textPassword"
         />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/masukdgn" />
-
-    <ImageButton
-        android:id="@+id/telepon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="550dp"
-        android:layout_marginBottom="18dp"
-        android:background="#FFFFFF"
-        app:srcCompat="@drawable/call" />
-
-    <ImageButton
-        android:id="@+id/google"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="150dp"
-        android:layout_marginTop="550dp"
-        android:layout_marginBottom="18dp"
-        android:background="#FFFFFF"
-        app:srcCompat="@drawable/google" />
 
     <Button
         android:id="@+id/masuk"
         style="@android:style/Widget.Button"
-        android:layout_width="312dp"
-        android:layout_height="42dp"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="450dp"
         android:background="@drawable/button_backround"
@@ -164,8 +139,30 @@
         android:onClick="onButtonClick"
         android:text="Masuk"
         android:textColor="#FFFFFF"
-        android:textSize="19sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/masukGoogle"
+        style="@android:style/Widget.Button"
+        android:layout_width="295dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="500dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/background_btn_intro"
+        android:clickable="true"
+        android:fontFamily="@font/outfitbold"
+        android:onClick="onButtonClick"
+        android:text="Masuk dengan Google"
+        android:textColor="#D74155"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView

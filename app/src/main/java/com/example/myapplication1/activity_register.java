@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,20 +69,28 @@ public class activity_register extends AppCompatActivity {
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                progressBar.setVisibility(View.GONE);
-                                if (response.equals("Sukses")) {
-                                    Toast.makeText(getApplicationContext(), "Registrasi berhasil", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(activity_register.this, LoginActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    tvErorr.setText(response);
-                                    tvErorr.setVisibility(View.VISIBLE);
-                                }
+                    @Override
+                    public void onResponse(String response) {
+                        progressBar.setVisibility(View.GONE);
+                        try {
+                            JSONObject JSONObject = new JSONObject(response);
+                            String status = JSONObject.getString("status");
+                            String message = JSONObject.getString("message");
+                            if(status.equals("1")){
+                                Toast.makeText(getApplicationContext(), "Registrasi berhasil", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(activity_register.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }else {
+                                tvErorr.setText(response);
+                                tvErorr.setVisibility(View.VISIBLE);
                             }
-                        }, new Response.ErrorListener() {
+
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                    }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressBar.setVisibility(View.GONE);
@@ -101,7 +113,7 @@ public class activity_register extends AppCompatActivity {
 
 
         // Impor ImageButton
-        ImageButton backButton = findViewById(R.id.back);
+        ImageView backButton = findViewById(R.id.back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,26 +122,6 @@ public class activity_register extends AppCompatActivity {
             }
         });
 
-        // ImageButton untuk registrasi dengan nomor telepon
-        ImageButton phoneSignUpButton = findViewById(R.id.telepon);
-        phoneSignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Redirect ke aktivitas yang meminta nomor telepon
-                Intent intent = new Intent(activity_register.this, VerifActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        // ImageButton untuk registrasi dengan Google
-        ImageButton googleSignUpButton = findViewById(R.id.google);
-        googleSignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity_register.this, VerifActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 }

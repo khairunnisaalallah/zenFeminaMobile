@@ -9,8 +9,8 @@
         android:id="@+id/loginNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="120dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginTop="680dp"
         android:layout_alignParentEnd="true"
         android:clickable="true"
         android:fontFamily="@font/outfitbold"
@@ -21,20 +21,21 @@
         android:id="@+id/btntext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginTop="680dp"
         android:fontFamily="@font/outfitlight"
         android:text="Sudah punya akun?"
         android:textColor="#8B8B8B"
         android:textSize="15sp" />
-    <ImageButton
+    <ImageView
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="20dp"
-        android:background="#FFFFFF"
+        android:clickable="true"
         android:onClick="onButtonClick"
         app:srcCompat="@drawable/back" />
 
@@ -42,11 +43,11 @@
         android:id="@+id/titledaftar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="50dp"
         android:fontFamily="@font/outfitbold"
         android:text="Daftar"
         android:textColor="#454444"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:layout_marginTop="75dp" />
 
@@ -54,13 +55,13 @@
         android:id="@+id/btntext2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="120dp"
         android:layout_marginBottom="100dp"
         android:fontFamily="@font/outfitlight"
         android:text="Daftarkan akunmu sekarang!"
         android:textColor="#8B8B8B"
-        android:textSize="15sp" />
+        android:textSize="12sp" />
 
     <ImageButton
         android:id="@+id/imageButtonbackr"
@@ -103,84 +104,55 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="280dp"
-        android:background="#FFFFFF"
+        android:background="#99FFFFFF"
         android:ems="10"
         android:fontFamily="@font/outfitlight"
         android:hint="Email"
+        android:textSize="14dp"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="350dp"
-        android:background="#FFFFFF"
+        android:background="#99FFFFFF"
         android:ems="10"
         android:fontFamily="@font/outfitlight"
         android:hint="Kata Sandi"
         android:inputType="textPassword"
+        android:textSize="14dp"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="210dp"
-        android:background="#FFFFFF"
+        android:background="#99FFFFFF"
         android:ems="10"
         android:fontFamily="@font/outfitlight"
         android:hint="Username"
+        android:textSize="14dp"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="510dp"
-        app:srcCompat="@drawable/daftardgn" />
-
-
-    <ImageButton
-        android:id="@+id/telepon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="550dp"
-        android:layout_marginBottom="18dp"
-        android:background="#FFFFFF"
-        app:srcCompat="@drawable/call" />
-
-
-    <ImageButton
-        android:id="@+id/google"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="150dp"
-        android:layout_marginTop="550dp"
-        android:layout_marginBottom="18dp"
-        android:background="#FFFFFF"
-        app:srcCompat="@drawable/google" />
-
     <Button
         android:id="@+id/daftar"
         style="@android:style/Widget.Button"
-        android:layout_width="312dp"
-        android:layout_height="42dp"
+        android:layout_width="300dp"
+        android:layout_height="38dp"
         android:layout_marginTop="450dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_backround"
@@ -189,7 +161,7 @@
         android:onClick="onButtonClick"
         android:text="Daftar"
         android:textColor="#FFFFFF"
-        android:textSize="19sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,21 +73,21 @@ public class LoginActivity extends AppCompatActivity {
                                     JSONObject jsonObject = new JSONObject(response);
                                     String status = jsonObject.getString("status");
                                     String message = jsonObject.getString("message");
-                                    if (status.equals("Sukses")){
+                                    if (status.equals("1")){
                                         Toast.makeText(getApplicationContext(), "Berhasil Masuk", Toast.LENGTH_SHORT).show();
-                                        username = jsonObject.getString("username");
-                                        email = jsonObject.getString("email");
-                                        session_id = jsonObject.getString("session_id");
-                                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                                        editor.putString("logged", "true");
-                                        editor.putString("username", username);
-                                        editor.putString("email", email);
-                                        editor.putString("session_id", session_id);
-                                        editor.apply();
                                         //habis login masuk ke activity_pertanyaan1
                                         Intent intent = new Intent (LoginActivity.this, activity_pertanyaan1.class);
                                         startActivity(intent);
                                         finish();
+//                                        username = jsonObject.getString("username");
+//                                        email = jsonObject.getString("email");
+//                                        session_id = jsonObject.getString("session_id");
+//                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                        editor.putString("logged", "true");
+//                                        editor.putString("username", username);
+//                                        editor.putString("email", email);
+//                                        editor.putString("session_id", session_id);
+//                                        editor.apply();
                                     }
                                     else {
                                         tvErorr.setText((message));
@@ -125,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // Impor ImageButton
-        ImageButton backButton = findViewById(R.id.back);
+        ImageView backButton = findViewById(R.id.back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
