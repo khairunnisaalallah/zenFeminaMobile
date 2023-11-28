@@ -9,6 +9,17 @@ import android.widget.ImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,15 +40,15 @@ public class EducationFragment extends Fragment {
         searchView = view.findViewById(R.id.searchView);
         EditText searchEditText = searchView.findViewById(R.id.searchEditText);
 
+        // Initialize items list
         items = new ArrayList<>();
-        for (int i = 0; i <= 10; i++) {
-            items.add(new item("Ketentuan Haid Dalam Islam", "isiiiya", R.drawable.edu));
-        }
+        originalItems = new ArrayList<>();
 
-        // Menyimpan data asli
-        originalItems = new ArrayList<>(items);
-
+        // Set up RecyclerView
         setupRecyclerView(items);
+
+        // Make network request using Volley
+        fetchData();
 
         // Setup Search functionality
         searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
@@ -54,8 +65,6 @@ public class EducationFragment extends Fragment {
             }
         });
 
-
-
         return view;
     }
 
@@ -63,6 +72,51 @@ public class EducationFragment extends Fragment {
         adapter = new MyAdapter(getActivity().getApplicationContext(), items);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
+    }
+
+    private void fetchData() {
+        String url = Db_Contract.urlEdukasi;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            // Parse the JSON response
+                            JSONArray jsonArray = new JSONArray(response);
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                String title = jsonObject.getString("title"); // replace with actual field name
+                                String content = jsonObject.getString("content"); // replace with actual field name
+                                // Assuming there's an image URL in your JSON response
+                                // String imageUrl = jsonObject.getString("imageUrl");
+
+                                // Add item to the list
+                                items.add(new item(title, content, R.drawable.edu));
+                            }
+
+                            // Save original items
+                            originalItems.addAll(items);
+
+                            // Notify the adapter that data has changed
+                            adapter.notifyDataSetChanged();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Handle errors
+                        error.printStackTrace();
+                    }
+                });
+
+        // Add the request to the RequestQueue
+        Volley.newRequestQueue(requireContext()).add(stringRequest);
     }
 
     private void filter(String text) {
@@ -75,7 +129,7 @@ public class EducationFragment extends Fragment {
             }
         }
 
-        // Memfilter data di dalam adapter dan memperbarui tampilan RecyclerView
+        // Filter data in the adapter and update the RecyclerView
         adapter.filterList(filteredList);
     }
 }
