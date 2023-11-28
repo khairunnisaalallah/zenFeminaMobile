@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/Buttonback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="358dp"
+        android:layout_marginBottom="676dp"
+        android:clickable="true"
+        android:onClick="onButtonClick"
+        app:srcCompat="@drawable/back" />
+
+    <TextView
+        android:id="@+id/btntext1"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginBottom="608dp"
+        android:fontFamily="@font/outfitbold"
+        android:text="Masukkan kode verifikasi"
+        android:textColor="#454444"
+        android:textSize="28dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btntext2"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="586dp"
+        android:fontFamily="@font/outfitlight"
+        android:text="Kode verifikasi telah dikirim melalui e-mail ke email yang terdaftar"
+        android:textColor="#8B8B8B"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="315dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="190dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="343dp"
+        app:srcCompat="@drawable/txtf" />
+
+    <EditText
+        android:id="@+id/otp"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="199dp"
+        android:layout_marginBottom="360dp"
+        android:background="#99FFFFFF"
+        android:ems="10"
+        android:hint="Kode OTP"
+        android:textSize="12dp"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/sms"
+        style="@android:style/Widget.Button"
+        android:layout_width="320dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="270dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="283dp"
+        android:background="@drawable/button_backround"
+        android:clickable="true"
+        android:fontFamily="@font/outfitbold"
+        android:onClick="onButtonClick"
+        android:text="lanjutkan"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
+</RelativeLayout>
