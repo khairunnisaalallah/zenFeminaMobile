@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
         lupapw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, LupapwActivity.class);
+                Intent intent = new Intent(LoginActivity.this, activity_verif.class);
                 startActivity(intent);
             }
         });
