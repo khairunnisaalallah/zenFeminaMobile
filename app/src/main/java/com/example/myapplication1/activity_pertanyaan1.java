@@ -3,6 +3,7 @@ package com.example.myapplication1;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -48,6 +49,9 @@ public class activity_pertanyaan1 extends AppCompatActivity {
                 String selectedDate = getSelectedDate();
                 value1 = selectedDate;
 
+                Log.d("Tanggal", "Nilai tanggal yang dikirim: " + value1);
+
+
                 // Mengambil nilai token dari Intent
                 String token = getIntent().getStringExtra("token");
 
@@ -85,7 +89,7 @@ public class activity_pertanyaan1 extends AppCompatActivity {
     }
 
     private String getSelectedDate() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
         return dateFormat.format(calendar.getTime());
     }
 }

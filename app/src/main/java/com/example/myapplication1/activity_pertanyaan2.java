@@ -86,7 +86,7 @@ public class activity_pertanyaan2 extends AppCompatActivity {
     }
 
     private String getSelectedDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault());
         return dateFormat.format(calendar.getTime());
     }
 }

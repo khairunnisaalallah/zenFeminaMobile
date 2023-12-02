@@ -95,10 +95,10 @@ public class activity_pertanyaan4 extends AppCompatActivity {
                 // Tambahkan parameter yang diperlukan oleh API
                 Map<String, String> params = new HashMap<>();
                 params.put("token", token);
-                params.put("value1", value1);
-                params.put("value2", value2);
-                params.put("value3", value3);
-                params.put("dataPertanyaan4", dataPertanyaan4);
+                params.put("birthDate", value1);
+                params.put("lastDate", value2);
+                params.put("cycle", value3);
+                params.put("period", dataPertanyaan4);
 
                 // Hapus parameter yang memiliki nilai null
                 params.values().removeIf(Objects::isNull);
