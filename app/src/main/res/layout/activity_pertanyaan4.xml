@@ -38,7 +38,7 @@
         android:background="@android:color/transparent"
         android:src="@drawable/panjang"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/editTextDate2"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate4"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -46,18 +46,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="24dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/outfitlight"
         android:text="Hari"
         android:textColor="#454444"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/editTextDate2"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate4"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextDate2"
+        android:id="@+id/editTextDate4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -79,7 +79,7 @@
         android:fontFamily="@font/outfitlight"
         android:text="Biasanya berlangsung selama 5-6 hari atau lebih."
         android:textColor="#454444"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate2"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

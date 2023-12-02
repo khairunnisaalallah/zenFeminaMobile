@@ -29,7 +29,7 @@
         android:fontFamily="@font/outfitlight"
         android:text="Silahkan isi tanggal, bulan, dan tahun kelahiranmu"
         android:textColor="#454444"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate2"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageView"
+        android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="1dp"
@@ -57,7 +57,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextDate2"
+        android:id="@+id/editTextDate1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
@@ -65,8 +65,8 @@
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageButton1"
+        app:layout_constraintTop_toTopOf="@+id/imageButton1"
         tools:ignore="MissingConstraints" />
 
     <Button

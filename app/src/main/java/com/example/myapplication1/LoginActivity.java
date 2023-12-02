@@ -81,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(getApplicationContext(), "Berhasil Masuk", Toast.LENGTH_SHORT).show();
                                         //habis login masuk ke activity_pertanyaan1
                                         Intent intent = new Intent (LoginActivity.this, activity_pertanyaan1.class);
+                                        intent.putExtra("token", token);
                                         startActivity(intent);
                                         finish();
 //                                        username = jsonObject.getString("username");

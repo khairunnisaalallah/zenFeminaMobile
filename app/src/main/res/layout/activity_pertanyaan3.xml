@@ -39,7 +39,7 @@
         android:text="Misalkan, siklus haid saya biasanya berlangsung
         selama 28-30 hari."
         android:textColor="#454444"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate2"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,7 @@
         android:background="@android:color/transparent"
         android:src="@drawable/panjang"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/editTextDate2"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate3"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -68,7 +68,7 @@
         android:textColor="#454444"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/editTextDate2"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate3"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -88,7 +88,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextDate2"
+        android:id="@+id/editTextDate3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
