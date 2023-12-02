@@ -19,6 +19,8 @@ public class activity_pertanyaan1 extends AppCompatActivity {
     private Button nextButton;
     private Calendar calendar;
 
+    public static String value;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +43,10 @@ public class activity_pertanyaan1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String selectedDate = getSelectedDate();
-                // Lakukan sesuatu dengan tanggal yang dipilih (misalnya, tampilkan di log)
-                System.out.println("Tanggal yang dipilih: " + selectedDate);
-                // Navigasi ke layout pertanyaan selanjutnya (ActivityPertanyaan2)
+                value = selectedDate;
+
                 Intent intent = new Intent(activity_pertanyaan1.this, activity_pertanyaan2.class);
+                intent.putExtra("value1", value);
                 startActivity(intent);
             }
         });
@@ -72,6 +74,7 @@ public class activity_pertanyaan1 extends AppCompatActivity {
 
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis()); // Batasi tanggal yang bisa dipilih menjadi hari ini atau sebelumnya
         datePickerDialog.show();
+
     }
 
     private String getSelectedDate() {

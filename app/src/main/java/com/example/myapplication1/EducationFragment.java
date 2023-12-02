@@ -1,11 +1,14 @@
 package com.example.myapplication1;
 
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,20 +28,20 @@ import java.util.List;
 
 public class EducationFragment extends Fragment {
 
+    private static final String TAG = "EducationFragment";
+
     private RecyclerView recyclerView;
     private MyAdapter adapter;
     private List<item> items;
-    private List<item> originalItems; // Menyimpan data asli sebelum pencarian
+    private List<item> originalItems;
     private androidx.appcompat.widget.SearchView searchView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_education, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
         searchView = view.findViewById(R.id.searchView);
-        EditText searchEditText = searchView.findViewById(R.id.searchEditText);
 
         // Initialize items list
         items = new ArrayList<>();
@@ -69,10 +72,12 @@ public class EducationFragment extends Fragment {
     }
 
     private void setupRecyclerView(List<item> items) {
-        adapter = new MyAdapter(getActivity().getApplicationContext(), items);
+        adapter = new MyAdapter(getActivity(), items);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
     }
+
+    // ...
 
     private void fetchData() {
         String url = Db_Contract.urlEdukasi;
@@ -83,27 +88,45 @@ public class EducationFragment extends Fragment {
                     public void onResponse(String response) {
                         try {
                             // Parse the JSON response
-                            JSONArray jsonArray = new JSONArray(response);
+                            JSONObject jsonResponse = new JSONObject(response);
 
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                String title = jsonObject.getString("title"); // replace with actual field name
-                                String content = jsonObject.getString("content"); // replace with actual field name
-                                // Assuming there's an image URL in your JSON response
-                                // String imageUrl = jsonObject.getString("imageUrl");
+                            // Check if the response is an object and contains the "data" property
+                            if (jsonResponse.has("data")) {
+                                JSONArray jsonArray = jsonResponse.getJSONArray("data");
 
-                                // Add item to the list
-                                items.add(new item(title, content, R.drawable.edu));
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                    String image = jsonObject.getString("img");
+                                    String judul = jsonObject.getString("title");
+                                    String isi = jsonObject.getString("contents");
+
+
+                                    // Log statement for image URL
+                                    Log.d(TAG, "image URL" + image);
+
+                                    // Convert image URL to an integer (use hash code as an example)
+
+                                    // Add item to the list
+                                    items.add(new item(   "https://zenfemina.com/assetsWeb/img/education/"+ image, judul, isi));
+                                }
+
+                                // Save original items
+                                originalItems.addAll(items);
+
+                                // Notify the adapter that data has changed
+                                adapter.notifyDataSetChanged();
+
+                            } else {
+                                // Handle the case when "data" property is not present in the response
+                                Log.e(TAG, "JSON Parsing Error: 'data' property not found in the response");
+                                Toast.makeText(requireContext(),"image error", Toast.LENGTH_SHORT).show();
                             }
-
-                            // Save original items
-                            originalItems.addAll(items);
-
-                            // Notify the adapter that data has changed
-                            adapter.notifyDataSetChanged();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            // Log error
+                            Log.e(TAG, "JSON Parsing Error: " + e.getMessage());
+
                         }
                     }
                 },
@@ -112,12 +135,23 @@ public class EducationFragment extends Fragment {
                     public void onErrorResponse(VolleyError error) {
                         // Handle errors
                         error.printStackTrace();
+                        // Log error
+                        Log.e(TAG, "Volley Error: " + error.getMessage());
+
+                        // Add error message to logcat
+                        Log.e(TAG, "Volley Error: " + error.getMessage());
+
+                        // You can show an error message to the user if needed
+                         Toast.makeText(requireContext(), "Error fetching data", Toast.LENGTH_SHORT).show();
                     }
                 });
 
         // Add the request to the RequestQueue
         Volley.newRequestQueue(requireContext()).add(stringRequest);
     }
+
+// ...
+
 
     private void filter(String text) {
         List<item> filteredList = new ArrayList<>();

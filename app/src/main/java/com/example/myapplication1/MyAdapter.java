@@ -1,12 +1,21 @@
 package com.example.myapplication1;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +25,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
     private List<item> items;
     private List<item> itemsFiltered;
 
+    private List<item> originalItems;
+
     public MyAdapter(Context context, List<item> items) {
         this.context = context;
         this.items = items;
         this.itemsFiltered = new ArrayList<>(items);
+        this.originalItems = new ArrayList<>(items); // Tambahkan ini
     }
+
 
     @NonNull
     @Override
@@ -32,13 +45,34 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.judulView.setText(itemsFiltered.get(position).getJudul());
         holder.isiView.setText(itemsFiltered.get(position).getIsi());
-        holder.imageView.setImageResource(itemsFiltered.get(position).getImage());
+
+        // Load image using Glide with error handling
+        Glide.with(context)
+                .load(itemsFiltered.get(position).getImage())
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        Log.e("Glide", "Load failed", e);
+                        // You can handle the error here, for example, set a placeholder image
+                        holder.imageView.setImageResource(R.drawable.profile); // Replace "placeholder" with your placeholder image
+                        return true; // Indicate that the error is handled
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        // You can perform additional actions when the resource is ready if needed
+                        return false;
+                    }
+                })
+                .into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
         return itemsFiltered.size();
     }
+
+    // ...
 
     @Override
     public Filter getFilter() {
@@ -50,9 +84,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
                 List<item> tempList = new ArrayList<>();
 
                 if (searchText.isEmpty()) {
-                    tempList.addAll(items);
+                    tempList.addAll(originalItems);
                 } else {
-                    for (item item : items) {
+                    for (item item : originalItems) {
                         if (item.getJudul().toLowerCase().contains(searchText) ||
                                 item.getIsi().toLowerCase().contains(searchText)) {
                             tempList.add(item);
@@ -74,7 +108,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
         };
     }
 
-    // Metode ini digunakan untuk mengatur data yang telah difilter
+// ...
+
+    // This method is used to set the filtered data
     public void filterList(List<item> filteredList) {
         itemsFiltered = filteredList;
         notifyDataSetChanged();

@@ -34,8 +34,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText etemail, etpw;
     TextView tvErorr, tvregisterNow;
     ProgressBar progressBar;
-    String username, email, password, session_id;
+    String  email, password;
     SharedPreferences sharedPreferences;
+    public static String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,9 @@ public class LoginActivity extends AppCompatActivity {
                                     JSONObject jsonObject = new JSONObject(response);
                                     String status = jsonObject.getString("status");
                                     String message = jsonObject.getString("message");
+
+                                    token = jsonObject.getString("token");
+
                                     if (status.equals("1")){
                                         Toast.makeText(getApplicationContext(), "Berhasil Masuk", Toast.LENGTH_SHORT).show();
                                         //habis login masuk ke activity_pertanyaan1

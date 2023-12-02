@@ -2,6 +2,7 @@ package com.example.myapplication1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ public class activity_pertanyaan3 extends AppCompatActivity {
 
     private EditText editTextDate;
     private Button nextButton;
+    public static String value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +27,11 @@ public class activity_pertanyaan3 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String selectedDaysText = editTextDate.getText().toString();
-                int selectedDays = 1;
-
-                try {
-                    selectedDays = Integer.parseInt(selectedDaysText);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
+                value = editTextDate.getText().toString();
+                Log.d("MY_TAG", "Value3: " + value);
 
                 Intent intent = new Intent(activity_pertanyaan3.this, activity_pertanyaan4.class);
-                intent.putExtra("selected_days", selectedDays);
+                intent.putExtra("value3", value);
                 startActivity(intent);
             }
         });

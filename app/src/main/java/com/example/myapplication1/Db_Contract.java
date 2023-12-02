@@ -10,4 +10,5 @@ public class Db_Contract {
     public static String urlNewPassword = "http://"+ip+"/newPassword";
     public static String urlLogout="http://"+ip+"/login-registration-android/logout.php";
     public  static String urlEdukasi="http://"+ip+"/education";
+    public  static String urlpertanyaan="http://"+ip+"/question";
 }

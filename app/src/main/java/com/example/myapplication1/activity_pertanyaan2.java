@@ -1,10 +1,11 @@
-package com.example.myapplication1; // Ganti dengan package sesuai proyek Anda
+package com.example.myapplication1;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -15,9 +16,11 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class activity_pertanyaan2 extends AppCompatActivity {
+
     private ImageButton datePicker;
     private Button nextButton;
     private Calendar calendar;
+    public static String value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class activity_pertanyaan2 extends AppCompatActivity {
         nextButton = findViewById(R.id.selanjutnya2);
         calendar = Calendar.getInstance();
 
-        // Menampilkan DatePickerDialog saat ImageButton diklik
+        // Menampilkan DatePickerDialog saat ImageButton tanggal diklik
         datePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,17 +40,19 @@ public class activity_pertanyaan2 extends AppCompatActivity {
         });
 
         // Handle navigasi ke layout pertanyaan selanjutnya saat tombol "Selanjutnya" diklik
+        // Handle navigasi ke layout pertanyaan selanjutnya saat tombol "Selanjutnya" diklik
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String selectedDate = getSelectedDate();
-                // Lakukan sesuatu dengan tanggal yang dipilih (misalnya, tampilkan di log)
-                System.out.println("Tanggal yang dipilih: " + selectedDate);
-                // Navigasi ke layout pertanyaan selanjutnya (ActivityPertanyaan2)
+                String selectedDateTime = getSelectedDateTime();
+                value=selectedDateTime;
+
                 Intent intent = new Intent(activity_pertanyaan2.this, activity_pertanyaan3.class);
+                intent.putExtra("value2", value);
                 startActivity(intent);
             }
         });
+
     }
 
     private void showDatePickerDialog() {
@@ -60,9 +65,13 @@ public class activity_pertanyaan2 extends AppCompatActivity {
                         // Tangani pemilihan tanggal disini
                         calendar.set(year, month, dayOfMonth);
 
-                        String selectedDate = getSelectedDate();
+                        // Tambahkan waktu otomatis (jam saat ini)
+                        calendar.set(Calendar.HOUR_OF_DAY, Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
+                        calendar.set(Calendar.MINUTE, Calendar.getInstance().get(Calendar.MINUTE));
+
+                        String selectedDateTime = getSelectedDateTime();
                         EditText editTextDate2 = findViewById(R.id.editTextDate2);
-                        editTextDate2.setText(selectedDate);
+                        editTextDate2.setText(selectedDateTime);
                     }
                 },
                 calendar.get(Calendar.YEAR),
@@ -74,8 +83,8 @@ public class activity_pertanyaan2 extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    private String getSelectedDate() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+    private String getSelectedDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
         return dateFormat.format(calendar.getTime());
     }
 }

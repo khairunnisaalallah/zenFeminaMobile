@@ -3,9 +3,9 @@ package com.example.myapplication1;
 public class item {
     String judul;
     String isi;
-    int image;
+    String image;
 
-    public item(String judul,String isi, int image){
+    public item(String image, String judul, String isi) {
         this.judul = judul;
         this.isi = isi;
         this.image = image;
@@ -25,14 +25,14 @@ public class item {
 
     public void setIsi(String isi) {
         this.isi = isi;
+
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
-
