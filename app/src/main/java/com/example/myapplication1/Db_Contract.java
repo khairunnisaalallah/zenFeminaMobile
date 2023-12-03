@@ -11,4 +11,5 @@ public class Db_Contract {
     public static String urlLogout="http://"+ip+"/login-registration-android/logout.php";
     public  static String urlEdukasi="http://"+ip+"/education";
     public  static String urlpertanyaan="http://"+ip+"/question";
+    public static  String urladdOnClick= "http://"+ip+"/addOnClicked";
 }

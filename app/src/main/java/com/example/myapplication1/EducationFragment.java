@@ -24,7 +24,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EducationFragment extends Fragment implements MyAdapter.OnItemClickListener{
 
@@ -74,6 +76,7 @@ public class EducationFragment extends Fragment implements MyAdapter.OnItemClick
     @Override
     public void onItemClick(item clickedItem) {
         // Handle item click here, e.g., navigate to the article detail fragment
+        String id = clickedItem.getId();
         String image = clickedItem.getImage();
         String judul = clickedItem.getJudul();
         String isi = clickedItem.getIsi();
@@ -82,14 +85,45 @@ public class EducationFragment extends Fragment implements MyAdapter.OnItemClick
         Log.d("MyAdapter", "Item clicked - Isi: " + clickedItem.getIsi());
         Log.d("MyAdapter", "Item clicked - Image: " + clickedItem.getImage());
 
+        // Send ID to server
+        String url = Db_Contract.urladdOnClick;
 
-        // Use a fragment transaction to navigate to the article detail fragment
-        Fragment detailFragment = ArticleDetailFragment.newInstance(image, judul, isi);
-        requireActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, detailFragment)
-                .addToBackStack(null)
-                .commit();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Tindakan yang perlu dilakukan jika permintaan berhasil
+                        Log.d(TAG, "ID sent to server successfully");
+
+                        // Use a fragment transaction to navigate to the article detail fragment
+                        Fragment detailFragment = ArticleDetailFragment.newInstance(id,image, judul, isi);
+                        requireActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, detailFragment)
+                                .addToBackStack(null)
+                                .commit();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Tindakan yang perlu dilakukan jika terjadi kesalahan
+                        Log.e(TAG, "Volley Error: " + error.getMessage());
+                        Toast.makeText(requireContext(), "Error sending ID to server", Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            // Override method ini untuk menambahkan parameter ke body permintaan
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("id", id); // Mengirim ID sebagai parameter
+                return params;
+            }
+        };
+
+        // Tambahkan permintaan ke antrian permintaan Volley
+        Volley.newRequestQueue(requireContext()).add(stringRequest);
     }
+
 
 
     private void setupRecyclerView(List<item> items) {
@@ -118,6 +152,7 @@ public class EducationFragment extends Fragment implements MyAdapter.OnItemClick
 
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                    String id = jsonObject.getString("education_id");
                                     String image = jsonObject.getString("img");
                                     String judul = jsonObject.getString("title");
                                     String isi = jsonObject.getString("contents");
@@ -129,7 +164,7 @@ public class EducationFragment extends Fragment implements MyAdapter.OnItemClick
                                     // Convert image URL to an integer (use hash code as an example)
 
                                     // Add item to the list
-                                    items.add(new item(   "https://zenfemina.com/assetsWeb/img/education/"+ image, judul, isi));
+                                    items.add(new item(id, "https://zenfemina.com/assetsWeb/img/education/"+ image, judul, isi));
                                 }
 
                                 // Save original items

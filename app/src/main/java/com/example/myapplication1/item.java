@@ -1,14 +1,26 @@
 package com.example.myapplication1;
 
 public class item {
+
+    String id;
     String judul;
     String isi;
     String image;
 
-    public item(String image, String judul, String isi) {
+
+    public item(String id, String image, String judul, String isi) {
+        this.id = id;
         this.judul = judul;
         this.isi = isi;
         this.image = image;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getJudul() {
