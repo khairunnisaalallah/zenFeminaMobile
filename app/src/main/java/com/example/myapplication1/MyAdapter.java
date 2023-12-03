@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Filter;
 import android.widget.Filterable;
 import androidx.annotation.NonNull;
@@ -26,6 +28,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
     private List<item> itemsFiltered;
 
     private List<item> originalItems;
+
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(item clickedItem);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
 
     public MyAdapter(Context context, List<item> items) {
         this.context = context;
@@ -65,6 +78,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
                     }
                 })
                 .into(holder.imageView);
+
+        // Set click listener for each item
+        holder.itemView.setOnClickListener(view -> {
+            int clickedPosition = holder.getAdapterPosition();
+            if (mListener != null && clickedPosition != RecyclerView.NO_POSITION) {
+                mListener.onItemClick(itemsFiltered.get(clickedPosition));
+            }
+        });
     }
 
     @Override

@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onResponse(String response) {
                                 progressBar.setVisibility(View.GONE);
                                 try{
-                                    JSONObject jsonObject = new JSONObject(response);
+                                 JSONObject jsonObject = new JSONObject(response);
                                     String status = jsonObject.getString("status");
                                     String message = jsonObject.getString("message");
 

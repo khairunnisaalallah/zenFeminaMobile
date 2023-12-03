@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EducationFragment extends Fragment {
+public class EducationFragment extends Fragment implements MyAdapter.OnItemClickListener{
 
     private static final String TAG = "EducationFragment";
 
@@ -71,8 +71,30 @@ public class EducationFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onItemClick(item clickedItem) {
+        // Handle item click here, e.g., navigate to the article detail fragment
+        String image = clickedItem.getImage();
+        String judul = clickedItem.getJudul();
+        String isi = clickedItem.getIsi();
+
+        Log.d("MyAdapter", "Item clicked - Judul: " + clickedItem.getJudul());
+        Log.d("MyAdapter", "Item clicked - Isi: " + clickedItem.getIsi());
+        Log.d("MyAdapter", "Item clicked - Image: " + clickedItem.getImage());
+
+
+        // Use a fragment transaction to navigate to the article detail fragment
+        Fragment detailFragment = ArticleDetailFragment.newInstance(image, judul, isi);
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, detailFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+
     private void setupRecyclerView(List<item> items) {
         adapter = new MyAdapter(getActivity(), items);
+        adapter.setOnItemClickListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
     }
@@ -150,7 +172,7 @@ public class EducationFragment extends Fragment {
         Volley.newRequestQueue(requireContext()).add(stringRequest);
     }
 
-// ...
+
 
 
     private void filter(String text) {
