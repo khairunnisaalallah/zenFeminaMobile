@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class notifActivity extends AppCompatActivity {
     TextView textView;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

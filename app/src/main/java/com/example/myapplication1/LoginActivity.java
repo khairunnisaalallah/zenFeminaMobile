@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,11 +31,12 @@ public class LoginActivity extends AppCompatActivity {
 
     Button btnmasuk;
     EditText etemail, etpw;
-    TextView tvErorr, tvregisterNow;
+    TextView tvregisterNow;
     ProgressBar progressBar;
-    String  email, password;
+    String username, email, password, session_id;
     SharedPreferences sharedPreferences;
     public static String token;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         btnmasuk =findViewById(R.id.masuk);
         etemail = findViewById(R.id.email);
         etpw = findViewById(R.id.password);
-        tvErorr = findViewById(R.id.error);
+//        tvErorr = findViewById(R.id.error);
         progressBar = findViewById(R.id.loading);
         tvregisterNow = findViewById(R.id.registerNow);
         sharedPreferences =getSharedPreferences("MyAppName", MODE_PRIVATE);
@@ -59,65 +59,68 @@ public class LoginActivity extends AppCompatActivity {
         btnmasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvErorr.setVisibility(View.GONE);
+//                tvErorr.setVisibility(View.GONE);
                 progressBar.setVisibility(View.VISIBLE);
                 email = String.valueOf(etemail.getText());
                 password = String.valueOf(etpw.getText());
-                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = Db_Contract.urlLogin;
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                progressBar.setVisibility(View.GONE);
-                                try{
-                                 JSONObject jsonObject = new JSONObject(response);
-                                    String status = jsonObject.getString("status");
-                                    String message = jsonObject.getString("message");
 
-                                    token = jsonObject.getString("token");
+                // Validasi jika email atau password kosong
+                if (email.isEmpty() || password.isEmpty()) {
+                    progressBar.setVisibility(View.GONE);
+                    if (email.isEmpty() && password.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Email dan password tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    } else if (email.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Email tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
 
-                                    if (status.equals("1")){
-                                        Toast.makeText(getApplicationContext(), "Berhasil Masuk", Toast.LENGTH_SHORT).show();
-                                        //habis login masuk ke activity_pertanyaan1
-                                        Intent intent = new Intent (LoginActivity.this, activity_pertanyaan1.class);
-                                        intent.putExtra("token", token);
-                                        startActivity(intent);
-                                        finish();
-//                                        username = jsonObject.getString("username");
-//                                        email = jsonObject.getString("email");
-//                                        session_id = jsonObject.getString("session_id");
-//                                        SharedPreferences.Editor editor = sharedPreferences.edit();
-//                                        editor.putString("logged", "true");
-//                                        editor.putString("username", username);
-//                                        editor.putString("email", email);
-//                                        editor.putString("session_id", session_id);
-//                                        editor.apply();
+                    // Jika email dan password terisi, lakukan proses login
+                    RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                    String url = Db_Contract.urlLogin;
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    progressBar.setVisibility(View.GONE);
+                                    try {
+                                        JSONObject jsonObject = new JSONObject(response);
+                                        String status = jsonObject.getString("status");
+                                        String message = jsonObject.getString("message");
+                                        token = jsonObject.getString("token");
+                                        if (status.equals("1")) {
+                                            Toast.makeText(getApplicationContext(), "Berhasil Masuk", Toast.LENGTH_SHORT).show();
+                                            //habis login masuk ke activity_pertanyaan1
+                                            Intent intent = new Intent(LoginActivity.this, FragmentActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        } else {
+//                                                tvErorr.setText((message));
+//                                                tvErorr.setVisibility(View.VISIBLE);
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                        Toast.makeText(getApplicationContext(), "Username atau Kata sandi salah", Toast.LENGTH_SHORT).show();
                                     }
-                                    else {
-                                        tvErorr.setText((message));
-                                        tvErorr.setVisibility(View.VISIBLE);
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
                                 }
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        progressBar.setVisibility(View.GONE);
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(LoginActivity.this, "Terjadi kesalahan, coba lagi nanti", Toast.LENGTH_SHORT).show();
 
-
-                    }
-                }){
-                    protected Map<String, String> getParams(){
-                        Map<String, String> paramV = new HashMap<>();
-                        paramV.put("email", email);
-                        paramV.put("password", password);
-                        return paramV;
-                    }
-                };
-                queue.add(stringRequest);
+                        }
+                    }) {
+                        protected Map<String, String> getParams() {
+                            Map<String, String> paramV = new HashMap<>();
+                            paramV.put("email", email);
+                            paramV.put("password", password);
+                            return paramV;
+                        }
+                    };
+                    queue.add(stringRequest);
+                }
             }
         });
         tvregisterNow.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
+
         });
 
         // Impor ImageButton
@@ -147,5 +151,5 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        }
+    }
 }

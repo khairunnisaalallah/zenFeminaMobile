@@ -36,7 +36,6 @@ public class notifSetting extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
         // Inisialisasi switch
         notificationSwitch = findViewById(R.id.switchnotif);
         requestQueue = Volley.newRequestQueue(this);

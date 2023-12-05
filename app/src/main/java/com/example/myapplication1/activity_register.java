@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,7 +30,7 @@ public class activity_register extends AppCompatActivity {
     EditText etusername, etemail, etpw;
     String username, email, password;
     Button buttondaftar;
-    TextView tvErorr, tvloginNow;
+    TextView tvloginNow;
     ProgressBar progressBar;
 
     @Override
@@ -42,7 +41,6 @@ public class activity_register extends AppCompatActivity {
         etemail = findViewById(R.id.email);
         etpw = findViewById(R.id.password);
         buttondaftar = findViewById(R.id.daftar);
-        tvErorr = findViewById(R.id.error);
         progressBar = findViewById(R.id.loading);
         tvloginNow = findViewById(R.id.loginNow);
 
@@ -54,49 +52,53 @@ public class activity_register extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         buttondaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvErorr.setVisibility(View.GONE);
                 progressBar.setVisibility(View.VISIBLE);
-
                 username = String.valueOf(etusername.getText());
                 email = String.valueOf(etemail.getText());
                 password = etpw.getText().toString();
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
                 String url = Db_Contract.urlRegister;
-
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        progressBar.setVisibility(View.GONE);
-                        try {
-                            JSONObject JSONObject = new JSONObject(response);
-                            String status = JSONObject.getString("status");
-                            String message = JSONObject.getString("message");
-                            if(status.equals("1")){
-                                Toast.makeText(getApplicationContext(), "Registrasi berhasil", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(activity_register.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }else {
-                                tvErorr.setText(response);
-                                tvErorr.setVisibility(View.VISIBLE);
-                            }
+                            @Override
+                            public void onResponse(String response) {
+                                progressBar.setVisibility(View.GONE);
+                                if (username.isEmpty() && email.isEmpty() && password.isEmpty()) {
+                                    progressBar.setVisibility(View.GONE);
+                                    Toast.makeText(getApplicationContext(), "Username, Email, dan Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                                } else if (username.isEmpty()) {
+                                    Toast.makeText(getApplicationContext(), "Username tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                                } else if (email.isEmpty()) {
+                                    Toast.makeText(getApplicationContext(), "Email tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                                } else if (password.isEmpty()) {
+                                    Toast.makeText(getApplicationContext(), "Password tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                                }
+                                try {
+                                    JSONObject JSONObject = new JSONObject(response);
+                                    String status = JSONObject.getString("status");
+                                    String message = JSONObject.getString("message");
+                                    if(status.equals("1")){
+                                        Toast.makeText(getApplicationContext(), "Registrasi berhasil", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(activity_register.this, LoginActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }{
+                                    }
 
-                        } catch (JSONException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                    }, new Response.ErrorListener() {
+                                } catch (JSONException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
+                        }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressBar.setVisibility(View.GONE);
-                        tvErorr.setText(error.getLocalizedMessage());
-                        tvErorr.setVisibility(View.VISIBLE);
                         Toast.makeText(getApplicationContext(), "Error: " + error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity_register.this, "Terjadi kesalahan, coba lagi nanti", Toast.LENGTH_SHORT).show();
+
                     }
                 }) {
                     protected Map<String, String> getParams() {
@@ -121,7 +123,5 @@ public class activity_register extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
     }
 }
