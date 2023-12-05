@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SplashActivity extends AppCompatActivity {
 
     Animation anim;
-    ImageView logo1;
+    ImageView logo1, logo2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         logo1 = findViewById(R.id.logo);
+        logo2 = findViewById(R.id.text);
         anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
         anim.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -39,5 +40,6 @@ public class SplashActivity extends AppCompatActivity {
         });
 
         logo1.startAnimation(anim);
+        logo2.startAnimation(anim);
     }
 }
