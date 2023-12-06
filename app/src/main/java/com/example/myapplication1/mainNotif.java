@@ -11,7 +11,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class mainNotif extends AppCompatActivity {
-    Button button;
+    Switch button;
     RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle saveInstanceState) {
@@ -134,8 +134,8 @@ public class mainNotif extends AppCompatActivity {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(getApplicationContext(),chanelID);
         builder.setSmallIcon(R.drawable.notip)
-                .setContentTitle("Judul Notifikasi")
-                .setContentText("Ini contoh notifikasinya")
+                .setContentTitle("Siklus haid akan dimulai")
+                .setContentText("Jangan lupa mencatat harinya")
                 .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
@@ -163,23 +163,6 @@ public class mainNotif extends AppCompatActivity {
         }
         notificationManager.notify(0, builder.build());
     }
-    //        private void calculateNextMonthPeriod(String startDate, int cycleLength) {
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//            try {
-//                Date start = sdf.parse(startDate);
-//                Calendar calendar = Calendar.getInstance();
-//                calendar.setTime(start);
-//                calendar.add(Calendar.DATE, cycleLength); // Hitung estimasi awal haid bulan depan
-//                scheduleNextMonthPeriodNotification(calendar.getTimeInMillis(), "Estimasi Awal Haid", "Perkiraan awal haid bulan depan.");
-//            } catch (ParseException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        private void scheduleNextMonthPeriodNotification(long time, String title, String content) {
-//            Calendar calendar = Calendar.getInstance();
-//            calendar.setTimeInMillis(time);
-//            scheduleNotification(calendar.getTimeInMillis(), title, content);
-//        }
     private void requestAllReminders(String token) {
         // Implementasi untuk mengambil semua pengingat
         // Gunakan Volley atau alat lain untuk membuat permintaan ke API Anda

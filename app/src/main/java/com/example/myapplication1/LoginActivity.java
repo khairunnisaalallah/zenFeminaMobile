@@ -43,15 +43,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnmasuk =findViewById(R.id.masuk);
+        btnmasuk = findViewById(R.id.masuk);
         etemail = findViewById(R.id.email);
         etpw = findViewById(R.id.password);
 //        tvErorr = findViewById(R.id.error);
         progressBar = findViewById(R.id.loading);
         tvregisterNow = findViewById(R.id.registerNow);
-        sharedPreferences =getSharedPreferences("MyAppName", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("MyAppName", MODE_PRIVATE);
 
-        if (sharedPreferences.getString("logged", "false").equals("true")){
+        if (sharedPreferences.getString("logged", "false").equals("true")) {
             Intent intent = new Intent(getApplicationContext(), FragmentActivity.class);
             startActivity(intent);
             finish();
@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                tvErorr.setVisibility(View.GONE);
+//                requireContext();
                 progressBar.setVisibility(View.VISIBLE);
                 email = String.valueOf(etemail.getText());
                 password = String.valueOf(etpw.getText());
@@ -133,7 +134,6 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
-
         // Impor ImageButton
         ImageView backButton = findViewById(R.id.back);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -152,4 +152,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-}
+
+//    private Context requireContext() {
+//        RequestQueue queue = Volley.newRequestQueue(requireContext());
+//        String url = Db_Contract.urlsession;
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        // Handle response here
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        // Handle error here
+//                    }
+//                }
+//        );
+//        queue.add(stringRequest);
+//        return null;
+    }

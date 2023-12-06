@@ -15,4 +15,6 @@ public class notifActivity extends AppCompatActivity {
         String data = getIntent().getStringExtra("data");
         textView.setText(data);
     }
+    //hati2 buat notif muncul
+
 }

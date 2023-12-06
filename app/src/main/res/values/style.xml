@@ -13,6 +13,11 @@
         <item name="colorAccent">#DA4256</item>
         <!-- Ganti dengan warna yang diinginkan -->
     </style>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <!-- ... konfigurasi lainnya ... -->
+        <item name="colorSurface">#00A57D</item>
+    </style>
+
 
 
 

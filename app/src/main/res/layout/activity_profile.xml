@@ -80,7 +80,7 @@
                 app:srcCompat="@drawable/txtf" />
 
             <EditText
-                android:id="@+id/birthdate"
+                android:id="@+id/birthDate"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="70dp"
@@ -306,7 +306,7 @@
             android:id="@+id/floatcam"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginStart="75dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="79dp"
             android:backgroundTint="#DA4256"
             android:clickable="true"

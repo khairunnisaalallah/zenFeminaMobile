@@ -27,9 +27,14 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    // Konfigurasi Kotlin
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
 }
@@ -41,7 +46,6 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation ("com.github.dhaval2404:imagepicker:2.1")
-    implementation("com.google.android.material:material:1.11.0-alpha03")
     implementation("androidx.leanback:leanback:1.0.0")
     implementation("com.github.bumptech.glide:glide:4.11.0")
     testImplementation("junit:junit:4.13.2")
@@ -52,8 +56,9 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
     //    Lib
     implementation("com.google.android.material:material:1.2.1")
-    implementation("com.google.android.material:material:1.3.0-alpha03")
     implementation("com.google.android.gms:play-services-location:17.1.0")
+    implementation ("com.google.android.material:material:1.5.0")
+
 
     implementation("androidx.room:room-ktx:2.2.5")
     implementation ("io.github.chaosleung:pinview:1.4.4")
@@ -63,7 +68,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.0.0")
 
     implementation ("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+//    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
 
 

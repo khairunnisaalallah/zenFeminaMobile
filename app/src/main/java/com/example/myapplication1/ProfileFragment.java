@@ -68,7 +68,7 @@ public class ProfileFragment extends Fragment {
                     JSONArray jsonArray = jsonObject.getJSONArray("data");
                     // Misalnya, jika Anda ingin mengambil nilai dari elemen pertama di dalam array:
                     JSONObject dataObject = jsonArray.getJSONObject(0);
-                    String name = dataObject.optString("name"); // Menggunakan optString untuk mendapatkan string kosong jika nilai "name" null
+                    String name = dataObject.getString("name"); // Menggunakan optString untuk mendapatkan string kosong jika nilai "name" null
                     String username = dataObject.getString("username");
                     String email = dataObject.getString("email");
 
@@ -101,8 +101,8 @@ public class ProfileFragment extends Fragment {
                                         tvperiod.setText(periodLength);
                                     } else {
                                         // Tampilkan pesan kesalahan jika ada masalah dalam mendapatkan data
-                                        String message = jsonObjectEstimation.getString("message");
-                                        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                                       // String message = jsonObjectEstimation.getString("message");
+                                       // Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -154,14 +154,12 @@ public class ProfileFragment extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 performLogout();
-                                Toast.makeText(requireContext(), "You choose yes action for alertBox", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
-                                Toast.makeText(requireContext(), "You choose no action for alertBox", Toast.LENGTH_SHORT).show();
                             }
                         });
                 //creating dialog box
@@ -244,5 +242,3 @@ public class ProfileFragment extends Fragment {
         queue.add(stringRequest);
     }
 }
-
-
