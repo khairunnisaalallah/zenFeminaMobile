@@ -20,5 +20,12 @@ public class Db_Contract {
     public static String urlReminderbyId =  "http://"+ip+"/reminderById";
     public static String urlreminderGet =  "http://"+ip+"/reminderGet";
     public static String urlreminderUpdate =  "http://"+ip+"/reminderUpdate";
+<<<<<<< HEAD
     public static String urlsession =  "http://"+ip+"/session";
+=======
+    public static String urlqadha=  "http://"+ip+"/prayer";
+
+    public static  String getUrlHistory =  "http://"+ip+"/history";
+
+>>>>>>> 1fc65acddc7674866c6cb25b7229b2f56fb8db35
 }

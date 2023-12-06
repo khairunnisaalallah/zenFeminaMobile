@@ -93,7 +93,8 @@ public class LoginActivity extends AppCompatActivity {
                                         if (status.equals("1")) {
                                             Toast.makeText(getApplicationContext(), "Berhasil Masuk", Toast.LENGTH_SHORT).show();
                                             //habis login masuk ke activity_pertanyaan1
-                                            Intent intent = new Intent(LoginActivity.this, FragmentActivity.class);
+                                            Intent intent = new Intent(LoginActivity.this, activity_pertanyaan1.class);
+                                            intent.putExtra("token", token);
                                             startActivity(intent);
                                             finish();
                                         } else {
