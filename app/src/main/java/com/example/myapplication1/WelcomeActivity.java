@@ -13,7 +13,6 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-
         Button loginButton = findViewById(R.id.btnlogin);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -21,7 +20,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 // Arahkan ke LoginActivity
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(intent);
-
             }
         });
 

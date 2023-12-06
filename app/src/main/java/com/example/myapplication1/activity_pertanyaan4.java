@@ -2,6 +2,7 @@ package com.example.myapplication1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,6 @@ public class activity_pertanyaan4 extends AppCompatActivity {
     private EditText editTextDataPertanyaan4;
     private Button kirimButton;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,27 +43,33 @@ public class activity_pertanyaan4 extends AppCompatActivity {
     }
 
     private void sendDataToServer() {
-        String token = getIntent().getStringExtra("token");
-        String value1 = getIntent().getStringExtra("value1");
-        String value2 = getIntent().getStringExtra("value2");
-        String value3 = getIntent().getStringExtra("value3");
+        // Gunakan Bundle untuk mengirim data ke Intent
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            Toast.makeText(this, "Data yang dibutuhkan tidak tersedia", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        // Periksa nilai null sebelum digunakan
-        if (token == null || value1 == null || value2 == null || value3 == null) {
-            // Handle kasus di mana ada nilai null
+        String token = extras.getString("token");
+        String value1 = extras.getString("value1");
+        String value2 = extras.getString("value2");
+        String value3 = extras.getString("value3");
+
+        // Periksa null menggunakan TextUtils.isEmpty()
+        if (TextUtils.isEmpty(token) || TextUtils.isEmpty(value1) || TextUtils.isEmpty(value2) || TextUtils.isEmpty(value3)) {
             Toast.makeText(this, "Nilai token atau value null", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        final String dataPertanyaan4 = editTextDataPertanyaan4.getText().toString().trim();
+        final String value4 = editTextDataPertanyaan4.getText().toString().trim();
 
-        if (dataPertanyaan4.isEmpty()) {
+        if (TextUtils.isEmpty(value4)) {
             Toast.makeText(this, "Isi pertanyaan terlebih dahulu", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Ganti URL dengan Db_Contract.urlpertanyaan
-        String url = Db_Contract.urlpertanyaan;
+        String url = Db_Contract.urlpertanyaan + "?token=" + LoginActivity.token;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -75,6 +81,8 @@ public class activity_pertanyaan4 extends AppCompatActivity {
                         // Misalnya, tampilkan pesan sukses atau lanjut ke halaman berikutnya
                         Toast.makeText(activity_pertanyaan4.this, "Data berhasil dikirim", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(activity_pertanyaan4.this, FragmentActivity.class);
+
+                        intent.putExtra("value4", value4);
                         intent.putExtra("value3", value3);
                         intent.putExtra("value1", value1);
                         intent.putExtra("value2", value2);
@@ -98,7 +106,7 @@ public class activity_pertanyaan4 extends AppCompatActivity {
                 params.put("birthDate", value1);
                 params.put("lastDate", value2);
                 params.put("cycle", value3);
-                params.put("period", dataPertanyaan4);
+                params.put("period", value4);
 
                 // Hapus parameter yang memiliki nilai null
                 params.values().removeIf(Objects::isNull);

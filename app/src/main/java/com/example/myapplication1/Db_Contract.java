@@ -12,4 +12,16 @@ public class Db_Contract {
     public  static String urlEdukasi="http://"+ip+"/education";
     public  static String urlpertanyaan="http://"+ip+"/question";
     public static  String urladdOnClick= "http://"+ip+"/addOnClicked";
+    public static String urlProfile="http://"+ip+"/profileAPI";
+    public static String urlCycleEst = "http://"+ip+"/reminderGet";
+    public static String urlgetEst = "http://"+ip+"/estimation";
+    public static String urlHistory = "http://"+ip+"/history";
+    //3 api notif
+    public static String urlReminderbyId =  "http://"+ip+"/reminderById";
+    public static String urlreminderGet =  "http://"+ip+"/reminderGet";
+    public static String urlreminderUpdate =  "http://"+ip+"/reminderUpdate";
+    public static String urlqadha=  "http://"+ip+"/prayer";
+
+    public static  String getUrlHistory =  "http://"+ip+"/history";
+
 }

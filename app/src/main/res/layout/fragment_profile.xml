@@ -1,295 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/titleprofile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:fontFamily="@font/outfitlight"
-        android:text="Profile"
-        android:textColor="#000000"
-        android:layout_marginTop="25dp"
-        android:textSize="24sp" />
-
-    <ImageButton
-        android:id="@+id/backfprofile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:background="#FFFFFF"
-        android:clickable="true"
-        android:onClick="onButtonClick"
-        app:srcCompat="@drawable/back" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/profile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:background="#B5B5B5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearance="@style/circular"
-        app:srcCompat="@drawable/baseline_person_24" />
-
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/outfitlight"
-        android:hint="Username"
-        android:textColor="#000000"
-        android:textSize="17sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="menu">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="270dp"
-                    android:layout_marginTop="250dp"
-                    android:layout_marginBottom="14dp"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="10dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:clickable="true">
-
-                        <ImageView
-                            android:id="@+id/profile2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="65dp"
-                            android:layout_marginTop="12dp"
-                            android:src="@drawable/profile" />
-
-                        <TextView
-                            android:id="@+id/email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="Email"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="65dp"
-                            android:layout_alignParentEnd="true"
-                            android:fontFamily="@font/outfitlight"
-                            android:textColor="#000000"/>
-
-                        <TextView
-                            android:id="@+id/tvemail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="100dp"
-                            android:layout_marginTop="15dp"
-                            android:fontFamily="@font/outfitlight"
-                            android:text="Email"
-                            android:textColor="#000000" />
-
-                        <ImageView
-                            android:id="@+id/lineid"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="49dp"
-                            android:src="@drawable/linevec" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:clickable="true">
-
-                        <TextView
-                            android:id="@+id/tvlamaperiod"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginTop="14dp"
-                            android:layout_marginEnd="65dp"
-                            android:fontFamily="@font/outfitlight"
-                            android:hint="TextView"
-                            android:textColor="#000000" />
-
-                        <ImageView
-                            android:id="@+id/period"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="65dp"
-                            android:layout_marginTop="12dp"
-                            android:src="@drawable/period" />
-
-                        <TextView
-                            android:id="@+id/speriod"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="100dp"
-                            android:textColor="#000000"
-                            android:layout_marginTop="14dp"
-                            android:fontFamily="@font/outfitlight"
-                            android:text="Lama Period" />
-                        <ImageView
-                            android:id="@+id/lineid2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="49dp"
-                            android:src="@drawable/linevec" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:clickable="true">
-
-                        <TextView
-                            android:id="@+id/tvlamasiklus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginEnd="65dp"
-                            android:fontFamily="@font/outfitlight"
-                            android:hint="TextView"
-                            android:textColor="#000000" />
-
-                        <ImageView
-                            android:id="@+id/cycle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="65dp"
-                            android:layout_marginTop="12dp"
-                            android:src="@drawable/cycle" />
-
-                        <TextView
-                            android:id="@+id/siklus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="100dp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="#000000"
-                            android:fontFamily="@font/outfitlight"
-                            android:text="Lama Siklus" />
-
-                        <ImageView
-                            android:id="@+id/lineid3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="49dp"
-                            android:src="@drawable/linevec" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:clickable="true">
-
-                        <ImageView
-                            android:id="@+id/pengaturan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="65dp"
-                            android:layout_marginTop="12dp"
-                            android:src="@drawable/baseline_settings_24" />
-
-                        <TextView
-                            android:id="@+id/textView7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginStart="100dp"
-                            android:fontFamily="@font/outfitlight"
-                            android:textColor="#000000"
-                            android:text="Pengaturan" />
-                        <ImageView
-                            android:id="@+id/lineid4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="49dp"
-                            android:src="@drawable/linevec" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:clickable="true">
-
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="100dp"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/outfitlight"
-                            android:textColor="#000000"
-                            android:text="Ubah Profile" />
-
-                        <Button
-                            android:id="@+id/bmore"
-                            android:layout_width="60dp"
-                            android:layout_height="70dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="65dp"
-                            android:background="@drawable/more"
-                            android:clickable="true"
-                            android:onClick="onButtonClick"
-                            android:foreground="?android:attr/selectableItemBackground"/>
-
-                    </RelativeLayout>
-                </LinearLayout>
-
-            </RelativeLayout>
-        </FrameLayout>
-    </LinearLayout>
 
     <Button
         android:id="@+id/logout"
@@ -307,6 +21,303 @@
         android:onClick="onButtonClick"
         android:text="Log Out"
         android:textColor="#FFFFFF"
-        android:textSize="19sp" />
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-100dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@drawable/eclip" />
+
+    <TextView
+        android:id="@+id/titleprofile3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:fontFamily="@font/outfitlight"
+        android:text="Profile"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="#DA4256"
+        android:clickable="true"
+        android:onClick="onButtonClick"
+        app:srcCompat="@drawable/back2" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="50dp"
+        android:background="#B5B5B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearance="@style/circular"
+        app:srcCompat="@drawable/baseline_person_24" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="310dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/outfitmedium"
+                    android:text="UserName"
+                    android:textColor="#DA4256"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="35dp"
+                    android:fontFamily="@font/outfitlight"
+                    android:hint="username"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/lineid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="49dp"
+                    android:src="@drawable/lineee" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/outfitmedium"
+                    android:text="Email"
+                    android:textColor="#DA4256"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="35dp"
+                    android:fontFamily="@font/outfitlight"
+                    android:hint="email"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/lineid2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="49dp"
+                    android:src="@drawable/lineee" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/speriod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/outfitmedium"
+                    android:text="Lama Period"
+                    android:textColor="#DA4256"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/period_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="35dp"
+                    android:fontFamily="@font/outfitlight"
+                    android:hint="-"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/lineid3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="49dp"
+                    android:src="@drawable/lineee" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/cycle_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="35dp"
+                    android:fontFamily="@font/outfitlight"
+                    android:hint="-"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/siklus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/outfitmedium"
+                    android:text="Lama Siklus"
+                    android:textColor="#DA4256"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/lineid4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="49dp"
+                    android:src="@drawable/lineee" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/pengaturan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/outfitmedium"
+                    android:text="Pengaturan"
+                    android:textColor="#DA4256"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/bmore"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="35dp"
+                    android:background="@drawable/baseline_settings_24"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/notifikasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/outfitmedium"
+                    android:text="Notifikasi"
+                    android:textColor="#DA4256"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btnnotif"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="35dp"
+                    android:background="@drawable/notifikasi"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="219dp"
+            android:fontFamily="@font/outfitlight"
+            android:gravity="center_horizontal"
+            android:hint="-"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

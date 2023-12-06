@@ -9,20 +9,21 @@
         android:id="@+id/loginNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="105dp"
+        android:layout_marginEnd="110dp"
         android:layout_marginTop="680dp"
         android:layout_alignParentEnd="true"
         android:clickable="true"
         android:fontFamily="@font/outfitbold"
         android:onClick="onButtonClick"
+        android:textSize="15sp"
         android:text="Masuk" />
 
     <TextView
         android:id="@+id/btntext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginEnd="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="110dp"
         android:layout_marginTop="680dp"
         android:fontFamily="@font/outfitlight"
         android:text="Sudah punya akun?"
@@ -47,7 +48,7 @@
         android:fontFamily="@font/outfitbold"
         android:text="Daftar"
         android:textColor="#454444"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         android:layout_marginTop="75dp" />
 
@@ -55,13 +56,13 @@
         android:id="@+id/btntext2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="120dp"
         android:layout_marginBottom="100dp"
         android:fontFamily="@font/outfitlight"
         android:text="Daftarkan akunmu sekarang!"
         android:textColor="#8B8B8B"
-        android:textSize="12sp" />
+        android:textSize="15sp" />
 
     <ImageButton
         android:id="@+id/imageButtonbackr"
@@ -106,13 +107,13 @@
         android:id="@+id/email"
         android:layout_width="250dp"
         android:layout_height="30dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="280dp"
         android:background="#99FFFFFF"
         android:ems="10"
         android:fontFamily="@font/outfitlight"
         android:hint="Email"
-        android:textSize="14dp"
+        android:textSize="15sp"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
@@ -121,14 +122,14 @@
         android:id="@+id/password"
         android:layout_width="250dp"
         android:layout_height="30dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="350dp"
         android:background="#99FFFFFF"
         android:ems="10"
         android:fontFamily="@font/outfitlight"
         android:hint="Kata Sandi"
         android:inputType="textPassword"
-        android:textSize="14dp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
@@ -137,13 +138,13 @@
         android:id="@+id/username"
         android:layout_width="250dp"
         android:layout_height="30dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="210dp"
         android:background="#99FFFFFF"
         android:ems="10"
         android:fontFamily="@font/outfitlight"
         android:hint="Username"
-        android:textSize="14dp"
+        android:textSize="15sp"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="@+id/imageView9" />
@@ -161,22 +162,8 @@
         android:onClick="onButtonClick"
         android:text="Daftar"
         android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
-
-
-    <TextView
-        android:id="@+id/error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="460dp"
-        android:text="error_while_logging_in"
-        android:textColor="#F44336"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -184,7 +171,7 @@
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:layout_marginLeft="182dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="400dp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

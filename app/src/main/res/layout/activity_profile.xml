@@ -5,6 +5,233 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="390dp">
+
+            <TextView
+                android:id="@+id/tvktsandi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Kata Sandi"
+                android:textColor="#464444"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/kotak4"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/txtf" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="28dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/outfitlight"
+                android:hint="Kata Sandi"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="530dp">>
+
+            <TextView
+                android:id="@+id/tvbirthdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Tanggal Lahir"
+                android:textColor="#464444"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/calender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="300dp"
+                android:layout_marginEnd="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/planner" />
+
+            <ImageView
+                android:id="@+id/kotak6"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/txtf" />
+
+            <EditText
+                android:id="@+id/birthdate"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="28dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/outfitlight"
+                android:hint="Tanggal Lahir"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="460dp">>
+
+            <TextView
+                android:id="@+id/tvphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Nomor Telepon"
+                android:textColor="#464444"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/kotak5"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/txtf" />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="28dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/outfitlight"
+                android:hint="Nomor Telepon"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="320dp">>
+
+            <TextView
+                android:id="@+id/tvusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Username"
+                android:textColor="#464444"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/kotak3"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/txtf" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="28dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/outfitlight"
+                android:hint="Username"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="250dp">
+
+            <TextView
+                android:id="@+id/tvemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Email"
+                android:textColor="#464444"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/kotak2"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/txtf" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="28dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/outfitlight"
+                android:hint="Email"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="180dp">
+
+            <TextView
+                android:id="@+id/tvname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Nama"
+                android:textColor="#464444"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/kotak1"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/txtf" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="28dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/outfitlight"
+                android:hint="Nama"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,12 +240,10 @@
         <Button
             android:id="@+id/simpanp"
             style="@android:style/Widget.Button"
-            android:layout_width="312dp"
+            android:layout_width="322dp"
             android:layout_height="42dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="47dp"
+            android:layout_marginTop="642dp"
+            android:layout_marginBottom="101dp"
             android:background="@drawable/button_backround"
             android:clickable="true"
             android:fontFamily="@font/outfitbold"
@@ -28,166 +253,24 @@
             android:textSize="19sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView13" />
-
-        <TextView
-            android:id="@+id/btntext8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="49dp"
-            android:fontFamily="@font/outfitlight"
-            android:text="Username"
-            android:textColor="#464444"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView10"
-            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
-
-        <TextView
-            android:id="@+id/btntext5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:fontFamily="@font/outfitlight"
-            android:text="Nama Lengkap"
-            android:textColor="#464444"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="@+id/imageView3" />
-
-        <TextView
-            android:id="@+id/btntext9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:fontFamily="@font/outfitlight"
-            android:text="Tanggal Lahir"
-            android:textColor="#464444"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView12"
-            app:layout_constraintStart_toStartOf="@+id/imageView12" />
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btntext6"
-            app:srcCompat="@drawable/txtf" />
-
-        <TextView
-            android:id="@+id/btntext6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/outfitlight"
-            android:text="Email"
-            android:textColor="#464444"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTextEmailAddress"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btntext7"
-            app:srcCompat="@drawable/txtf" />
-
-        <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btntext8"
-            app:srcCompat="@drawable/txtf" />
-
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView11"
-            app:srcCompat="@drawable/txtf" />
-
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="60dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView12"
-            app:layout_constraintTop_toTopOf="@+id/imageView12"
-            app:srcCompat="@drawable/planner" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="77dp"
-            android:layout_marginEnd="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile"
-            app:srcCompat="@drawable/txtf" />
-
-        <EditText
-            android:id="@+id/editTextTextEmailAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:background="#FFFFFF"
-            android:ems="10"
-            android:fontFamily="@font/outfitlight"
-            android:hint="Username"
-            android:inputType="textEmailAddress"
-            android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="@+id/btntext7"
-            app:layout_constraintTop_toTopOf="@+id/imageView9" />
-
-        <TextView
-            android:id="@+id/btntext7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="49dp"
-            android:fontFamily="@font/outfitlight"
-            android:text="No Telepon"
-            android:textColor="#464444"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView9"
-            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/btntext4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/outfitlight"
             android:text="Ubah Profile"
             android:textColor="#000000"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.516"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/profile"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <ImageButton
             android:id="@+id/back"
@@ -200,76 +283,41 @@
             android:onClick="onButtonClick"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/back" />
+            app:srcCompat="@drawable/back"
+            tools:ignore="MissingConstraints" />
 
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profile"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="0dp"
             android:layout_marginTop="14dp"
+
             android:background="#B5B5B5"
+            app:layout_constraintBottom_toBottomOf="@+id/floatcam"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btntext4"
             app:shapeAppearance="@style/circular"
-            app:srcCompat="@drawable/baseline_person_24" />
+            app:srcCompat="@drawable/baseline_person_24"
+            tools:ignore="MissingConstraints" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatcam"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="79dp"
             android:backgroundTint="#DA4256"
             android:clickable="true"
             android:contentDescription="TODO"
             android:focusable="true"
             app:backgroundTint="#DA4256"
             app:fabCustomSize="37dp"
-            app:layout_constraintBottom_toBottomOf="@+id/profile"
-            app:layout_constraintEnd_toEndOf="@+id/profile"
-            app:srcCompat="@drawable/baseline_camera_alt_24" />
-
-        <EditText
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="13dp"
-            android:background="#ffffff"
-            android:fontFamily="@font/outfitlight"
-            android:hint="Nama Lengkap"
-            android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="@+id/btntext5"
-            app:layout_constraintTop_toTopOf="@+id/imageView3" />
-
-        <EditText
-            android:id="@+id/editTextPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:background="#FFFFFF"
-            android:ems="10"
-            android:fontFamily="@font/outfitlight"
-            android:hint="08xx xxxx xxxx"
-            android:inputType="phone"
-            android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="@+id/btntext7"
-            app:layout_constraintTop_toTopOf="@+id/imageView10" />
-
-        <EditText
-            android:id="@+id/username"
-            android:layout_width="170dp"
-            android:background="#ffffff"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="13dp"
-            android:fontFamily="@font/outfitlight"
-            android:hint="example"
-            android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="@+id/btntext8"
-            app:layout_constraintTop_toTopOf="@+id/imageView11" />
+            app:layout_constraintStart_toStartOf="@+id/profile"
+            app:layout_constraintTop_toBottomOf="@+id/btntext4"
+            app:srcCompat="@drawable/baseline_camera_alt_24"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
