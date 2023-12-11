@@ -17,14 +17,17 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -33,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etemail, etpw;
     TextView tvregisterNow;
     ProgressBar progressBar;
-    String username, email, password, session_id;
+    String username, email, password, birthDate;
     SharedPreferences sharedPreferences;
     public static String token;
 
@@ -46,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
         btnmasuk = findViewById(R.id.masuk);
         etemail = findViewById(R.id.email);
         etpw = findViewById(R.id.password);
-//        tvErorr = findViewById(R.id.error);
         progressBar = findViewById(R.id.loading);
         tvregisterNow = findViewById(R.id.registerNow);
         sharedPreferences = getSharedPreferences("MyAppName", MODE_PRIVATE);
@@ -59,8 +61,6 @@ public class LoginActivity extends AppCompatActivity {
         btnmasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                tvErorr.setVisibility(View.GONE);
-//                requireContext();
                 progressBar.setVisibility(View.VISIBLE);
                 email = String.valueOf(etemail.getText());
                 password = String.valueOf(etpw.getText());
@@ -92,18 +92,13 @@ public class LoginActivity extends AppCompatActivity {
                                         token = jsonObject.getString("token");
                                         if (status.equals("1")) {
                                             Toast.makeText(getApplicationContext(), "Berhasil Masuk", Toast.LENGTH_SHORT).show();
-                                            //habis login masuk ke activity_pertanyaan1
-                                            Intent intent = new Intent(LoginActivity.this, activity_pertanyaan1.class);
-                                            intent.putExtra("token", token);
-                                            startActivity(intent);
-                                            finish();
+                                            getbirthdate(token);
                                         } else {
-//                                                tvErorr.setText((message));
-//                                                tvErorr.setVisibility(View.VISIBLE);
+                                           Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
-                                        Toast.makeText(getApplicationContext(), "Username atau Kata sandi salah", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }, new Response.ErrorListener() {
@@ -154,23 +149,50 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-//    private Context requireContext() {
-//        RequestQueue queue = Volley.newRequestQueue(requireContext());
-//        String url = Db_Contract.urlsession;
-//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        // Handle response here
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        // Handle error here
-//                    }
-//                }
-//        );
-//        queue.add(stringRequest);
-//        return null;
+    private void getbirthdate(String token) {
+        // URL endpoint API get_profile() dengan parameter token yang sesuai
+        String url = Db_Contract.urlProfile + "?token=" + token;
+
+        // Buat request GET menggunakan Volley
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // Handle response dari server jika permintaan sukses
+                        try {
+                            JSONArray dataArray = response.getJSONArray("data");
+                            JSONObject userData = dataArray.getJSONObject(0);
+                            birthDate = userData.getString("birthdate");
+
+                            Intent intent;
+                            if (birthDate.length() == 4) {
+                                intent = new Intent(LoginActivity.this, activity_pertanyaan1.class);
+                            } else {
+                                intent = new Intent(LoginActivity.this, FragmentActivity.class);
+                            }
+
+                            if (token != null && !token.equals("")) {
+                                intent.putExtra("token", token);
+                            }
+                            startActivity(intent);
+                            finish();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "Error parsing JSON", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Handle error jika permintaan gagal
+                error.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Tambahkan request ke queue
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonObjectRequest);
     }
+
+}
