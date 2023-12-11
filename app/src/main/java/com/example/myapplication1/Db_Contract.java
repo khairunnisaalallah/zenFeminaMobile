@@ -8,7 +8,7 @@ public class Db_Contract {
     public static String urlEmailVerification = "http://"+ip+"/emailVerification";
     public static String urlOtpVerification = "http://"+ip+"/otpVerification";
     public static String urlNewPassword = "http://"+ip+"/newPassword";
-    public static String urlLogout="http://"+ip+"/login-registration-android/logout.php";
+    public static String urlLogout="http://"+ip+"/signOut";
     public  static String urlEdukasi="http://"+ip+"/education";
     public  static String urlpertanyaan="http://"+ip+"/question";
     public static  String urladdOnClick= "http://"+ip+"/addOnClicked";
