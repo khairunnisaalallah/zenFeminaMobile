@@ -10,21 +10,21 @@
         android:id="@+id/textviewMG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/outfitlight"
         android:text="ZenFemina"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/imageButtoncalender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="60dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/calender" />
 
@@ -34,9 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="105dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="20dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/notifikasi" />
 
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textviewMG"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="220dp"
         app:srcCompat="@drawable/lingkarandashboard" />
 
     <ImageButton
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageViewLingkaran"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         app:srcCompat="@drawable/btnqadha"
         android:background="@android:color/transparent" />
 
@@ -68,7 +68,7 @@
         android:layout_alignTop="@+id/buttonhaid"
         android:layout_alignEnd="@+id/buttonhaid"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="11dp"
         android:layout_marginEnd="50dp"
         android:gravity="center_vertical"
         android:text="Liat Hutang Shalatmu Disini"
@@ -85,24 +85,20 @@
         android:layout_alignStart="@+id/imageViewLingkaran"
         android:layout_alignTop="@+id/imageViewLingkaran"
         android:layout_alignEnd="@+id/imageViewLingkaran"
-        android:layout_marginStart="69dp"
         android:layout_marginTop="200dp"
-        android:layout_marginEnd="69dp"
+        android:layout_centerHorizontal="true"
         android:gravity="center_vertical"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/btnawali" />
 
     <TextView
         android:id="@+id/textViewBtn"
-        android:layout_width="132dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textviewMG"
-        android:layout_alignStart="@+id/imageViewLingkaran"
         android:layout_alignTop="@+id/imageViewLingkaran"
-        android:layout_alignEnd="@+id/imageViewLingkaran"
-        android:layout_marginStart="102dp"
         android:layout_marginTop="207dp"
-        android:layout_marginEnd="102dp"
+        android:layout_centerHorizontal="true"
         android:gravity="center_vertical"
         android:textColor="#DA4256"
         android:textSize="12sp"
@@ -126,23 +122,23 @@
 
     <TextView
         android:id="@+id/hari"
-        android:layout_width="155dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textviewMG"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="295dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical"
         android:textColor="#DA4256"
-        android:textSize="28sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         tools:text="10 Hari Lagi" />
 
     <TextView
         android:id="@+id/menujusiklus"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/textviewMG"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="340dp"
         android:layout_centerHorizontal="true"
         android:text="menuju siklus haid selanjutnya"
         android:textAlignment="center"
@@ -155,7 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textviewMG"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="75dp"
         app:srcCompat="@drawable/kotakdashboard" />
 
     <TextView
