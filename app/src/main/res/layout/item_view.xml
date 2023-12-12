@@ -18,23 +18,24 @@
     <TextView
         android:id="@+id/judul"
         android:layout_width="265dp"
-        android:layout_height="50dp"
+        android:layout_height="35dp"
         android:layout_marginLeft="136dp"
+        android:layout_marginTop="8dp"
         android:gravity="center_vertical"
         android:textColor="@color/black"
         android:textSize="17sp"
-        tools:text="judul" />
+        tools:text=" judul" />
 
     <TextView
         android:id="@+id/isi"
         android:layout_width="265dp"
-        android:layout_height="50dp"
+        android:layout_height="58dp"
         android:layout_marginLeft="136dp"
-        android:layout_marginTop="41dp"
-        android:gravity="center_vertical"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        tools:text="isi" />
+        android:layout_marginTop="45dp"
+        android:gravity="top|start"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="13sp"
+        tools:text=" isi" />
 
     <LinearLayout
         android:layout_width="match_parent"
