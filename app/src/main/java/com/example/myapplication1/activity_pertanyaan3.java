@@ -34,6 +34,7 @@ public class activity_pertanyaan3 extends AppCompatActivity {
 
                 if (value3.isEmpty()) {
                     Toast.makeText(activity_pertanyaan3.this, "Isi pertanyaan terlebih dahulu", Toast.LENGTH_SHORT).show();
+                    return;
                 } else {
                     Intent intent = new Intent(activity_pertanyaan3.this, activity_pertanyaan4.class);
                     intent.putExtra("value1", value1);

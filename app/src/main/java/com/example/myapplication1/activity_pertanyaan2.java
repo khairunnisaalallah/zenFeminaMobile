@@ -3,6 +3,7 @@ package com.example.myapplication1;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,7 @@ public class activity_pertanyaan2 extends AppCompatActivity {
     private ImageButton datePicker;
     private Button nextButton;
     private Calendar calendar;
+    private EditText editTextDate2;
 
     public static String value2;
 
@@ -31,6 +33,7 @@ public class activity_pertanyaan2 extends AppCompatActivity {
         datePicker = findViewById(R.id.imageButton2);
         nextButton = findViewById(R.id.selanjutnya2);
         calendar = Calendar.getInstance();
+        editTextDate2 = findViewById(R.id.editTextDate2);
 
         datePicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,15 +49,18 @@ public class activity_pertanyaan2 extends AppCompatActivity {
                     String token = getIntent().getStringExtra("token");
                     String value1 = getIntent().getStringExtra("value1");
 
-                    if (selectedDateTime != null) {
+                final String value = editTextDate2.getText().toString().trim();
+
+                if (TextUtils.isEmpty(value)) {
+                    Toast.makeText(activity_pertanyaan2.this, "Isi pertanyaan terlebih dahulu", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                         Intent intent = new Intent(activity_pertanyaan2.this, activity_pertanyaan3.class);
                         intent.putExtra("token", token);
                         intent.putExtra("value1", value1);
                         intent.putExtra("value2", selectedDateTime); // Menyertakan value2 dalam Intent
                         startActivity(intent);
-                    } else {
-                        Toast.makeText(activity_pertanyaan2.this, "Pilih tanggal terlebih dahulu", Toast.LENGTH_SHORT).show();
-                    }
                 }
 
             });
@@ -72,7 +78,6 @@ public class activity_pertanyaan2 extends AppCompatActivity {
                         calendar.set(Calendar.HOUR_OF_DAY, Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
                         calendar.set(Calendar.MINUTE, Calendar.getInstance().get(Calendar.MINUTE));
 
-                        EditText editTextDate2 = findViewById(R.id.editTextDate2);
                         editTextDate2.setText(getSelectedDateTime());
                     }
                 },

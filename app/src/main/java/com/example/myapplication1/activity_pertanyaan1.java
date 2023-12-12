@@ -3,12 +3,14 @@ package com.example.myapplication1;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -49,8 +51,12 @@ public class activity_pertanyaan1 extends AppCompatActivity {
                 String selectedDate = getSelectedDate();
                 value1 = selectedDate;
 
-                Log.d("Tanggal", "Nilai tanggal yang dikirim: " + value1);
+                final String value = editTextDate.getText().toString().trim();
 
+                if (TextUtils.isEmpty(value)) {
+                    Toast.makeText(activity_pertanyaan1.this, "Isi pertanyaan terlebih dahulu", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 // Mengambil nilai token dari Intent
                 String token = getIntent().getStringExtra("token");
