@@ -106,30 +106,47 @@ public class HomeFragment extends Fragment {
                     if (jsonArray.length() > 0) {
                         JSONObject dataObject = jsonArray.getJSONObject(0);
                         String startdate = dataObject.optString("start_date", ""); // Menggunakan optString untuk mendapatkan string kosong jika nilai "start_date" null
-
-
                         String startdatenew = convertDateFormat(startdate.substring(0,10));
 
-
-
-
+                        String enddate = dataObject.optString("end_date", "");
 
                         if (!startdate.isEmpty() ) {
-                            firstDateTextView.setText(startdatenew);
-
+                            lastDateTextView.setText(startdatenew);
 
                             // Setelah menampilkan data profil, lakukan permintaan ke getEstimation di sini
                             try {
                                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-                                Date startDate = sdf.parse(startdate);
-                                Date currentDate = new Date();
-                                long diffInMillis = startDate.getTime() - currentDate.getTime(); // Perubahan di sini
-                                long diffInDays = diffInMillis / (24 * 60 * 60 * 1000);
 
-                                // Menampilkan selisih hari di TextView dengan ID "hari"
+                                Date startDate = sdf.parse(startdate);
+                                Date endDate = sdf.parse(enddate);
+                                Date currentDate = new Date();
+
+
+                                long diffInMillisBegin = startDate.getTime() - currentDate.getTime();
+                                long beginCycle = diffInMillisBegin / (24 * 60 * 60 * 1000);
+
+                                long diffInMillisEnd = endDate.getTime() - currentDate.getTime();
+                                long endCycle = diffInMillisEnd / (24 * 60 * 60 * 1000);
+
+                                String days = null;
+                                String nextWords = null;
+                                String cycleWords = null;
+                                if(startDate.after(currentDate)){
+                                    days = beginCycle + " Hari Lagi";
+                                    nextWords = "menuju periode Haid selanjutnya";
+                                    cycleWords = "Siklus selanjutnya";
+                                } else {
+                                    days = endCycle + " Hari lagi";
+                                    nextWords = "Kemungkinan periode Haid berakhir";
+                                    cycleWords = "Siklus saat ini";
+                                }
+
                                 TextView hariTextView = view.findViewById(R.id.hari);
-                                String selisihHariText = diffInDays + " Hari Lagi";
-                                hariTextView.setText(selisihHariText);
+                                TextView nextTextView = view.findViewById(R.id.menujusiklus);
+                                TextView lastDateWords = view.findViewById(R.id.lastdateWords);
+                                hariTextView.setText(days);
+                                nextTextView.setText(nextWords);
+                                lastDateWords.setText(cycleWords);
 
                             } catch (ParseException e) {
                                 e.printStackTrace();
@@ -191,7 +208,7 @@ public class HomeFragment extends Fragment {
                                 String newenddate = convertDateFormat(enddate.substring(0, 10));
 
                                 history_id = dataObject.getString("cycleHistory_id");
-                                lastDateTextView.setText(newenddate);
+                                firstDateTextView.setText(newenddate);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
