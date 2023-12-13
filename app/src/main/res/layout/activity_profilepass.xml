@@ -73,6 +73,7 @@
                 android:background="#99ffffff"
                 android:fontFamily="@font/outfitlight"
                 android:hint="kata sandi "
+                android:inputType="textPassword"
                 android:textSize="14sp" />
 
         </RelativeLayout>
@@ -102,7 +103,7 @@
                 app:srcCompat="@drawable/txtf" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/secondpass"
                 android:layout_width="230dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="65dp"
@@ -110,11 +111,12 @@
                 android:background="#99ffffff"
                 android:fontFamily="@font/outfitlight"
                 android:hint="Kata Sandi"
+                android:inputType="textPassword"
                 android:textSize="14sp" />
         </RelativeLayout>
 
         <Button
-            android:id="@+id/simpanp"
+            android:id="@+id/simpan"
             style="@android:style/Widget.Button"
             android:layout_width="322dp"
             android:layout_height="42dp"

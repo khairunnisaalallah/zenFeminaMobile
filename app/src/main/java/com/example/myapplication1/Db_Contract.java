@@ -25,5 +25,6 @@ public class Db_Contract {
     public static String urlqadha=  "http://"+ip+"/prayer";
 
     public static  String getUrlHistory =  "http://"+ip+"/history";
+    public static String urlprofilePass = "http://" + ip + "/profilePassword";
 
 }
