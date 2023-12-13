@@ -12,10 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
@@ -33,27 +35,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileFragment extends Fragment {
-    Button moreButton, buttonLogout, buttonNotif;
-    TextView tvUsername, tvEmail, tvname, tvcycle, tvperiod;
+    Button buttonLogout;
+    RelativeLayout editProfil, editPass;
+    TextView tvname, tvcycle, tvperiod;
     View rootView;
     SharedPreferences sharedPreferences;
-    ImageButton bback;
     AlertDialog.Builder builder;
     AlertDialog alertDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_profile, container, false);
-        moreButton = rootView.findViewById(R.id.bmore);
-        buttonNotif = rootView.findViewById(R.id.btnnotif);
+        editProfil = rootView.findViewById(R.id.cvubahprofil);
+        editPass = rootView.findViewById(R.id.cvubahpass);
         buttonLogout = rootView.findViewById(R.id.logout);
         builder = new AlertDialog.Builder(requireContext());
-        tvEmail = rootView.findViewById(R.id.email);
-        tvUsername = rootView.findViewById(R.id.username);
-        bback = rootView.findViewById(R.id.back);
         tvname = rootView.findViewById(R.id.name);
-        tvcycle = rootView.findViewById(R.id.cycle_length);
-        tvperiod = rootView.findViewById(R.id.period_length);
+        tvcycle = rootView.findViewById(R.id.cycleDays);
+        tvperiod = rootView.findViewById(R.id.periodDays);
 
         sharedPreferences = requireActivity().getSharedPreferences("MyAppName", MODE_PRIVATE);
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
@@ -74,8 +73,6 @@ public class ProfileFragment extends Fragment {
 
                     if (!name.isEmpty() && !username.isEmpty() && !email.isEmpty()) {
                         tvname.setText(name);
-                        tvUsername.setText(username);
-                        tvEmail.setText(email);
                         //LIAT DI SINI
                         // Setelah menampilkan data profil, lakukan permintaan ke getEstimation di sini
                         String urlEstimation = Db_Contract.urlgetEst + "?token=" + LoginActivity.token;
@@ -97,8 +94,8 @@ public class ProfileFragment extends Fragment {
                                         String periodLength = dataObjectEstimation.optString("period_length");
 
                                         // Tampilkan data siklus dan periode di TextView yang relevan
-                                        tvcycle.setText(cycleLength);
-                                        tvperiod.setText(periodLength);
+                                        tvcycle.setHint(cycleLength + " Hari");
+                                        tvperiod.setHint(periodLength + " Hari");
                                     } else {
                                         // Tampilkan pesan kesalahan jika ada masalah dalam mendapatkan data
                                        // String message = jsonObjectEstimation.getString("message");
@@ -169,13 +166,7 @@ public class ProfileFragment extends Fragment {
                 alertDialog.setTitle("Perhatian!");
                 alertDialog.show();
             }});
-        bback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                requireActivity().onBackPressed();
-            }
-        });
-        moreButton.setOnClickListener(new View.OnClickListener() {
+        editProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Redirect to ProfileActivity
@@ -183,10 +174,12 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        buttonNotif.setOnClickListener(new View.OnClickListener() {
+
+
+        editPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), mainNotif.class);
+                Intent intent = new Intent(getActivity(), activity_profilepassword.class);
                 startActivity(intent);
             }
         });

@@ -5,24 +5,6 @@
     android:layout_height="match_parent">
 
 
-    <Button
-        android:id="@+id/logout"
-        style="@android:style/Widget.Button"
-        android:layout_width="312dp"
-        android:layout_height="42dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="600dp"
-        android:layout_marginTop="630dp"
-        android:layout_marginEnd="500dp"
-        android:layout_marginBottom="500dp"
-        android:background="@drawable/button_backround"
-        android:clickable="true"
-        android:fontFamily="@font/outfitbold"
-        android:onClick="onButtonClick"
-        android:text="Log Out"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp" />
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
@@ -41,24 +23,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="50dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="50dp"
         android:fontFamily="@font/outfitlight"
         android:text="Profile"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:background="#DA4256"
-        android:clickable="true"
-        android:onClick="onButtonClick"
-        app:srcCompat="@drawable/back2" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profile"
@@ -80,230 +50,250 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/info"
             android:layout_width="wrap_content"
-            android:layout_height="310dp"
-            android:layout_marginTop="250dp"
-            android:layout_marginBottom="15dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="270dp"
+            android:fontFamily="@font/outfitlight"
+            android:gravity="center_horizontal"
+            android:hint="Informasi"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300dp"
+            app:cardCornerRadius="15dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="4dp"
                 android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <TextView
-                    android:id="@+id/tv_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/outfitmedium"
-                    android:text="UserName"
-                    android:textColor="#DA4256"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="25dp"
-                    android:fontFamily="@font/outfitlight"
-                    android:hint="username"
-                    android:textColor="@color/black" />
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="15dp">
 
                 <ImageView
-                    android:id="@+id/lineid"
+                    android:id="@+id/periodvector"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="49dp"
-                    android:src="@drawable/lineee" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="11dp"
+                    app:srcCompat="@drawable/period" />
 
                 <TextView
-                    android:id="@+id/tv_email"
+                    android:id="@+id/tvNotifikasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/outfitmedium"
-                    android:text="Email"
-                    android:textColor="#DA4256"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginEnd="35dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="43dp"
+                    android:layout_marginTop="11dp"
                     android:fontFamily="@font/outfitlight"
-                    android:hint="email"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/lineid2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="49dp"
-                    android:src="@drawable/lineee" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                    android:text="Periode"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/speriod"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/outfitmedium"
-                    android:text="Lama Period"
-                    android:textColor="#DA4256"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/period_length"
+                    android:id="@+id/periodDays"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="35dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="20dp"
                     android:fontFamily="@font/outfitlight"
                     android:hint="-"
-                    android:textColor="#000000" />
-
-                <ImageView
-                    android:id="@+id/lineid3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="49dp"
-                    android:src="@drawable/lineee" />
-
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
             </RelativeLayout>
 
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="360dp"
+            app:cardCornerRadius="15dp">
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="4dp"
                 android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="15dp">
+
+                <ImageView
+                    android:id="@+id/cyclevector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="11dp"
+                    app:srcCompat="@drawable/cycle" />
 
                 <TextView
-                    android:id="@+id/cycle_length"
+                    android:id="@+id/cycle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="11dp"
+                    android:fontFamily="@font/outfitlight"
+                    android:text="Siklus"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/cycleDays"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="35dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="20dp"
                     android:fontFamily="@font/outfitlight"
                     android:hint="-"
-                    android:textColor="#000000" />
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/siklus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/outfitmedium"
-                    android:text="Lama Siklus"
-                    android:textColor="#DA4256"
-                    android:textSize="18sp" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="440dp"
+            android:fontFamily="@font/outfitlight"
+            android:gravity="center_horizontal"
+            android:hint="Menu Lainnya"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="470dp"
+            app:cardCornerRadius="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="4dp"
+                android:clickable="true"
+                android:id="@+id/cvubahprofil"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="15dp">
 
                 <ImageView
-                    android:id="@+id/lineid4"
+                    android:id="@+id/profileSetvector"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="49dp"
-                    android:src="@drawable/lineee" />
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="11dp"
+                    app:srcCompat="@drawable/editprofilvector" />
+
+                <TextView
+                    android:id="@+id/ubahProfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="11dp"
+                    android:fontFamily="@font/outfitlight"
+                    android:text="Ubah Profil"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
             </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="530dp"
+            app:cardCornerRadius="15dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="4dp"
                 android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:id="@+id/cvubahpass"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="15dp">
 
-                <TextView
-                    android:id="@+id/pengaturan"
+                <ImageView
+                    android:id="@+id/passSetVector"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/outfitmedium"
-                    android:text="Pengaturan"
-                    android:textColor="#DA4256"
-                    android:textSize="18sp" />
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="11dp"
+                    app:srcCompat="@drawable/editpassvector" />
 
-                <Button
-                    android:id="@+id/bmore"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                <TextView
+                    android:id="@+id/ubahPass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="35dp"
-                    android:background="@drawable/baseline_settings_24"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="11dp"
+                    android:fontFamily="@font/outfitlight"
+                    android:text="Ubah Password"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+        </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/notifikasi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/outfitmedium"
-                    android:text="Notifikasi"
-                    android:textColor="#DA4256"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btnnotif"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="35dp"
-                    android:background="@drawable/notifikasi"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground" />
-
-            </RelativeLayout>
-        </LinearLayout>
+        <Button
+            android:id="@+id/logout"
+            style="@android:style/Widget.Button"
+            android:layout_width="350dp"
+            android:layout_height="42dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/card"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_backround"
+            android:clickable="true"
+            android:fontFamily="@font/outfitbold"
+            android:onClick="onButtonClick"
+            android:text="Log Out"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/name"
@@ -319,5 +309,7 @@
             android:textStyle="bold" />
 
     </RelativeLayout>
+
+
 
 </RelativeLayout>
