@@ -1,7 +1,10 @@
 package com.example.myapplication1;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,9 +17,23 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class activity_pertanyaan1 extends AppCompatActivity {
     private ImageButton datePicker;
@@ -53,22 +70,83 @@ public class activity_pertanyaan1 extends AppCompatActivity {
 
                 final String value = editTextDate.getText().toString().trim();
 
-                if (TextUtils.isEmpty(value)) {
-                    Toast.makeText(activity_pertanyaan1.this, "Isi pertanyaan terlebih dahulu", Toast.LENGTH_SHORT).show();
-                    return;
+                try{
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+
+                    Date selecteddate = sdf.parse(selectedDate);
+                    Date currentDate = new Date();
+
+
+                    long diffInMillisBegin = currentDate.getTime() - selecteddate.getTime();
+                    long result = diffInMillisBegin / (24 * 60 * 60 * 1000);
+                    long minimalHaid = 3285;
+
+                    if (TextUtils.isEmpty(value)) {
+                        Toast.makeText(activity_pertanyaan1.this, "Isi pertanyaan terlebih dahulu", Toast.LENGTH_SHORT).show();
+                        return;
+                    }else if( result < minimalHaid){
+                        Toast.makeText(activity_pertanyaan1.this, "Anda tidak memenuhi batas minimal wanita haid", Toast.LENGTH_SHORT).show();
+                        Logout();
+                        return;
+                    }
+
+                    // Mengambil nilai token dari Intent
+                    String token = getIntent().getStringExtra("token");
+//
+//                    // Membuat Intent baru dan menyertakan nilai token
+                    Intent intent = new Intent(activity_pertanyaan1.this, activity_pertanyaan2.class);
+                    intent.putExtra("token", token);
+                    intent.putExtra("value1", value1);
+                    startActivity(intent);
+
+                }catch (ParseException exception){
+                Toast.makeText(activity_pertanyaan1.this, exception.getMessage(), Toast.LENGTH_SHORT).show();
+                return;
                 }
 
-                // Mengambil nilai token dari Intent
-                String token = getIntent().getStringExtra("token");
-
-                // Membuat Intent baru dan menyertakan nilai token
-                Intent intent = new Intent(activity_pertanyaan1.this, activity_pertanyaan2.class);
-                intent.putExtra("token", token);
-                intent.putExtra("value1", value1);
-                startActivity(intent);
             }
 
         });
+    }
+
+    private void Logout() {
+
+        RequestQueue queue = Volley.newRequestQueue(activity_pertanyaan1.this);
+        String url = Db_Contract.urlLogout;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    int status = jsonResponse.getInt("status");
+                    String message = jsonResponse.getString("message");
+                    if (status == 1) {
+                        Intent intent = new Intent(activity_pertanyaan1.this, WelcomeActivity.class);
+                        startActivity(intent);
+                    } else {
+                        throw new JSONException(message);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(activity_pertanyaan1.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                Toast.makeText(activity_pertanyaan1.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            protected Map<String, String> getParams() {
+                Map<String, String> paramV = new HashMap<>();
+                paramV.put("token", LoginActivity.token);
+                return paramV;
+            }
+        };
+        queue.add(stringRequest);
     }
 
     private void showDatePickerDialog() {
