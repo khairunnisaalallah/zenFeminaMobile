@@ -52,7 +52,7 @@ import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
     private EditText editTextName, editTextPhone, editTextUsername, editTextEmail, editTextBirthdate, editTextPassword;
-    private String name, phone, username, email, birthDate, password;
+    private String name, phone, username, email, birthDate;
     Button buttonsave;
     Bitmap bitmap;
     private Uri selectedImageUri;
@@ -77,7 +77,6 @@ public class ProfileActivity extends AppCompatActivity {
         editTextUsername = findViewById(R.id.username);
         editTextBirthdate = findViewById(R.id.birthDate);
         buttonsave = findViewById(R.id.simpanp);
-        editTextPassword = findViewById(R.id.password);
         ImageView imageView = findViewById(R.id.profile);
 
         sharedPreferences = this.getSharedPreferences("MyAppName", MODE_PRIVATE);
@@ -174,7 +173,6 @@ public class ProfileActivity extends AppCompatActivity {
                             phone = userData.getString("phone");
                             username = userData.getString("username");
                             birthDate = userData.getString("birthdate");
-                            password = userData.getString("password");
 
                             // Cek jika nilai kosong atau "null", ganti dengan "-"
                             name = (name.equals("null") || name.isEmpty()) ? "-" : name;
@@ -182,7 +180,6 @@ public class ProfileActivity extends AppCompatActivity {
                             phone = (phone.equals("null") || phone.isEmpty()) ? "-" : phone;
                             username = (username.equals("null") || username.isEmpty()) ? "-" : username;
                             birthDate = (birthDate.equals("null") || birthDate.isEmpty()) ? "-" : birthDate;
-                            password = (password.equals("null") || password.isEmpty()) ? "-" : password;
 
                             // Set nilai EditText dengan data yang diperoleh dari respons server
                             editTextName.setText(name);
@@ -190,7 +187,6 @@ public class ProfileActivity extends AppCompatActivity {
                             editTextPhone.setText(phone);
                             editTextUsername.setText(username);
                             editTextBirthdate.setText(birthDate);
-                            editTextPassword.setText(password);
 
 
                             editTextName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -293,7 +289,6 @@ public class ProfileActivity extends AppCompatActivity {
         username = usernameText.isEmpty() ? storedUsername : usernameText;
         email = emailText.isEmpty() ? storedEmail : emailText;
         birthDate = birthDateText.isEmpty() ? storedBirthDate : birthDateText;
-        password = passwordText.isEmpty() ? storedPassword : passwordText;
 
 
         // Konversi tanggal ke format yang diinginkan
@@ -370,7 +365,6 @@ public class ProfileActivity extends AppCompatActivity {
                         paramV.put("email", email);
                         paramV.put("name", name);
                         paramV.put("username", username);
-                        paramV.put("password", password);
                         paramV.put("phone", phone);
                         paramV.put("birthDate", birthDate);
                         return paramV;
