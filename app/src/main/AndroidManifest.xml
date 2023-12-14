@@ -43,6 +43,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MainActivityHutang"
+            android:exported="true"/>
+        <activity
             android:name=".notifActivity"
             android:exported="true"/>
         <activity

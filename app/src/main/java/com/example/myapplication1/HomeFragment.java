@@ -3,12 +3,10 @@ package com.example.myapplication1;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +40,7 @@ public class HomeFragment extends Fragment {
 
     private TextView firstDateTextView;
     private TextView lastDateTextView;
+    private TextView hutangShalat;
 
     SharedPreferences sharedPreferences;
 
@@ -56,6 +55,7 @@ public class HomeFragment extends Fragment {
         ImageButton imageButtonCalendar = view.findViewById(R.id.imageButtoncalender);
         ImageButton imageButtonQadha = view.findViewById(R.id.buttonhaid);
         ImageButton imageButtonAwali = view.findViewById(R.id.imageButtonAwali);
+        TextView hutangShalat = view.findViewById(R.id.hutangshalat);
 
 
         imageButtonAwali.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +75,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
-
         imageButtonQadha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +83,14 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        hutangShalat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open the CalendarActivity
+                Intent intent = new Intent(requireActivity(),MainActivityHutang.class);
+                startActivity(intent);
+            }
+        });
 
 
 
