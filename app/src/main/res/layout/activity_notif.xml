@@ -1,17 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    tools:context=".notifActivity">
+    tools:context=".mainNotif">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/titlenotif"
+        android:layout_marginTop="12dp"
+        android:background="#8B8080"/>
 
-    <TextView
-        android:id="@+id/textviewData"
-        android:text="Some data here"
+    <ImageView
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25sp" />
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="14dp"
+        android:clickable="true"
+        android:onClick="onButtonClick"
+        app:srcCompat="@drawable/back" />
+
+    <TextView
+        android:id="@+id/titlenotif"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="73dp"
+        android:ems="10"
+        android:fontFamily="@font/outfitlight"
+        android:inputType="text"
+        android:text="Notifikasi"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pesan"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:id="@+id/btnawalsiklus"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:id="@+id/tvawalsiklus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Awal siklus"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvIsiAwalsiklus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/outfitlight"
+                android:hint="Hari pertama siklus menstruasi Anda dimulai"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/nextpage1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:srcCompat="@drawable/edit"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pengingat"
+        android:layout_below="@+id/pesan"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="0dp"
+            android:id="@+id/btnakhirsiklus"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:id="@+id/tvakhirsiklus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Akhir siklus"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvIsiAkhirsiklus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/outfitlight"
+                android:hint="Masa haid Anda telah selesai"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/nextpage2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                app:srcCompat="@drawable/edit"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
 </RelativeLayout>
