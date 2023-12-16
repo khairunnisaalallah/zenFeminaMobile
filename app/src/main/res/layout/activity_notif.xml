@@ -78,7 +78,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="28dp"
                 android:fontFamily="@font/outfitlight"
-                android:hint="Hari pertama siklus menstruasi Anda dimulai"
+                android:hint="-"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
@@ -138,7 +138,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="28dp"
                 android:fontFamily="@font/outfitlight"
-                android:hint="Masa haid Anda telah selesai"
+                android:hint="-"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 

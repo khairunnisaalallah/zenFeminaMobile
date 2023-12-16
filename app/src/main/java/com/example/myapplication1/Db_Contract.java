@@ -29,6 +29,7 @@ public class Db_Contract {
     public static  String urlprayerdone = "http://" + ip + "/prayerDone";
     public  static String urlprayerno = "http://" + ip + "/prayerNo";
     public  static String urlupdatePrayer = "http://" + ip + "/updatePrayer";
+    public static String urlGetAllReminder = "http://" + ip + "/reminderGet";
 
 
 
