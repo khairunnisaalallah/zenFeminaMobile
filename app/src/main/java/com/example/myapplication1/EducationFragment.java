@@ -168,6 +168,7 @@ public class EducationFragment extends Fragment implements MyAdapter.OnItemClick
                                 }
 
                                 // Save original items
+                                originalItems.clear();
                                 originalItems.addAll(items);
 
                                 // Notify the adapter that data has changed

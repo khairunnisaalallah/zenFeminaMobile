@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment {
 
     SharedPreferences sharedPreferences;
 
-    public static String history_id;
+    public static String cycleHistory_id;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,14 +75,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        imageButtonQadha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open the CalendarActivity
-                Intent intent = new Intent(requireActivity(), activity_calender.class);
-                startActivity(intent);
-            }
-        });
+
+
         hutangShalat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -212,7 +206,7 @@ public class HomeFragment extends Fragment {
 
                                 String newenddate = convertDateFormat(enddate.substring(0, 10));
 
-                                history_id = dataObject.getString("cycleHistory_id");
+                                cycleHistory_id = dataObject.getString("cycleHistory_id");
                                 firstDateTextView.setText(newenddate);
                             }
                         } catch (JSONException e) {

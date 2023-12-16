@@ -26,5 +26,10 @@ public class Db_Contract {
 
     public static  String getUrlHistory =  "http://"+ip+"/history";
     public static String urlprofilePass = "http://" + ip + "/profilePassword";
+    public static  String urlprayerdone = "http://" + ip + "/prayerDone";
+    public  static String urlprayerno = "http://" + ip + "/prayerNo";
+    public  static String urlupdatePrayer = "http://" + ip + "/updatePrayer";
+
+
 
 }
