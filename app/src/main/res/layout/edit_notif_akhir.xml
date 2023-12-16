@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mainNotif">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/titlenotif"
+        android:layout_marginTop="12dp"
+        android:background="#8B8080"/>
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="14dp"
+        android:clickable="true"
+        android:onClick="onButtonClick"
+        app:srcCompat="@drawable/back" />
+
+    <TextView
+        android:id="@+id/titlenotif"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="@font/outfitlight"
+        android:inputType="text"
+        android:text="Edit"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/notifikasi"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:id="@+id/tvNotifikasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Notifikasi"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="15dp"
+                android:track="@drawable/bg_track"
+                android:thumb="@drawable/ic_thumb"
+                android:scaleX="1"
+                android:scaleY="1"
+                android:checked="false"
+                android:enabled="true"/>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pesan"
+        android:layout_below="@+id/notifikasi"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="0dp"
+            android:id="@+id/btnpesan"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:id="@+id/tvpesan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Pesan"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvIsipesan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/outfitlight"
+                android:hint="Masa haid Anda telah selesai"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/nextpage1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="20dp"
+                app:srcCompat="@drawable/nextpage"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pengingat"
+        android:layout_below="@+id/pesan"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:id="@+id/btnpengingat"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="0dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:id="@+id/tvpengingat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Pengingat"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvIsipengingat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/outfitlight"
+                android:hint="1 hari sebelumnya"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/nextpage2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="20dp"
+                app:srcCompat="@drawable/nextpage"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/waktupengingat"
+        android:layout_below="@+id/pengingat"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:id="@+id/btnwaktupengingat"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="0dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:id="@+id/tvwaktupengingat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/outfitlight"
+                android:text="Waktu Pengingat"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvIsiwaktupengingat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/outfitlight"
+                android:hint="08:00"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/nextpage3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="20dp"
+                app:srcCompat="@drawable/nextpage"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

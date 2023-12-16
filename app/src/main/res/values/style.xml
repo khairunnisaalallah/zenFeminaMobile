@@ -17,10 +17,8 @@
         <!-- ... konfigurasi lainnya ... -->
         <item name="colorSurface">#00A57D</item>
     </style>
-
-
-
-
-
-
+    <style name="CustomTimePickerDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#DA4256</item>
+        <!-- Tambahkan atribut gaya lain jika diperlukan -->
+    </style>
 </resources>

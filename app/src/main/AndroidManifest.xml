@@ -9,6 +9,8 @@
     <!-- Izin untuk membaca dari penyimpanan eksternal -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+
+
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
@@ -95,6 +97,12 @@
             android:exported="true"/>
         <activity
             android:name=".activity_profilepassword"
+            android:exported="true"/>
+        <activity
+            android:name=".edit_notif_awal"
+            android:exported="true"/>
+        <activity
+            android:name=".edit_notif_akhir"
             android:exported="true"/>
     </application>
 
