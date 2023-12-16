@@ -3,12 +3,10 @@ package com.example.myapplication1;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,10 +40,11 @@ public class HomeFragment extends Fragment {
 
     private TextView firstDateTextView;
     private TextView lastDateTextView;
+    private TextView hutangShalat;
 
     SharedPreferences sharedPreferences;
 
-    public static String history_id;
+    public static String cycleHistory_id;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,15 +55,7 @@ public class HomeFragment extends Fragment {
         ImageButton imageButtonCalendar = view.findViewById(R.id.imageButtoncalender);
         ImageButton imageButtonQadha = view.findViewById(R.id.buttonhaid);
         ImageButton imageButtonAwali = view.findViewById(R.id.imageButtonAwali);
-        ImageButton imageButtonNotif = view.findViewById(R.id.imageButtonNotifikasi);
-
-        imageButtonNotif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(requireActivity(), notifActivity.class);
-                startActivity(intent);
-            }
-        });
+        TextView hutangShalat = view.findViewById(R.id.hutangshalat);
 
 
         imageButtonAwali.setOnClickListener(new View.OnClickListener() {
@@ -86,15 +77,14 @@ public class HomeFragment extends Fragment {
 
 
 
-        imageButtonQadha.setOnClickListener(new View.OnClickListener() {
+        hutangShalat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Open the CalendarActivity
-                Intent intent = new Intent(requireActivity(), activity_calender.class);
+                Intent intent = new Intent(requireActivity(),MainActivityHutang.class);
                 startActivity(intent);
             }
         });
-
 
 
 
@@ -216,7 +206,7 @@ public class HomeFragment extends Fragment {
 
                                 String newenddate = convertDateFormat(enddate.substring(0, 10));
 
-                                history_id = dataObject.getString("cycleHistory_id");
+                                cycleHistory_id = dataObject.getString("cycleHistory_id");
                                 firstDateTextView.setText(newenddate);
                             }
                         } catch (JSONException e) {
