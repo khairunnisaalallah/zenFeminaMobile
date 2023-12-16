@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +41,6 @@ public class HomeFragment extends Fragment {
 
     private TextView firstDateTextView;
     private TextView lastDateTextView;
-    private TextView hutangShalat;
 
     SharedPreferences sharedPreferences;
 
@@ -53,9 +53,8 @@ public class HomeFragment extends Fragment {
 
         // Mengambil referensi ke ImageButton
         ImageButton imageButtonCalendar = view.findViewById(R.id.imageButtoncalender);
-        ImageButton imageButtonQadha = view.findViewById(R.id.buttonhaid);
+        RelativeLayout imageButtonQadha = view.findViewById(R.id.btnhutangsholat);
         ImageButton imageButtonAwali = view.findViewById(R.id.imageButtonAwali);
-        TextView hutangShalat = view.findViewById(R.id.hutangshalat);
 
         ImageButton imageButtonNotif = view.findViewById(R.id.imageButtonNotifikasi);
 
@@ -86,7 +85,7 @@ public class HomeFragment extends Fragment {
 
 
 
-        hutangShalat.setOnClickListener(new View.OnClickListener() {
+        imageButtonQadha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Open the CalendarActivity
