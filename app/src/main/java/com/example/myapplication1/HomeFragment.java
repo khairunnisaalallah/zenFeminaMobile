@@ -57,6 +57,15 @@ public class HomeFragment extends Fragment {
         ImageButton imageButtonAwali = view.findViewById(R.id.imageButtonAwali);
         TextView hutangShalat = view.findViewById(R.id.hutangshalat);
 
+        ImageButton imageButtonNotif = view.findViewById(R.id.imageButtonNotifikasi);
+
+        imageButtonNotif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireActivity(), notifActivity.class);
+                startActivity(intent);
+            }
+        });
 
         imageButtonAwali.setOnClickListener(new View.OnClickListener() {
             @Override
