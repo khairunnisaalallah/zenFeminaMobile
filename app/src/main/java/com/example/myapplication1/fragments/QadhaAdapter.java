@@ -44,7 +44,7 @@ public class QadhaAdapter extends RecyclerView.Adapter<view_holder> {
             item_qadha currentItem = itemList.get(position);
 
             holder.judul.setText(currentItem.getJudul());
-            holder.tanggal.setText(currentItem.getTanggal());
+            holder.tanggal.setHint(currentItem.getTanggal());
 
             holder.lingkaran.setOnClickListener(new View.OnClickListener() {
                 @Override

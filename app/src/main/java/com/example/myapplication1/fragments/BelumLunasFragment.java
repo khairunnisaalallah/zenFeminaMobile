@@ -92,10 +92,10 @@ public class BelumLunasFragment extends Fragment {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                                     String prayerId = jsonObject.getString("changePrayer_id");
-                                    String judul = jsonObject.getString("prayer");
+                                    String judul = "Sholat " + jsonObject.getString("prayer");
                                     String tanggal = jsonObject.getString("end_date");
 
-                                    items.add(new item_qadha(prayerId, judul, tanggal));
+                                    items.add(new item_qadha(prayerId, judul, tanggal.substring(0, 10)));
                                 }
 
                                 // Set data to the adapter

@@ -21,4 +21,9 @@
         <item name="colorAccent">#DA4256</item>
         <!-- Tambahkan atribut gaya lain jika diperlukan -->
     </style>
+    <style name="MyTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item> <!-- Sesuaikan ukuran teks -->
+        <item name="android:textAllCaps">false</item> <!-- Agar tidak diubah menjadi huruf besar -->
+        <!-- Tambahan atribut lain sesuai kebutuhan -->
+    </style>
 </resources>

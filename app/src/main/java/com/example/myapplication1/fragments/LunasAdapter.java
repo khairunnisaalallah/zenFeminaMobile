@@ -39,7 +39,7 @@ public class LunasAdapter extends RecyclerView.Adapter<lunas_viewHolder> {
         item_lunas currentItem = itemList.get(position);
 
         holder.title.setText(currentItem.getTitle());
-        holder.date.setText(currentItem.getDate());
+        holder.date.setHint(currentItem.getDate());
         holder.done.setImageResource(R.drawable.elipsqadha2); // Ganti dengan sumber gambar yang sesuai
     }
 

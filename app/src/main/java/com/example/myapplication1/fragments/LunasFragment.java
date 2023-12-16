@@ -84,10 +84,10 @@ public class LunasFragment extends Fragment {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                                     String id_prayer = jsonObject.getString("changePrayer_id");
-                                    String title = jsonObject.getString("prayer");
+                                    String title = "Sholat " +  jsonObject.getString("prayer");
                                     String date = jsonObject.getString("end_date");
 
-                                    items.add(new item_lunas(id_prayer, title, date));
+                                    items.add(new item_lunas(id_prayer, title, date.substring(0, 10)));
                                 }
 
                                 // Set data to the adapter

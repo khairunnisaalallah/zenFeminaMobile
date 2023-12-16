@@ -6,32 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivityHutang">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/titlehutang"
-        android:layout_marginTop="10dp"
-        android:background="#8B8080" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="14dp"
         android:clickable="true"
         android:onClick="onButtonClick"
         app:srcCompat="@drawable/back" />
 
     <TextView
         android:id="@+id/titlehutang"
-        android:layout_width="200dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="73dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="@font/outfitlight"
         android:inputType="text"
@@ -43,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tab_layout"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="55dp"
         app:tabIndicatorColor="@color/colorPrimary">
 
         <com.google.android.material.tabs.TabItem
@@ -56,6 +48,12 @@
             android:text="Lunas"/>
 
     </com.google.android.material.tabs.TabLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="102dp"
+        android:background="#D7D7D7"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
