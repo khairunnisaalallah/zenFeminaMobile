@@ -9,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +34,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -51,8 +53,8 @@ import java.util.Locale;
 import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
-    private EditText editTextName, editTextPhone, editTextUsername, editTextEmail, editTextBirthdate, editTextPassword;
-    private String name, phone, username, email, birthDate;
+    private EditText editTextName, editTextPhone, editTextUsername, editTextEmail, editTextBirthdate;
+    private String name, phone, username, email, birthDate, password;
     Button buttonsave;
     Bitmap bitmap;
     private Uri selectedImageUri;
@@ -173,6 +175,8 @@ public class ProfileActivity extends AppCompatActivity {
                             phone = userData.getString("phone");
                             username = userData.getString("username");
                             birthDate = userData.getString("birthdate");
+                            password = userData.getString("password");
+                            String img = userData.getString("profileImg");
 
                             // Cek jika nilai kosong atau "null", ganti dengan "-"
                             name = (name.equals("null") || name.isEmpty()) ? "-" : name;
@@ -188,6 +192,10 @@ public class ProfileActivity extends AppCompatActivity {
                             editTextUsername.setText(username);
                             editTextBirthdate.setText(birthDate);
 
+                            // Menetapkan gambar default dari URL
+                            Glide.with(ProfileActivity.this)
+                                    .load("https://zenfemina.com/assetsWeb/img/profile/" + img)
+                                    .into(imageView);
 
                             editTextName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                                 @Override
@@ -266,118 +274,102 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void saveProfileAndImage() {
+        String img;
+        //image
+        ByteArrayOutputStream byteArrayOutputStream;
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        if(bitmap != null){
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+            byte[] bytes = byteArrayOutputStream.toByteArray();
+            img = Base64.encodeToString(bytes, Base64.DEFAULT);
+        } else {
+            Toast.makeText(getApplicationContext(), "Gmbar tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // Ambil data dari EditText
         String nameText = editTextName.getText().toString().trim();
         String phoneText = editTextPhone.getText().toString().trim();
         String usernameText = editTextUsername.getText().toString().trim();
         String emailText = editTextEmail.getText().toString().trim();
         String birthDateText = editTextBirthdate.getText().toString().trim();
-        String passwordText = editTextPassword.getText().toString().trim();
 
-// Ambil data dari SharedPreferences di dalam metode onCreate
-        SharedPreferences sharedPreferences = getSharedPreferences("MyAppName", MODE_PRIVATE);
-        String storedName = sharedPreferences.getString("name", "");
-        String storedEmail = sharedPreferences.getString("email", "");
-        String storedUsername = sharedPreferences.getString("username","");
-        String storedPassword = sharedPreferences.getString("password", "");
-        String storedPhone = sharedPreferences.getString("phone","");
-        String storedBirthDate = sharedPreferences.getString("birthDate", "");
-
-// Gunakan data dari SharedPreferences jika tidak ada perubahan dari EditText
-        name = nameText.isEmpty() ? storedName : nameText;
-        phone = phoneText.isEmpty() ? storedPhone : phoneText;
-        username = usernameText.isEmpty() ? storedUsername : usernameText;
-        email = emailText.isEmpty() ? storedEmail : emailText;
-        birthDate = birthDateText.isEmpty() ? storedBirthDate : birthDateText;
-
+        if(TextUtils.isEmpty(nameText) ||
+                TextUtils.isEmpty(phoneText) ||
+                TextUtils.isEmpty(usernameText) ||
+                TextUtils.isEmpty(emailText)
+                || TextUtils.isEmpty(birthDateText))
+        {
+            Toast.makeText(getApplicationContext(), "Input tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Konversi tanggal ke format yang diinginkan
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         try {
-            Date date = inputFormat.parse(birthDate);
-            birthDate = outputFormat.format(date);
+            Date date = inputFormat.parse(birthDateText);
+            birthDateText = outputFormat.format(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        // Ambil gambar dari ImageView
-        String url = Db_Contract.urlProfile + "?token=" + LoginActivity.token;
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        if (imageView.getDrawable() != null) {
-            if (imageView.getDrawable() instanceof BitmapDrawable) {
-                BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
-                bitmap = drawable.getBitmap();
-                // Convert bitmap to base64 string
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                byte[] bytes = byteArrayOutputStream.toByteArray();
-                final String base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
-                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                // Buat StringRequest untuk mengirim data profil dan gambar ke server
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                        new Response.Listener<String>() {
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        // Buat StringRequest untuk mengirim data profil dan gambar ke server
+        String finalBirthDateText = birthDateText;
+        String url = Db_Contract.urlProfile;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
 
-                            @Override
-                            public void onResponse(String response) {
-                                Log.d("Response", response);
-                                try {
-                                    JSONObject jsonObject = new JSONObject(response);
-                                    if (jsonObject.has("status")) {
-                                        String status = jsonObject.getString("status");
-                                        if (status.equals("Sukses")) {
-                                            Toast.makeText(getApplicationContext(), "Data berhasil disimpan", Toast.LENGTH_SHORT).show();
-                                            // Lakukan tindakan setelah berhasil disimpan, jika diperlukan
-                                        } else {
-                                            // Jika status bukan "Sukses", ambil pesan dari server
-                                            if (jsonObject.has("message")) {
-                                                String message = jsonObject.getString("message");
-                                                Toast.makeText(getApplicationContext(), "Gagal menyimpan data: " + message, Toast.LENGTH_LONG).show();
-                                            } else {
-                                                Toast.makeText(getApplicationContext(), "Gagal menyimpan data", Toast.LENGTH_LONG).show();
-                                            }
-                                        }
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "Response tidak valid", Toast.LENGTH_SHORT).show();
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                    //hati2
-                                    Toast.makeText(getApplicationContext(), "Loading", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                        }, new Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                        String errorMessage = "Ada kesalahan dalam permintaan";
-                        if (error != null && error.getMessage() != null) {
-                            errorMessage = error.getMessage();
+                    public void onResponse(String response) {
+                        Log.d("Response", response);
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("status");
+                            String message = jsonObject.getString("message");
+
+                            if(status.equals("1")){
+                                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(ProfileActivity.this, FragmentActivity.class);
+                                startActivity(intent);
+                            } else {
+                                throw new JSONException(message);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                        error.printStackTrace();
-                        Log.e("Error", errorMessage);
-                        Toast.makeText(getApplicationContext(), "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
                     }
-                }) {
-                    protected Map<String, String> getParams() {
-                        Map<String, String> paramV = new HashMap<>();
-                        paramV.put("token", LoginActivity.token);
-                        paramV.put("profileImg", base64Image);
-                        paramV.put("email", email);
-                        paramV.put("name", name);
-                        paramV.put("username", username);
-                        paramV.put("phone", phone);
-                        paramV.put("birthDate", birthDate);
-                        return paramV;
-                    }
-                };
 
-                // Tambahkan request ke queue
-                queue.add(stringRequest);
-            } else {
-                Toast.makeText(getApplicationContext(), "Pilih gambar terlebih dahulu", Toast.LENGTH_SHORT).show();
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                String errorMessage = "Ada kesalahan dalam permintaan";
+                if (error != null && error.getMessage() != null) {
+                    errorMessage = error.getMessage();
+                }
+                error.printStackTrace();
+                Log.e("Error", errorMessage);
+                Toast.makeText(getApplicationContext(), "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
             }
-        }
+        }) {
+            protected Map<String, String> getParams() {
+                Map<String, String> paramV = new HashMap<>();
+                paramV.put("token", LoginActivity.token);
+                paramV.put("email", emailText);
+                paramV.put("name", nameText);
+                paramV.put("username", usernameText);
+                paramV.put("phone", phoneText);
+                paramV.put("birthDate", finalBirthDateText);
+                paramV.put("password", password);
+                paramV.put("profileImg" ,String.valueOf(img));
+                return paramV;
+            }
+        };
 
+        // Tambahkan request ke queue
+        queue.add(stringRequest);
     }
 }
 
