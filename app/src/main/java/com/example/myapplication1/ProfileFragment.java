@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,6 +55,7 @@ public class ProfileFragment extends Fragment {
         tvname = rootView.findViewById(R.id.name);
         tvcycle = rootView.findViewById(R.id.cycleDays);
         tvperiod = rootView.findViewById(R.id.periodDays);
+        ImageView imageView = rootView.findViewById(R.id.profile);
 
         sharedPreferences = requireActivity().getSharedPreferences("MyAppName", MODE_PRIVATE);
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
@@ -70,9 +73,13 @@ public class ProfileFragment extends Fragment {
                     String name = dataObject.getString("name"); // Menggunakan optString untuk mendapatkan string kosong jika nilai "name" null
                     String username = dataObject.getString("username");
                     String email = dataObject.getString("email");
+                    String img = dataObject.getString("profileImg");
 
                     if (!name.isEmpty() && !username.isEmpty() && !email.isEmpty()) {
                         tvname.setText(name);
+                        Glide.with(ProfileFragment.this)
+                                .load("https://zenfemina.com/assetsWeb/img/profile/" + img)
+                                .into(imageView);
                         //LIAT DI SINI
                         // Setelah menampilkan data profil, lakukan permintaan ke getEstimation di sini
                         String urlEstimation = Db_Contract.urlgetEst + "?token=" + LoginActivity.token;
