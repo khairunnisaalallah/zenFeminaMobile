@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.CalendarView;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,9 +50,6 @@ public class activity_calender extends AppCompatActivity {
     RequestQueue queue;
 
 
-
-
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,8 +59,6 @@ public class activity_calender extends AppCompatActivity {
         // Inisialisasi komponen UI
         monthTitle = findViewById(R.id.judul);
         calendarView = findViewById(R.id.calendarView);
-        checkBox = findViewById(R.id.checkBox);
-        prayerCheckBoxGroup = findViewById(R.id.prayerCheckBoxGroup);
 
         // Atur listener untuk perubahan tanggal di CalendarView
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -75,7 +71,7 @@ public class activity_calender extends AppCompatActivity {
         });
 
 
-        ImageButton backButton = findViewById(R.id.imageButtonbackkal);
+        ImageView backButton = findViewById(R.id.back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,16 +85,8 @@ public class activity_calender extends AppCompatActivity {
                 }
             }
         });
-
-
-
         queue = Volley.newRequestQueue(this);
 
         // Ambil data dari API
-
     }
-
-
-
-
-    }
+}
