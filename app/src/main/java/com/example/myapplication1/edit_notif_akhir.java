@@ -52,6 +52,8 @@ public class edit_notif_akhir extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_notif_akhir);
 
+        tokenManager token = new tokenManager(getApplicationContext());
+
         btnpengingat = findViewById(R.id.btnpengingat);
         btnJam = findViewById(R.id.btnwaktupengingat);
         etjam = findViewById(R.id.tvIsiwaktupengingat);
@@ -62,7 +64,7 @@ public class edit_notif_akhir extends AppCompatActivity {
         etpengingat = findViewById(R.id.tvIsipengingat);
         Switch mySwitch = findViewById(R.id.switchnotifakhir);
 
-        String urlreminder = Db_Contract.urlReminderbyId + "?token=" + LoginActivity.token + "&reminder_id=" + notifActivity.reminderIdEnd;
+        String urlreminder = Db_Contract.urlReminderbyId + "?token=" + token.getToken() + "&reminder_id=" + notifActivity.reminderIdEnd;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlreminder, null,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -151,7 +153,7 @@ public class edit_notif_akhir extends AppCompatActivity {
                     protected Map<String, String> getParams() {
 
                         Map<String, String> paramV = new HashMap<>();
-                        paramV.put("token", LoginActivity.token);
+                        paramV.put("token", token.getToken());
                         paramV.put("reminder_id", notifActivity.reminderIdEnd);
                         paramV.put("message", String.valueOf(etpesan.getHint()));
                         paramV.put("reminderDays", String.valueOf(etpengingat.getHint()).replaceAll("[^\\d.]", ""));

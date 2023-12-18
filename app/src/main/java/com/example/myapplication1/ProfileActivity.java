@@ -157,8 +157,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void getDataFromServer() {
+
+        tokenManager token = new tokenManager(getApplicationContext());
+
         // URL endpoint API get_profile() dengan parameter token yang sesuai
-        String url = Db_Contract.urlProfile + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlProfile + "?token=" + token.getToken();
 
         // Buat request GET menggunakan Volley
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -274,6 +277,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void saveProfileAndImage() {
+        tokenManager token = new tokenManager(getApplicationContext());
         String img;
         //image
         ByteArrayOutputStream byteArrayOutputStream;
@@ -356,7 +360,7 @@ public class ProfileActivity extends AppCompatActivity {
         }) {
             protected Map<String, String> getParams() {
                 Map<String, String> paramV = new HashMap<>();
-                paramV.put("token", LoginActivity.token);
+                paramV.put("token", token.getToken());
                 paramV.put("email", emailText);
                 paramV.put("name", nameText);
                 paramV.put("username", usernameText);

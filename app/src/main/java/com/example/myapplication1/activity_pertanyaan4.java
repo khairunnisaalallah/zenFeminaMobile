@@ -43,6 +43,9 @@ public class activity_pertanyaan4 extends AppCompatActivity {
     }
 
     private void sendDataToServer() {
+
+        tokenManager token = new tokenManager(getApplicationContext());
+
         // Gunakan Bundle untuk mengirim data ke Intent
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
@@ -50,13 +53,12 @@ public class activity_pertanyaan4 extends AppCompatActivity {
             return;
         }
 
-        String token = extras.getString("token");
         String value1 = extras.getString("value1");
         String value2 = extras.getString("value2");
         String value3 = extras.getString("value3");
 
         // Periksa null menggunakan TextUtils.isEmpty()
-        if (TextUtils.isEmpty(token) || TextUtils.isEmpty(value1) || TextUtils.isEmpty(value2) || TextUtils.isEmpty(value3)) {
+        if (TextUtils.isEmpty(token.getToken()) || TextUtils.isEmpty(value1) || TextUtils.isEmpty(value2) || TextUtils.isEmpty(value3)) {
             Toast.makeText(this, "Nilai token atau value null", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -69,7 +71,7 @@ public class activity_pertanyaan4 extends AppCompatActivity {
         }
 
         // Ganti URL dengan Db_Contract.urlpertanyaan
-        String url = Db_Contract.urlpertanyaan + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlpertanyaan + "?token=" + token.getToken();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -86,7 +88,7 @@ public class activity_pertanyaan4 extends AppCompatActivity {
                         intent.putExtra("value3", value3);
                         intent.putExtra("value1", value1);
                         intent.putExtra("value2", value2);
-                        intent.putExtra("token", token);
+                        intent.putExtra("token", token.getToken());
                         startActivity(intent);
                     }
                 },
@@ -102,7 +104,7 @@ public class activity_pertanyaan4 extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Tambahkan parameter yang diperlukan oleh API
                 Map<String, String> params = new HashMap<>();
-                params.put("token", token);
+                params.put("token", token.getToken());
                 params.put("birthDate", value1);
                 params.put("lastDate", value2);
                 params.put("cycle", value3);

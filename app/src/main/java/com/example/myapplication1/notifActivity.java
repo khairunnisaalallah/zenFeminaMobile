@@ -36,7 +36,9 @@ public class notifActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notif);
 
-        String urlEstimation = Db_Contract.urlGetAllReminder + "?token=" + LoginActivity.token;
+        tokenManager token = new tokenManager(getApplicationContext());
+
+        String urlEstimation = Db_Contract.urlGetAllReminder + "?token=" + token.getToken();
         StringRequest estimationRequest = new StringRequest(Request.Method.GET, urlEstimation, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

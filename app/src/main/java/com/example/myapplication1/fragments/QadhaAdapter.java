@@ -18,6 +18,8 @@ import com.android.volley.toolbox.Volley;
 import com.example.myapplication1.Db_Contract;
 import com.example.myapplication1.LoginActivity;
 import com.example.myapplication1.R;
+import com.example.myapplication1.tokenManager;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
@@ -82,7 +84,8 @@ public class QadhaAdapter extends RecyclerView.Adapter<view_holder> {
     }
 
     public void onConfirmation(int position) {
-        sendPostRequest(itemList.get(position).getPrayerId(), LoginActivity.token);
+        tokenManager token = new tokenManager(context.getApplicationContext());
+        sendPostRequest(itemList.get(position).getPrayerId(), token.getToken());
         itemList.remove(position);
         notifyDataSetChanged();
     }

@@ -43,6 +43,9 @@ public class mainNotif extends AppCompatActivity {
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.main_notif);
+
+        tokenManager token = new tokenManager(getApplicationContext());
+
         button = findViewById(R.id.btnNotifications);
         requestQueue = Volley.newRequestQueue(this);
 
@@ -55,14 +58,14 @@ public class mainNotif extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 makeNotification();
-                requestHistoryData(LoginActivity.token); // Replace with your token
-                requestAllReminders(LoginActivity.token); // Mengambil semua pengingat
-                requestReminderById(LoginActivity.token, "reminder_id"); // Mengambil pengingat berdasarkan ID tertentu
+                requestHistoryData(token.getToken()); // Replace with your token
+                requestAllReminders(token.getToken()); // Mengambil semua pengingat
+                requestReminderById(token.getToken(), "reminder_id"); // Mengambil pengingat berdasarkan ID tertentu
             }
         });
     }
     private void requestHistoryData(String token) {
-        String url = Db_Contract.urlHistory + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlHistory + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -166,7 +169,7 @@ public class mainNotif extends AppCompatActivity {
     private void requestAllReminders(String token) {
         // Implementasi untuk mengambil semua pengingat
         // Gunakan Volley atau alat lain untuk membuat permintaan ke API Anda
-        String url = Db_Contract.urlreminderGet + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlreminderGet + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -194,7 +197,7 @@ public class mainNotif extends AppCompatActivity {
     private void requestReminderById(String token, String reminderId) {
         // Implementasi untuk mengambil pengingat berdasarkan ID
         // Gunakan Volley atau alat lain untuk membuat permintaan ke API Anda
-        String url = Db_Contract.urlReminderbyId + "?token=" + LoginActivity.token + "&reminder_id=" + reminderId;
+        String url = Db_Contract.urlReminderbyId + "?token=" + token + "&reminder_id=" + reminderId;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -219,7 +222,7 @@ public class mainNotif extends AppCompatActivity {
         // Implementasi untuk memperbarui pengingat
         // Gunakan Volley atau alat lain untuk membuat permintaan ke API Anda
 
-        String url = Db_Contract.urlreminderUpdate + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlreminderUpdate + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override

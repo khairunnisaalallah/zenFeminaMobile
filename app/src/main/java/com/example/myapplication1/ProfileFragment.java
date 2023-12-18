@@ -47,6 +47,8 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        tokenManager token = new tokenManager(getContext());
+
         rootView = inflater.inflate(R.layout.fragment_profile, container, false);
         editProfil = rootView.findViewById(R.id.cvubahprofil);
         editPass = rootView.findViewById(R.id.cvubahpass);
@@ -59,7 +61,7 @@ public class ProfileFragment extends Fragment {
 
         sharedPreferences = requireActivity().getSharedPreferences("MyAppName", MODE_PRIVATE);
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
-        String url = Db_Contract.urlProfile + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlProfile + "?token=" + token.getToken();
         StringRequest profileRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -82,7 +84,7 @@ public class ProfileFragment extends Fragment {
                                 .into(imageView);
                         //LIAT DI SINI
                         // Setelah menampilkan data profil, lakukan permintaan ke getEstimation di sini
-                        String urlEstimation = Db_Contract.urlgetEst + "?token=" + LoginActivity.token;
+                        String urlEstimation = Db_Contract.urlgetEst + "?token=" + token.getToken();
                         StringRequest estimationRequest = new StringRequest(Request.Method.GET, urlEstimation, new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -138,8 +140,7 @@ public class ProfileFragment extends Fragment {
         }) {
             protected Map<String, String> getParams() {
                 Map<String, String> paramV = new HashMap<>();
-                String token = LoginActivity.token;
-                paramV.put("token", token);
+                paramV.put("token", token.getToken());
                 return paramV;
             }
         };
@@ -194,7 +195,7 @@ public class ProfileFragment extends Fragment {
         return rootView;
     }
     private void performLogout() {
-
+        tokenManager token = new tokenManager(getContext());
         RequestQueue queue = Volley.newRequestQueue(requireContext());
         String url = Db_Contract.urlLogout;
 
@@ -236,7 +237,7 @@ public class ProfileFragment extends Fragment {
         }) {
             protected Map<String, String> getParams() {
                 Map<String, String> paramV = new HashMap<>();
-                paramV.put("token", LoginActivity.token);
+                paramV.put("token", token.getToken());
                 return paramV;
             }
         };

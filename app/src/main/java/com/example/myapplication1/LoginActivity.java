@@ -37,8 +37,6 @@ public class LoginActivity extends AppCompatActivity {
     TextView tvregisterNow;
     ProgressBar progressBar;
     String username, email, password, birthDate;
-    SharedPreferences sharedPreferences;
-    public static String token;
 
 
     @Override
@@ -46,18 +44,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        tokenManager token = new tokenManager(getApplicationContext());
+
         btnmasuk = findViewById(R.id.masuk);
         etemail = findViewById(R.id.email);
         etpw = findViewById(R.id.password);
         progressBar = findViewById(R.id.loading);
         tvregisterNow = findViewById(R.id.registerNow);
-        sharedPreferences = getSharedPreferences("MyAppName", MODE_PRIVATE);
 
-        if (sharedPreferences.getString("logged", "false").equals("true")) {
-            Intent intent = new Intent(getApplicationContext(), FragmentActivity.class);
-            startActivity(intent);
-            finish();
-        }
         btnmasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,10 +83,10 @@ public class LoginActivity extends AppCompatActivity {
                                         JSONObject jsonObject = new JSONObject(response);
                                         String status = jsonObject.getString("status");
                                         String message = jsonObject.getString("message");
-                                        token = jsonObject.getString("token");
+                                        token.saveToken(jsonObject.getString("token"));
                                         if (status.equals("1")) {
                                             Toast.makeText(getApplicationContext(), "Berhasil Masuk", Toast.LENGTH_SHORT).show();
-                                            getbirthdate(token);
+                                            getbirthdate(token.getToken());
                                         } else {
                                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                                         }

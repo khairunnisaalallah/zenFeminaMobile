@@ -43,6 +43,11 @@ public class activity_pertanyaan1 extends AppCompatActivity {
 
     public static String value1;
 
+    protected String getToken(){
+        tokenManager token = new tokenManager(getApplicationContext());
+        return token.getToken();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,12 +96,9 @@ public class activity_pertanyaan1 extends AppCompatActivity {
                         return;
                     }
 
-                    // Mengambil nilai token dari Intent
-                    String token = getIntent().getStringExtra("token");
-//
 //                    // Membuat Intent baru dan menyertakan nilai token
                     Intent intent = new Intent(activity_pertanyaan1.this, activity_pertanyaan2.class);
-                    intent.putExtra("token", token);
+                    intent.putExtra("token", getToken());
                     intent.putExtra("value1", value1);
                     startActivity(intent);
 
@@ -142,7 +144,7 @@ public class activity_pertanyaan1 extends AppCompatActivity {
         }) {
             protected Map<String, String> getParams() {
                 Map<String, String> paramV = new HashMap<>();
-                paramV.put("token", LoginActivity.token);
+                paramV.put("token", getToken());
                 return paramV;
             }
         };

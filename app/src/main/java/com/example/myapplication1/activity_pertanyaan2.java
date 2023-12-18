@@ -45,8 +45,8 @@ public class activity_pertanyaan2 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tokenManager token = new tokenManager(getApplicationContext());
                     String selectedDateTime = getSelectedDateTime();
-                    String token = getIntent().getStringExtra("token");
                     String value1 = getIntent().getStringExtra("value1");
 
                 final String value = editTextDate2.getText().toString().trim();
@@ -57,7 +57,7 @@ public class activity_pertanyaan2 extends AppCompatActivity {
                 }
 
                         Intent intent = new Intent(activity_pertanyaan2.this, activity_pertanyaan3.class);
-                        intent.putExtra("token", token);
+                        intent.putExtra("token", token.getToken());
                         intent.putExtra("value1", value1);
                         intent.putExtra("value2", selectedDateTime); // Menyertakan value2 dalam Intent
                         startActivity(intent);

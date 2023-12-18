@@ -25,6 +25,7 @@ import com.example.myapplication1.FragmentActivity;
 import com.example.myapplication1.HomeFragment;
 import com.example.myapplication1.LoginActivity;
 import com.example.myapplication1.R;
+import com.example.myapplication1.tokenManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,7 +66,9 @@ public class BelumLunasFragment extends Fragment {
     }
 
     private void fetchData() {
-        String url = Db_Contract.urlprayerno + "?cycleHistory_id=" + HomeFragment.cycleHistory_id + "&token=" + LoginActivity.token;
+        tokenManager token = new tokenManager(getContext());
+
+        String url = Db_Contract.urlprayerno + "?cycleHistory_id=" + HomeFragment.cycleHistory_id + "&token=" + token.getToken();
         Log.d(TAG, "URL API: " + url);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {

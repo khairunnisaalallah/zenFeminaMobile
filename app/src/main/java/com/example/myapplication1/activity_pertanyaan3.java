@@ -27,7 +27,7 @@ public class activity_pertanyaan3 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String token = getIntent().getStringExtra("token");
+                tokenManager token = new tokenManager(getApplicationContext());
                 String value1 = getIntent().getStringExtra("value1");
                 String value2 = getIntent().getStringExtra("value2");
                 String value3 = editTextDataPertanyaan3.getText().toString().trim();
@@ -40,7 +40,7 @@ public class activity_pertanyaan3 extends AppCompatActivity {
                     intent.putExtra("value1", value1);
                     intent.putExtra("value2", value2);
                     intent.putExtra("value3", value3);  // Menyertakan value3 dalam Intent
-                    intent.putExtra("token", token);
+                    intent.putExtra("token", token.getToken());
                     startActivity(intent);
                 }
             }

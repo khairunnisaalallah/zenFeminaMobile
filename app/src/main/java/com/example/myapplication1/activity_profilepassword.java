@@ -27,7 +27,6 @@ public class activity_profilepassword extends AppCompatActivity {
 
     EditText firstPass, secondPass;
     Button btnSave;
-    String token = LoginActivity.token;
 
     String passFirst, passSecond;
 
@@ -36,6 +35,8 @@ public class activity_profilepassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilepass);
+
+        tokenManager token = new tokenManager(getApplicationContext());
 
         firstPass = findViewById(R.id.firstpassword);
         secondPass = findViewById(R.id.secondpass);
@@ -83,7 +84,7 @@ public class activity_profilepassword extends AppCompatActivity {
                     }) {
                         protected Map<String, String> getParams() {
                             Map<String, String> paramV = new HashMap<>();
-                            paramV.put("token", token);
+                            paramV.put("token", token.getToken());
                             paramV.put("password", passFirst);
                             return paramV;
                         }

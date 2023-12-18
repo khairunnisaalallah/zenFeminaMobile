@@ -49,6 +49,9 @@ public class notifSetting extends AppCompatActivity {
         notificationSwitch = findViewById(R.id.btnNotifications);
         requestQueue = Volley.newRequestQueue(this);
         bback = findViewById(R.id.back);
+
+        tokenManager token = new tokenManager(getApplicationContext());
+
         bback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,24 +68,13 @@ public class notifSetting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 makeNotification();
-                requestHistoryData(LoginActivity.token); // Replace with your token
-                requestAllReminders(LoginActivity.token); // Mengambil semua pengingat
-                requestReminderById(LoginActivity.token, "reminder_id"); // Mengambil pengingat berdasarkan ID tertentu
+                requestHistoryData(token.getToken()); // Replace with your token
+                requestAllReminders(token.getToken()); // Mengambil semua pengingat
+                requestReminderById(token.getToken(), "reminder_id"); // Mengambil pengingat berdasarkan ID tertentu
             }
         });
     }
-        // Inisialisasi switch
 
-//        notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    updateReminder(LoginActivity.token, "reminder_id", "message", "1", "08:00", true, "cycleEstId");
-//                } else {
-//                    updateReminder(LoginActivity.token, "reminder_id", "message", "0", "08:00", false, "cycleEstId");
-//                }
-//            }
-//        }
 
     private void updateReminder(String token, String reminderId, String message, String reminderDays, String reminderTime, boolean isOn, String cycleEstId) {
         String url = Db_Contract.urlreminderUpdate + "?token=" + token;
@@ -117,7 +109,7 @@ public class notifSetting extends AppCompatActivity {
     //hati hati buat notif
 
     private void requestHistoryData(String token) {
-        String url = Db_Contract.urlHistory + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlHistory + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -221,7 +213,7 @@ public class notifSetting extends AppCompatActivity {
     private void requestAllReminders(String token) {
         // Implementasi untuk mengambil semua pengingat
         // Gunakan Volley atau alat lain untuk membuat permintaan ke API Anda
-        String url = Db_Contract.urlreminderGet + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlreminderGet + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -249,7 +241,7 @@ public class notifSetting extends AppCompatActivity {
     private void requestReminderById(String token, String reminderId) {
         // Implementasi untuk mengambil pengingat berdasarkan ID
         // Gunakan Volley atau alat lain untuk membuat permintaan ke API Anda
-        String url = Db_Contract.urlReminderbyId + "?token=" + LoginActivity.token + "&reminder_id=" + reminderId;
+        String url = Db_Contract.urlReminderbyId + "?token=" + token + "&reminder_id=" + reminderId;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -274,7 +266,7 @@ public class notifSetting extends AppCompatActivity {
         // Implementasi untuk memperbarui pengingat
         // Gunakan Volley atau alat lain untuk membuat permintaan ke API Anda
 
-        String url = Db_Contract.urlreminderUpdate + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlreminderUpdate + "?token=" + token;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override

@@ -51,6 +51,9 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        tokenManager token = new tokenManager(getContext());
+
+
         // Mengambil referensi ke ImageButton
         ImageButton imageButtonCalendar = view.findViewById(R.id.imageButtoncalender);
         RelativeLayout imageButtonQadha = view.findViewById(R.id.btnhutangsholat);
@@ -102,7 +105,7 @@ public class HomeFragment extends Fragment {
         lastDateTextView = view.findViewById(R.id.lastdate2);
         sharedPreferences = requireActivity().getSharedPreferences("MyAppName", MODE_PRIVATE);
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
-        String url = Db_Contract.urlgetEst + "?token=" + LoginActivity.token;
+        String url = Db_Contract.urlgetEst + "?token=" + token.getToken();
         StringRequest profileRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -161,7 +164,7 @@ public class HomeFragment extends Fragment {
                             }
 
                             // Setelah menampilkan data profil, lakukan permintaan ke getEstimation di sini
-                            String urlEstimation = Db_Contract.urlgetEst + "?token=" + LoginActivity.token;
+                            String urlEstimation = Db_Contract.urlgetEst + "?token=" + token.getToken();
                             StringRequest estimationRequest = new StringRequest(Request.Method.GET, urlEstimation, new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String responseEstimation) {
@@ -197,7 +200,7 @@ public class HomeFragment extends Fragment {
                 }
 
 
-                String historyUrl = Db_Contract.getUrlHistory + "?token=" + LoginActivity.token;
+                String historyUrl = Db_Contract.getUrlHistory + "?token=" + token.getToken();
                 StringRequest historyRequest = new StringRequest(Request.Method.GET, historyUrl, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String responseHistory) {
@@ -243,8 +246,7 @@ public class HomeFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> paramV = new HashMap<>();
-                String token = LoginActivity.token;
-                paramV.put("token", token);
+                paramV.put("token", token.getToken());
                 return paramV;
             }
         };
