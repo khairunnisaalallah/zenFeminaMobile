@@ -9,40 +9,13 @@
         android:id="@+id/btntext2"
         android:layout_width="243dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="122dp"
         android:layout_marginStart="52dp"
         android:fontFamily="@font/outfitlight"
         android:text="Masuk ke akunmu, dan mulai atur jadwal siklusmu dari sekarang"
         android:textColor="#8B8B8B"
         android:textSize="15sp"
         />
-
-    <TextView
-        android:id="@+id/registerNow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="110dp"
-        android:layout_marginTop="680dp"
-        android:layout_alignParentEnd="true"
-        android:textSize="15sp"
-        android:clickable="true"
-        android:fontFamily="@font/outfitbold"
-        android:onClick="onButtonClick"
-        android:text="Daftar" />
-
-
-
-    <TextView
-        android:id="@+id/btntext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="680dp"
-        android:fontFamily="@font/outfitlight"
-        android:text="Tidak punya akun?"
-        android:textColor="#8B8B8B"
-        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/titlemasuk"
@@ -56,6 +29,34 @@
         android:textSize="35sp"
         android:textStyle="bold"
         android:layout_marginTop="75dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/masukGoogle">
+
+        <TextView
+            android:id="@+id/btntext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/outfitlight"
+            android:text="Tidak punya akun?"
+            android:textColor="#8B8B8B"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/registerNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/btntext"
+            android:textSize="15sp"
+            android:clickable="true"
+            android:fontFamily="@font/outfitbold"
+            android:onClick="onButtonClick"
+            android:text="  Daftar" />
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/back"
@@ -151,7 +152,7 @@
         android:layout_height="38dp"
         android:layout_marginTop="500dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/background_btn_intro"
         android:clickable="true"
         android:fontFamily="@font/outfitbold"
@@ -165,20 +166,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/error"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="410dp"-->
-    <!--        android:text="Gagal Login"-->
-    <!--        android:layout_centerHorizontal="true"-->
-    <!--        android:textColor="#F44336"-->
-    <!--        android:visibility="gone"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
 
     <ProgressBar
