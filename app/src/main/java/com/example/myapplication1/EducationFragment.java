@@ -95,12 +95,24 @@ public class EducationFragment extends Fragment implements MyAdapter.OnItemClick
                         // Tindakan yang perlu dilakukan jika permintaan berhasil
                         Log.d(TAG, "ID sent to server successfully");
 
-                        // Use a fragment transaction to navigate to the article detail fragment
-                        Fragment detailFragment = ArticleDetailFragment.newInstance(id,image, judul, isi);
-                        requireActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, detailFragment)
-                                .addToBackStack(null)
-                                .commit();
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("status");
+                            String message = jsonObject.getString("message");
+                            if (status.equals("1")) {
+                                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                                Fragment detailFragment = ArticleDetailFragment.newInstance(id,image, judul, isi);
+                                requireActivity().getSupportFragmentManager().beginTransaction()
+                                        .replace(R.id.container, detailFragment)
+                                        .addToBackStack(null)
+                                        .commit();
+                            } else {
+                                throw new JSONException(message);
+                            }
+                        } catch (JSONException e) {
+                            Toast.makeText(getContext().getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 },
                 new Response.ErrorListener() {
