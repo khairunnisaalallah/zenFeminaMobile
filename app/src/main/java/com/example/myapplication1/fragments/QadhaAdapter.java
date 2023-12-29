@@ -9,12 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication1.ArticleDetailFragment;
 import com.example.myapplication1.Db_Contract;
 import com.example.myapplication1.LoginActivity;
 import com.example.myapplication1.R;
@@ -91,6 +93,7 @@ public class QadhaAdapter extends RecyclerView.Adapter<view_holder> {
     }
 
     private void sendPostRequest(String prayerId, String token) {
+
         String url = Db_Contract.urlupdatePrayer;
 
         JSONObject postData = new JSONObject();
@@ -105,19 +108,33 @@ public class QadhaAdapter extends RecyclerView.Adapter<view_holder> {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // Handle the response if needed
+                        // Tindakan yang perlu dilakukan jika permintaan berhasil
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("status");
+                            String message = jsonObject.getString("message");
+                            if (status.equals("1")) {
+                                Toast.makeText(context.getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                            } else {
+                                throw new JSONException(message);
+                            }
+                        } catch (JSONException e) {
+                            Toast.makeText(context.getApplicationContext().getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("TAG", "Kesalahan POST API: " + error.getMessage());
-                        Toast.makeText(context, "Kesalahan saat mengirim data", Toast.LENGTH_SHORT).show();
+                        // Tindakan yang perlu dilakukan jika terjadi kesalahan
+                        Toast.makeText(context.getApplicationContext(), "Error sending ID to server", Toast.LENGTH_SHORT).show();
                     }
                 }) {
-
+            // Override method ini untuk menambahkan parameter ke body permintaan
             @Override
-            public Map<String, String> getHeaders() {
+            protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("token", token);
                 params.put("changePrayer_id", prayerId);
@@ -125,7 +142,8 @@ public class QadhaAdapter extends RecyclerView.Adapter<view_holder> {
             }
         };
 
-        Volley.newRequestQueue(context).add(stringRequest);
+        // Tambahkan permintaan ke antrian permintaan Volley
+        Volley.newRequestQueue(context.getApplicationContext()).add(stringRequest);
     }
 
     @Override

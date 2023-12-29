@@ -79,6 +79,7 @@ public class LunasFragment extends Fragment {
 
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
+                            String message = jsonResponse.getString("message");
 
                             if (jsonResponse.has("data")) {
                                 JSONArray jsonArray = jsonResponse.getJSONArray("data");
@@ -96,8 +97,7 @@ public class LunasFragment extends Fragment {
                                 lunasAdapter.setItems(items);
 
                             } else {
-                                Log.e(TAG, "Kesalahan Parsing JSON: 'data' property tidak ditemukan dalam respons");
-                                Toast.makeText(requireContext(), "Kesalahan data", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {

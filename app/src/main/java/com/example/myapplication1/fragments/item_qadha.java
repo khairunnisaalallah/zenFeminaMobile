@@ -8,6 +8,7 @@ public class item_qadha {
     String lingkaran;
 
     public  item_qadha(String prayerId, String judul, String tanggal){
+        this.prayerId = prayerId;
         this.judul = judul;
         this.tanggal= tanggal;
         this.lingkaran=lingkaran;
