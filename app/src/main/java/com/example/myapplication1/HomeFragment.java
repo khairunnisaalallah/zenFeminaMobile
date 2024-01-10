@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
@@ -57,7 +58,7 @@ public class HomeFragment extends Fragment {
         // Mengambil referensi ke ImageButton
         ImageButton imageButtonCalendar = view.findViewById(R.id.imageButtoncalender);
         RelativeLayout imageButtonQadha = view.findViewById(R.id.btnhutangsholat);
-        ImageButton imageButtonAwali = view.findViewById(R.id.imageButtonAwali);
+        RelativeLayout imageButtonAwali = view.findViewById(R.id.imageButtonAwali);
 
         ImageButton imageButtonNotif = view.findViewById(R.id.imageButtonNotifikasi);
 
