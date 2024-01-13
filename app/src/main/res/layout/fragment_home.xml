@@ -6,44 +6,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
-
     <TextView
         android:id="@+id/textviewMG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="23dp"
         android:fontFamily="@font/outfitlight"
         android:text="ZenFemina"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/imageButtoncalender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="50dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="22dp"
-        android:background="@android:color/transparent"
-        app:srcCompat="@drawable/calender" />
+        android:layout_marginTop="14dp"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#00FFFFFF"
+        >
 
+        <RelativeLayout
+            android:layout_width="46dp"
+            android:layout_height="42dp"
+            android:id="@+id/imageButtoncalender"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
 
-    <ImageButton
-        android:id="@+id/imageButtonNotifikasi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
-        android:layout_marginEnd="20dp"
+            <ImageView
+                android:id="@+id/calender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/calender"  />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="10dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="22dp"
-        android:background="@android:color/transparent"
-        app:srcCompat="@drawable/notifikasi" />
+        android:layout_marginTop="14dp"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#00FFFFFF">
+
+        <RelativeLayout
+            android:layout_width="46dp"
+            android:layout_height="42dp"
+            android:id="@+id/imageButtonNotifikasi"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:id="@+id/notif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/notifikasi" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <View
         android:id="@+id/divider"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_centerHorizontal="true"
@@ -110,7 +152,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:visibility="gone"
         android:layout_below="@+id/imageViewKotak">
 
         <ImageView
@@ -178,7 +219,7 @@
             android:textColor="#DA4256"
             android:textSize="32sp"
             android:textStyle="bold"
-            tools:text="10 Hari Lagi" />
+            android:text="10 Hari Lagi" />
 
         <TextView
             android:id="@+id/menujusiklus"
@@ -264,6 +305,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:visibility="gone"
         android:layout_below="@+id/imageViewKotak">
 
         <ImageView
@@ -498,7 +540,7 @@
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    tools:text="22 September" />
+                    android:text="22 September" />
 
                 <TextView
                     android:id="@+id/lastdateWords"
